@@ -58,7 +58,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                         statusColor = "danger";
                         break;
                 }
-                row.Add("<span data-pk='"+order.OrderID+"' data-value='"+order.OrderStatusID+"' class='label label-"+statusColor+" status-order'>"+order.OrderStatu.OrderStatusName+"</span>");
+                row.Add("<span data-pk='"+order.OrderID+"' data-value='"+order.OrderStatusID+"' class='label label-"+statusColor+" status-order'>"+order.OrderStatus.OrderStatusName+"</span>");
                 
                 //Trạng thái thanh toán
                 string text;
@@ -87,7 +87,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                         statusColor = "success";
                         break;
                 }
-                row.Add("<span data-pk='" + order.OrderID + "' data-value='" + order.ShippingStatusID + "' class='label label-" + statusColor + " status-shipping'>" + order.ShippingStatu.ShippingName + "</span>");
+                row.Add("<span data-pk='" + order.OrderID + "' data-value='" + order.ShippingStatusID + "' class='label label-" + statusColor + " status-shipping'>" + order.ShippingStatus.ShippingName + "</span>");
 
                 //Thông tin khách hàng
 
@@ -153,7 +153,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult OrderStatusOption()
         {
-            var orderStatus = Repository.Create<OrderStatu>().FetchAll();
+            var orderStatus = Repository.Create<OrderStatus>().FetchAll();
             var listStatus = new List<object>();
             foreach (var status in orderStatus)
             {
@@ -168,7 +168,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult ShippingStatusOption()
         {
-            var shippingStatus = Repository.Create<ShippingStatu>().FetchAll();
+            var shippingStatus = Repository.Create<ShippingStatus>().FetchAll();
             var listStatus = new List<object>();
             foreach (var status in shippingStatus)
             {
@@ -207,7 +207,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
             if (orderStatus != null)
             {
-                var repo = Repository.Create<OrderStatu>();
+                var repo = Repository.Create<OrderStatus>();
                 if (!repo.FetchAll().Any(s => s.OrderStatusID == orderStatus))
                 {
                     result.message = "Mã orderStatus không hợp lệ";
@@ -218,7 +218,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
             if (shippingStatus != null)
             {
-                var repo = Repository.Create<ShippingStatu>();
+                var repo = Repository.Create<ShippingStatus>();
                 if (!repo.FetchAll().Any(s => s.ShippingStatusID == shippingStatus))
                 {
                     result.message = "Mã shippingStatus không hợp lệ";

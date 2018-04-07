@@ -21,7 +21,7 @@ namespace WebBanHang.Areas.Admin.Controllers
     [Security]
     public class ProductController : AdminBaseController
     {
-        private ecommerceEntities db = new ecommerceEntities();
+        private EcommerceEntities db = new EcommerceEntities();
 
         // GET: /Admin/Product/
         public ActionResult Index()

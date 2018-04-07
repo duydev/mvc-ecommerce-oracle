@@ -25,8 +25,7 @@ namespace WebBanHang.Core
         }
         public BaseController()
         {
-            EcommerceORAEntities entity = new EcommerceORAEntities();
-//            ecommerceEntities entity = new ecommerceEntities();
+            EcommerceEntities entity = new EcommerceEntities();
             Repository = new UnitOfWork(entity);
             Mapper = AutoMapperConfig.MapperConfiguration.CreateMapper();
         }

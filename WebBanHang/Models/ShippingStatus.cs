@@ -12,16 +12,18 @@ namespace WebBanHang.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderStatu
+    public partial class ShippingStatus
     {
-        public OrderStatu()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ShippingStatus()
         {
             this.Orders = new HashSet<Order>();
         }
     
-        public int OrderStatusID { get; set; }
-        public string OrderStatusName { get; set; }
+        public int ShippingStatusID { get; set; }
+        public string ShippingName { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

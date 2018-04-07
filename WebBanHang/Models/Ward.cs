@@ -14,19 +14,22 @@ namespace WebBanHang.Models
     
     public partial class Ward
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ward()
         {
             this.Customers = new HashSet<Customer>();
             this.Orders = new HashSet<Order>();
         }
     
-        public int WardId { get; set; }
+        public int WardID { get; set; }
         public string WardName { get; set; }
         public string Type { get; set; }
         public int DistrictId { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer> Customers { get; set; }
         public virtual District District { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

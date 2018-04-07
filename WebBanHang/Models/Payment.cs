@@ -14,6 +14,7 @@ namespace WebBanHang.Models
     
     public partial class Payment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Payment()
         {
             this.Orders = new HashSet<Order>();
@@ -24,6 +25,7 @@ namespace WebBanHang.Models
         public string PaymentName { get; set; }
         public bool Active { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace WebBanHang.Models
     
     public partial class GroupProduct
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GroupProduct()
         {
             this.ExcludeCoupons = new HashSet<ExcludeCoupon>();
@@ -27,9 +28,12 @@ namespace WebBanHang.Models
         public string Icon { get; set; }
         public int Priority { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExcludeCoupon> ExcludeCoupons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupProduct> GroupProducts1 { get; set; }
         public virtual GroupProduct GroupProduct1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace WebBanHang.Models
     
     public partial class Coupon
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Coupon()
         {
             this.ExcludeCoupons = new HashSet<ExcludeCoupon>();
@@ -21,14 +22,15 @@ namespace WebBanHang.Models
     
         public int CouponID { get; set; }
         public string Code { get; set; }
-        public Nullable<int> Discount { get; set; }
+        public int Discount { get; set; }
         public string Type { get; set; }
-        public Nullable<bool> FreeShip { get; set; }
+        public bool FreeShip { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
-        public Nullable<bool> Indefinite { get; set; }
+        public bool Indefinite { get; set; }
         public bool Active { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExcludeCoupon> ExcludeCoupons { get; set; }
     }
 }

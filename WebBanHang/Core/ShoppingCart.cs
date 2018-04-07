@@ -41,7 +41,7 @@ namespace WebBanHang.Core
         {
             long total = 0;
             foreach (CartItem item in Items)
-                total += item.TotalPrice;
+                total += (long) item.TotalPrice;
             return total;
         }
 

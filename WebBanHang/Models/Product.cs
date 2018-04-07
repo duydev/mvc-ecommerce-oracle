@@ -14,6 +14,7 @@ namespace WebBanHang.Models
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
             this.CartDetails = new HashSet<CartDetail>();
@@ -26,21 +27,27 @@ namespace WebBanHang.Models
     
         public int ProductID { get; set; }
         public string ProductName { get; set; }
-        public string Detail { get; set; }
-        public long Price { get; set; }
-        public long SalePrice { get; set; }
+        public decimal Price { get; set; }
+        public decimal SalePrice { get; set; }
         public int Stock { get; set; }
         public int GroupID { get; set; }
         public bool UseMultiColor { get; set; }
         public System.DateTime CreateDate { get; set; }
         public bool Active { get; set; }
+        public string Detail { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartDetail> CartDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual GroupProduct GroupProduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ImageProduct> ImageProducts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductAttribute> ProductAttributes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductColor> ProductColors { get; set; }
     }
 }

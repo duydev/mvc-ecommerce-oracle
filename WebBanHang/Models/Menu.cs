@@ -14,19 +14,21 @@ namespace WebBanHang.Models
     
     public partial class Menu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Menu()
         {
             this.Menus1 = new HashSet<Menu>();
         }
     
         public int MenuID { get; set; }
+        public Nullable<int> ParentMenuID { get; set; }
         public string MenuName { get; set; }
         public string Link { get; set; }
-        public Nullable<int> ParentMenuID { get; set; }
-        public Nullable<byte> Priority { get; set; }
+        public Nullable<int> Priority { get; set; }
         public string Label { get; set; }
-        public Nullable<bool> Hot { get; set; }
+        public bool Hot { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Menu> Menus1 { get; set; }
         public virtual Menu Menu1 { get; set; }
     }

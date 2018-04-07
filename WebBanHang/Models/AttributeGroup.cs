@@ -14,6 +14,7 @@ namespace WebBanHang.Models
     
     public partial class AttributeGroup
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AttributeGroup()
         {
             this.Attributes = new HashSet<Attribute>();
@@ -22,6 +23,7 @@ namespace WebBanHang.Models
         public int AttrGroupID { get; set; }
         public string AttrGroupName { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attribute> Attributes { get; set; }
     }
 }

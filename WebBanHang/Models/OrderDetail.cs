@@ -17,10 +17,10 @@ namespace WebBanHang.Models
         public int DetailID { get; set; }
         public int OrderID { get; set; }
         public int ProductID { get; set; }
-        public long Price { get; set; }
-        public byte Quantity { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
         public Nullable<int> ColorID { get; set; }
-        public long Total { get; set; }
+        public decimal Total { get; set; }
     
         public virtual Color Color { get; set; }
         public virtual Order Order { get; set; }

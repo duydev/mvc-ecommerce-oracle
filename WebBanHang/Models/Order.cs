@@ -14,6 +14,7 @@ namespace WebBanHang.Models
     
     public partial class Order
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
             this.OrderDetails = new HashSet<OrderDetail>();
@@ -29,9 +30,9 @@ namespace WebBanHang.Models
         public int DistrictID { get; set; }
         public int WardID { get; set; }
         public string Phone { get; set; }
-        public long TotalPrice { get; set; }
-        public long Discount { get; set; }
-        public Nullable<System.DateTime> PaymentDate { get; set; }
+        public decimal TotalPrice { get; set; }
+        public decimal Discount { get; set; }
+        public System.DateTime PaymentDate { get; set; }
         public bool Paid { get; set; }
         public string CouponCode { get; set; }
         public int OrderStatusID { get; set; }
@@ -40,11 +41,12 @@ namespace WebBanHang.Models
     
         public virtual Customer Customer { get; set; }
         public virtual District District { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual OrderStatu OrderStatu { get; set; }
         public virtual Payment Payment { get; set; }
         public virtual Province Province { get; set; }
-        public virtual ShippingStatu ShippingStatu { get; set; }
         public virtual Ward Ward { get; set; }
+        public virtual OrderStatus OrderStatus { get; set; }
+        public virtual ShippingStatus ShippingStatus { get; set; }
     }
 }

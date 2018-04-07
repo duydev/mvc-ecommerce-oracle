@@ -22,6 +22,6 @@ namespace WebBanHang.Models
         public Nullable<int> Width { get; set; }
         public Nullable<int> Height { get; set; }
         public string Position { get; set; }
-        public Nullable<bool> Active { get; set; }
+        public bool Active { get; set; }
     }
 }

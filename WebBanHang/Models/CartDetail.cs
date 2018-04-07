@@ -20,7 +20,7 @@ namespace WebBanHang.Models
         public int Quantity { get; set; }
     
         public virtual Cart Cart { get; set; }
-        public virtual Color Color { get; set; }
         public virtual Product Product { get; set; }
+        public virtual Color Color { get; set; }
     }
 }

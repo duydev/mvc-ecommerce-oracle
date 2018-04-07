@@ -135,7 +135,7 @@ namespace WebBanHang.Controllers
                     {
                         wardList.Add(new
                         {
-                            ward_id = item.WardId,
+                            ward_id = item.WardID,
                             ward_name = item.WardName,
                             ward_type = item.Type,
                             district = new {

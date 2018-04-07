@@ -323,21 +323,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Ecommerce.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\EcommerceORA.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EcommerceORA.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EcommerceORA.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EcommerceORA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EcommerceORA.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EcommerceORA.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\ExcludeCoupon.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
@@ -357,7 +342,7 @@
     <Compile Include="Models\OrderDetail.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderStatu.cs">
+    <Compile Include="Models\OrderStatus.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Payment.cs">
@@ -376,16 +361,13 @@
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
-      <DependentUpon>EcommerceORA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShippingStatu.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
+    <Compile Include="Models\ShippingStatus.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>EcommerceORA.tt</DependentUpon>
+      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ward.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
@@ -823,15 +805,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\EcommerceORA.Context.tt">
+    <Content Include="Models\Ecommerce.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EcommerceORA.edmx</DependentUpon>
-      <LastGenOutput>EcommerceORA.Context.cs</LastGenOutput>
+      <DependentUpon>Ecommerce.edmx</DependentUpon>
+      <LastGenOutput>Ecommerce.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\EcommerceORA.tt">
+    <Content Include="Models\Ecommerce.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EcommerceORA.edmx</DependentUpon>
-      <LastGenOutput>EcommerceORA.cs</LastGenOutput>
+      <DependentUpon>Ecommerce.edmx</DependentUpon>
+      <LastGenOutput>Ecommerce.cs</LastGenOutput>
     </Content>
     <Content Include="Resource\173408_1.jpg" />
     <Content Include="Resource\balo.jpg" />
@@ -914,23 +896,6 @@
     <Content Include="Content\less\top-bar.less" />
     <Content Include="Content\less\variables.less" />
     <Content Include="Content\less\wide-banners.less" />
-    <EntityDeploy Include="Models\Ecommerce.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Ecommerce.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Ecommerce.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Ecommerce.edmx</DependentUpon>
-      <LastGenOutput>Ecommerce.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Ecommerce.edmx.diagram">
-      <DependentUpon>Ecommerce.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Ecommerce.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Ecommerce.edmx</DependentUpon>
-      <LastGenOutput>Ecommerce.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutPage.cshtml" />
@@ -1011,12 +976,12 @@
     <Content Include="Areas\Admin\Views\Setting\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Contact\Detail.cshtml" />
-    <EntityDeploy Include="Models\EcommerceORA.edmx">
+    <EntityDeploy Include="Models\Ecommerce.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EcommerceORA.Designer.cs</LastGenOutput>
+      <LastGenOutput>Ecommerce.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EcommerceORA.edmx.diagram">
-      <DependentUpon>EcommerceORA.edmx</DependentUpon>
+    <Content Include="Models\Ecommerce.edmx.diagram">
+      <DependentUpon>Ecommerce.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\hienlt0610.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

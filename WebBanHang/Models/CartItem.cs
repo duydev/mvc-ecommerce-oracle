@@ -16,8 +16,8 @@ namespace WebBanHang.Models
             get
             {
                 if (Product == null) return 0;
-                if (Product.isSale()) return Product.SalePrice;
-                return Product.Price;
+                if (Product.isSale()) return (long) Product.SalePrice;
+                return (long) Product.Price;
             }
         }
         public int Quantity { get; set; }

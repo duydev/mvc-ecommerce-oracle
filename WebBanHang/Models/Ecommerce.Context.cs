@@ -13,10 +13,10 @@ namespace WebBanHang.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ecommerceEntities : DbContext
+    public partial class EcommerceEntities : DbContext
     {
-        public ecommerceEntities()
-            : base("name=ecommerceEntities")
+        public EcommerceEntities()
+            : base("name=EcommerceEntities")
         {
         }
     
@@ -25,15 +25,15 @@ namespace WebBanHang.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Advertise> Advertises { get; set; }
-        public virtual DbSet<Attribute> Attributes { get; set; }
         public virtual DbSet<AttributeGroup> AttributeGroups { get; set; }
-        public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<Attribute> Attributes { get; set; }
         public virtual DbSet<CartDetail> CartDetails { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Configuration> Configurations { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<District> Districts { get; set; }
@@ -43,14 +43,15 @@ namespace WebBanHang.Models
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<OrderStatu> OrderStatus { get; set; }
+        public virtual DbSet<OrderStatus> OrderStatuses { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<ProductAttribute> ProductAttributes { get; set; }
         public virtual DbSet<ProductColor> ProductColors { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
-        public virtual DbSet<ShippingStatu> ShippingStatus { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<ShippingStatus> ShippingStatuses { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Ward> Wards { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }
