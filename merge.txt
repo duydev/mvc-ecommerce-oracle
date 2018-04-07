@@ -1,3 +1,0 @@
-DiffMerge test
-
-Hello Thanhdeptrai
