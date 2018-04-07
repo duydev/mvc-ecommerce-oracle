@@ -28,9 +28,7 @@
         <EntityTypeShape EntityType="ecommerceModel.ProductColor" Width="1.5" PointX="15" PointY="10.25" />
         <EntityTypeShape EntityType="ecommerceModel.Product" Width="1.5" PointX="12.75" PointY="4.625" />
         <EntityTypeShape EntityType="ecommerceModel.Province" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="ecommerceModel.Role" Width="1.5" PointX="4.75" PointY="6" />
         <EntityTypeShape EntityType="ecommerceModel.ShippingStatu" Width="1.5" PointX="10.5" PointY="23" />
-        <EntityTypeShape EntityType="ecommerceModel.User" Width="1.5" PointX="7" PointY="5.5" />
         <EntityTypeShape EntityType="ecommerceModel.Ward" Width="1.5" PointX="5.25" PointY="17.125" />
         <AssociationConnector Association="ecommerceModel.FK_Options_OptionGroups" />
         <AssociationConnector Association="ecommerceModel.FK_ProductOptions_Options" />
@@ -64,7 +62,6 @@
         <AssociationConnector Association="ecommerceModel.FK_Orders_Ward" />
         <AssociationConnector Association="ecommerceModel.FK_ProductOptions_Products" />
         <AssociationConnector Association="ecommerceModel.FK_ProductColors_Products1" />
-        <AssociationConnector Association="ecommerceModel.UsersInRoles" />
         <EntityTypeShape EntityType="ecommerceModel.Contact" Width="1.5" PointX="9.75" PointY="29.625" />
         <AssociationConnector Association="ecommerceModel.FK_Contact_Customers" />
       </Diagram>

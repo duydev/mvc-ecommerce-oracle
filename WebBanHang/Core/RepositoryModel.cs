@@ -22,7 +22,8 @@ namespace WebBanHang.Core
 
         public RepositoryModel()
         {
-            this.dbContext = new ecommerceEntities();
+//            this.dbContext = new ecommerceEntities();
+            this.dbContext = new EcommerceORAEntities();
             this.dbSet = this.dbContext.Set<T>();
         }
 
