@@ -41,7 +41,7 @@
             <div class="card-box tilebox-one">
                 <i class="icon-paypal pull-xs-right text-muted"></i>
                 <h6 class="text-muted text-uppercase m-b-20">Doanh thu</h6>
-                <h2 class="m-b-20"><span data-plugin="counterup">@Html.FormatCurrency(@orders.Where(i => i.Paid).Sum(i => i.TotalPrice)) đ</span></h2>
+                <h2 class="m-b-20"><span data-plugin="counterup">@Html.FormatCurrency(@orders.Where(i => i.Paid).Sum(i => (long) i.TotalPrice)) đ</span></h2>
                 <span class="label label-success"> +10% </span> <span class="text-muted">so với tháng trước</span>
             </div>
         </div>
@@ -172,7 +172,7 @@
                                         statusColor = "danger";
                                         break;
                                 }
-                                            <span class="label label-@statusColor">@order.OrderStatu.OrderStatusName</span>
+                                            <span class="label label-@statusColor">@order.OrderStatus.OrderStatusName</span>
                                         }
                                     </td>
                                     <td>
@@ -200,7 +200,7 @@
                                                     break;
                                             }
                                         }
-                                        <span class="label label-@statusColor">@order.ShippingStatu.ShippingName</span>
+                                        <span class="label label-@statusColor">@order.ShippingStatus.ShippingName</span>
                                     </td>
                                     <td>@order.Customer.FullName<br />@order.Customer.Email</td>
                                     <td>@order.Payment.PaymentName</td>
