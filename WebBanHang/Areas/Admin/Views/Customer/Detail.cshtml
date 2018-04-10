@@ -58,10 +58,10 @@
                                                 statusColor = "success";
                                                 break;
                                         }
-                                        <span class="label label-@statusColor">@order.ShippingStatu.ShippingName</span>
+                                        <span class="label label-@statusColor">@order.ShippingStatus.ShippingName</span>
                                     }
                                 </td>
-                                <td>@Html.FormatCurrency(order.TotalPrice) đ</td>
+                                <td>@Html.FormatCurrency((long)order.TotalPrice) đ</td>
                             </tr>
                         }
                     </tbody>

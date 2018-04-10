@@ -126,7 +126,7 @@
           <Property Name="WardID" Type="number" Precision="10" Scale="0" />
           <Property Name="Phone" Type="varchar2" MaxLength="15" />
           <Property Name="Status" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="VerificationCode" Type="varchar2" MaxLength="64" Nullable="false" />
+          <Property Name="VerificationCode" Type="varchar2" MaxLength="64" />
           <Property Name="RegistrationDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Districts">
@@ -209,7 +209,7 @@
           <Property Name="Discount" Type="number" Precision="10" Scale="2" Nullable="false" />
           <Property Name="PaymentDate" Type="date" Nullable="false" />
           <Property Name="Paid" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="CouponCode" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="CouponCode" Type="varchar2" MaxLength="10" />
           <Property Name="OrderStatusID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ShippingStatusID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Comment" Type="nclob" />
@@ -317,7 +317,9 @@
           <Property Name="DistrictId" Type="number" Precision="10" Scale="0" Nullable="false" />
         </EntityType>
         <Association Name="Attributes_FK1">
-          <End Role="AttributeGroups" Type="Self.AttributeGroups" Multiplicity="1" />
+          <End Role="AttributeGroups" Type="Self.AttributeGroups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Attributes" Type="Self.Attributes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AttributeGroups">
@@ -377,7 +379,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Comments_FK1">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
@@ -389,7 +393,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Comments_FK2">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
@@ -497,7 +503,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ImageProducts_FK1">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ImageProducts" Type="Self.ImageProducts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
@@ -641,7 +649,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ProductAttributes_FK1">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProductAttributes" Type="Self.ProductAttributes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
@@ -653,7 +663,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ProductAttributes_FK2">
-          <End Role="Attributes" Type="Self.Attributes" Multiplicity="1" />
+          <End Role="Attributes" Type="Self.Attributes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProductAttributes" Type="Self.ProductAttributes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Attributes">
@@ -665,7 +677,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ProductColors_FK1">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProductColors" Type="Self.ProductColors" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
@@ -677,7 +691,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ProductColors_FK2">
-          <End Role="Colors" Type="Self.Colors" Multiplicity="1" />
+          <End Role="Colors" Type="Self.Colors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProductColors" Type="Self.ProductColors" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Colors">
@@ -689,7 +705,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Products_FK1">
-          <End Role="GroupProducts" Type="Self.GroupProducts" Multiplicity="1" />
+          <End Role="GroupProducts" Type="Self.GroupProducts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GroupProducts">
@@ -1213,7 +1231,7 @@
           <Property Name="WardID" Type="Int32" />
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
-          <Property Name="VerificationCode" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="VerificationCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Carts" Relationship="EcommerceModel.Carts_FK1" FromRole="Customer" ToRole="Cart" />
           <NavigationProperty Name="Comments" Relationship="EcommerceModel.Comments_FK2" FromRole="Customer" ToRole="Comment" />
@@ -1319,7 +1337,7 @@
           <Property Name="Discount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="PaymentDate" Type="DateTime" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
-          <Property Name="CouponCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CouponCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
           <Property Name="ShippingStatusID" Type="Int32" Nullable="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

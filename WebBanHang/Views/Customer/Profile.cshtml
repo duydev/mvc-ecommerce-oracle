@@ -19,7 +19,7 @@
     {
         wards.AddRange((ViewData["Wards"] as IEnumerable<Ward>).OrderBy(i => i.WardName).Select(i => new SelectListItem
         {
-            Value = i.WardId.ToString(),
+            Value = i.WardID.ToString(),
             Text = i.Type+" "+i.WardName
         }));
     }
