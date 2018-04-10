@@ -119,6 +119,11 @@ namespace WebBanHang.Areas.Admin.Controllers
                 result.message = "Nhóm này chứa nhiều sản phẩm, khi xóa sẽ mất hết sản phẩm, hãy cân nhắc trước khi xóa";
                 return Content(JsonConvert.SerializeObject(result), "application/json");
             }
+            GroupProduct _item = Repository.GroupProduct.FindById(id);
+            if( _item.Products.Count > 0 )
+            {
+                _item.Products.ToList().ForEach(a => Repository.Product.Delete( a.ProductID ) );
+            }
             Repository.GroupProduct.Delete(id);
             Repository.SaveChanges();
             if(Repository.GroupProduct.FetchAll().Any(g=>g.GroupID == id)){

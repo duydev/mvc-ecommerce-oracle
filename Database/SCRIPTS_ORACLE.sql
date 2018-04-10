@@ -542,24 +542,14 @@ REM INSERTING into ECOMMERCE."Advertises"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."AttributeGroups"
 SET DEFINE OFF;
-Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (21,'svs');
-Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (22,'hell');
-Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (1,'ABC');
-Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (2,'A');
-Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (3,'af');
 REM INSERTING into ECOMMERCE."Attributes"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Attributes" ("AttrID","AttrName","AttriGroupID") values (21,'dfdasdf',22);
-Insert into ECOMMERCE."Attributes" ("AttrID","AttrName","AttriGroupID") values (1,'gchvv',3);
 REM INSERTING into ECOMMERCE."CartDetails"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Carts"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Colors"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (21,'Red','ff0000');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (1,'Black','000');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (2,'White','fff');
 REM INSERTING into ECOMMERCE."Comments"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Configurations"
@@ -576,18 +566,8 @@ REM INSERTING into ECOMMERCE."ExcludeCoupons"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."GroupProducts"
 SET DEFINE OFF;
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (41,'A',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (42,'asA',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (43,'BBB',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (44,'qwfe',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (7,'ABCA',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (8,'ABCA',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (9,'Hello',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (21,'fasfa',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (22,'fasfa',null,null,0);
 REM INSERTING into ECOMMERCE."ImageProducts"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (0,21,'2206939014835785583946767662001040773873664n-1514195338361.jpg','/Uploads/2018/4/11/RPam-kaf1Qg_2206939014835785583946767662001040773873664n-1514195338361.jpg');
 REM INSERTING into ECOMMERCE."Menus"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."OrderDetails"
@@ -600,15 +580,10 @@ REM INSERTING into ECOMMERCE."Payments"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."ProductAttributes"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ProductAttributes" ("ProductID","AttrID","Value","Priority") values (21,21,'sesb',0);
 REM INSERTING into ECOMMERCE."ProductColors"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ProductColors" ("ProductID","ColorID","Stock") values (21,2,33);
 REM INSERTING into ECOMMERCE."Products"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreateDate","Active") values (21,'af 1',1212,12313,2121,41,1,to_date('11/04/2018','DD/MM/YYYY'),1);
-Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreateDate","Active") values (1,'bjjknncjnsdas',4454155,5561616,4151,7,0,to_date('10/04/2018','DD/MM/YYYY'),1);
-Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreateDate","Active") values (2,'bjjknncjnsdas',4454155,5561616,4151,7,0,to_date('10/04/2018','DD/MM/YYYY'),1);
 REM INSERTING into ECOMMERCE."Provinces"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Roles"
