@@ -19,10 +19,10 @@ namespace WebBanHang.Areas.Admin.Controllers
                                         .FetchAll()
                                         .ToDictionary(item => item.ConfigName, item => item.Value);
             var model = new AdminConfigViewModel();
-            model.SiteTitle = config["site_title"];
-            model.Phone = config["support_phone"];
-            model.Email = config["support_email"];
-            model.ProductPerPage = Convert.ToInt32(config["product_per_page"]);
+            model.SiteTitle = config.ContainsKey("site_title") ? config["site_title"] : "";
+            model.Phone = config.ContainsKey("support_phone") ? config["support_phone"] : "";
+            model.Email = config.ContainsKey("support_email") ? config["support_email"] : "";
+            model.ProductPerPage =  config.ContainsKey("product_per_page") ? Convert.ToInt32(config["product_per_page"]) : 10;
             return View(model);
         }
 

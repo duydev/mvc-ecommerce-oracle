@@ -156,6 +156,7 @@
           <Property Name="ParentGroupID" Type="number" Precision="10" Scale="0" />
           <Property Name="Icon" Type="varchar2" MaxLength="100" />
           <Property Name="Priority" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Slug" Type="varchar2" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="ImageProducts">
           <Key>
@@ -263,6 +264,7 @@
           <Property Name="CreateDate" Type="date" Nullable="false" />
           <Property Name="Active" Type="number" Precision="1" Scale="0" Nullable="false" />
           <Property Name="Detail" Type="nclob" Nullable="false" />
+          <Property Name="Slug" Type="varchar2" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="Provinces">
           <Key>
@@ -1278,6 +1280,7 @@
           <NavigationProperty Name="GroupProducts1" Relationship="EcommerceModel.GroupProducts_FK1" FromRole="GroupProduct" ToRole="GroupProduct1" />
           <NavigationProperty Name="GroupProduct1" Relationship="EcommerceModel.GroupProducts_FK1" FromRole="GroupProduct1" ToRole="GroupProduct" />
           <NavigationProperty Name="Products" Relationship="EcommerceModel.Products_FK1" FromRole="GroupProduct" ToRole="Product" />
+          <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ImageProduct">
           <Key>
@@ -1412,6 +1415,7 @@
           <NavigationProperty Name="OrderDetails" Relationship="EcommerceModel.ORDERDETAILS_FK2" FromRole="Product" ToRole="OrderDetail" />
           <NavigationProperty Name="ProductAttributes" Relationship="EcommerceModel.ProductAttributes_FK1" FromRole="Product" ToRole="ProductAttribute" />
           <NavigationProperty Name="ProductColors" Relationship="EcommerceModel.ProductColors_FK1" FromRole="Product" ToRole="ProductColor" />
+          <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Province">
           <Key>
@@ -2026,6 +2030,7 @@
           <EntitySetMapping Name="GroupProducts">
             <EntityTypeMapping TypeName="EcommerceModel.GroupProduct">
               <MappingFragment StoreEntitySet="GroupProducts">
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="Icon" ColumnName="Icon" />
                 <ScalarProperty Name="ParentGroupID" ColumnName="ParentGroupID" />
@@ -2134,6 +2139,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="EcommerceModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />

@@ -35,6 +35,7 @@ namespace WebBanHang.Models
         public System.DateTime CreateDate { get; set; }
         public bool Active { get; set; }
         public string Detail { get; set; }
+        public string Slug { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartDetail> CartDetails { get; set; }

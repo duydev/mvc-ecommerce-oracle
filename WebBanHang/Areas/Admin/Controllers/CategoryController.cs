@@ -60,6 +60,28 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int? id, AdminGroupProductViewModel model)
+        {
+            if (id == 0)
+            {
+                return HttpNotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                var group = Mapper.Map<GroupProduct>(model);
+                Repository.GroupProduct.Update(group);
+                Repository.GroupProduct.SaveChanges();
+                if (group.GroupID != 0)
+                {
+                    return RedirectToAction("Index", "Category");
+                }
+            }
+            ViewBag.Groups = Repository.GroupProduct.FetchAll().Where(g => g.ParentGroupID == null);
+            return View(model);
+        }
+
         public ActionResult LoadCategory(int start, int length)
         {
             var search = Request.QueryString["search[value]"].ToString();

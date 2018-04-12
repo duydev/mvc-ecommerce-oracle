@@ -27,6 +27,7 @@ namespace WebBanHang.Models
         public Nullable<int> ParentGroupID { get; set; }
         public string Icon { get; set; }
         public int Priority { get; set; }
+        public string Slug { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExcludeCoupon> ExcludeCoupons { get; set; }
