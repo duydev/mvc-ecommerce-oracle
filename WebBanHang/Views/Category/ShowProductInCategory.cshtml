@@ -100,7 +100,7 @@
                                                     }
                                                     imgUrl += "?w=195&h=250";
                                                 }
-                                                <a href="@Url.Action("Detail", "Product", new { id = product.ProductID })"><img src="assets/images/blank.gif" data-echo="@imgUrl" alt=""></a>
+                                                <a href="@Url.RouteUrl("Product", new { cSlug = product.GroupProduct.Slug, pSlug = product.Slug })"><img src="assets/images/blank.gif" data-echo="@imgUrl" alt=""></a>
                                             </div>
                                             <!-- /.image -->
                                             <div class="tag new"><span>new</span></div>
@@ -109,7 +109,7 @@
 
 
                                         <div class="product-info text-left">
-                                            <h3 class="name"><a href="@Url.Action("Detail", "Product", new { id = product.ProductID })">@product.ProductName</a></h3>
+                                            <h3 class="name"><a href="@Url.RouteUrl("Product", new { cSlug = product.GroupProduct.Slug, pSlug = product.Slug })">@product.ProductName</a></h3>
                                             <div class="description"></div>
                                             <div class="product-price">
                                                 <span class="price">
@@ -169,7 +169,7 @@
                                                     }
                                                     imgUrl += "?w=195&h=250";
                                                 }
-                                                <a href="@Url.Action("Detail", "Product", new { id = product.ProductID })"><img src="@ImageHelper.BlankImage()" data-echo="@imgUrl" alt=""></a>
+                                                <a href="@Url.RouteUrl("Product", new { cSlug = product.GroupProduct.Slug, pSlug = product.Slug })"><img src="@ImageHelper.BlankImage()" data-echo="@imgUrl" alt=""></a>
                                             </div>
 
                                         </div>
@@ -178,7 +178,7 @@
                                     <!-- /.col -->
                                     <div class="col col-sm-8 col-lg-8">
                                         <div class="product-info">
-                                            <h3 class="name"><a href="@Url.Action("Detail", "Product", new { id = product.ProductID})">@product.ProductName</a></h3>
+                                            <h3 class="name"><a href="@Url.RouteUrl("Product", new { cSlug = product.GroupProduct.Slug, pSlug = product.Slug })">@product.ProductName</a></h3>
                                             <div class="product-price">
                                                 <span class="price">
                                                     @if (product.isSale())
