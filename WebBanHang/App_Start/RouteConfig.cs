@@ -15,8 +15,15 @@ namespace WebBanHang
 
             routes.MapRoute(
                 name: "Category",
-                url: "{cSlug}",
+                url: "{cSlug}.html",
                 defaults: new { controller = "Category", action = "Detail" },
+                namespaces: new[] { "WebBanHang.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Product",
+                url: "{cSlug}/{pSlug}.html",
+                defaults: new { controller = "Product", action = "Detail" },
                 namespaces: new[] { "WebBanHang.Controllers" }
             );
 
@@ -33,6 +40,7 @@ namespace WebBanHang
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "WebBanHang.Controllers" }
             );
+
         }
     }
 }

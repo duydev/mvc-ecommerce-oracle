@@ -99,6 +99,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 var row = new List<object>();
                 row.Add(cate.GroupID.ToString());
                 row.Add(cate.GroupName);
+                row.Add(cate.Slug);
                 row.Add(cate.ParentGroupID);
                 row.Add(cate.Icon);
                 row.Add(cate.Priority);

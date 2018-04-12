@@ -11,17 +11,19 @@ namespace WebBanHang.Controllers
 {
     public class ProductController : BaseController
     {
-        //
+        /*
         // GET: /Product/
         public ActionResult Index()
         {
             return View();
         }
+        */
 
-        public ActionResult Detail(int id)
+        public ActionResult Detail(string cSlug, string pSlug)
         {
             var productRepository = Repository.Bind<ProductRepository>();
-            var model = productRepository.FindById(id);
+            var model = productRepository.FindBySlug(pSlug);
+            if (model == null) return RedirectToAction("NotFound", "Error");
             ViewBag.Sale = Repository.Product.BestProductSale();
 
             return View(model);

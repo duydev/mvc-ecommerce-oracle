@@ -29,5 +29,10 @@ namespace WebBanHang.Core.RepositoryModel
         {
             return null;
         }
+
+        public Product FindBySlug(string slug)
+        {
+            return this.DbContext.Set<Product>().Where(a => a.Slug == slug).FirstOrDefault();
+        }
     }
 }

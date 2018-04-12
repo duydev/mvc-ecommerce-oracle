@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - Wednesday-April-11-2018   
+--  File created - Friday-April-13-2018   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence Advertises_SEQ
@@ -55,7 +55,7 @@
 --  DDL for Sequence GroupProducts_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."GroupProducts_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."GroupProducts_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence ImageProducts_SEQ
 --------------------------------------------------------
@@ -90,7 +90,7 @@
 --  DDL for Sequence Products_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Products_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Products_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Provinces_SEQ
 --------------------------------------------------------
@@ -220,8 +220,10 @@
    (	"ConfigName" VARCHAR2(30 BYTE), 
 	"Value" NVARCHAR2(255), 
 	"Description" NVARCHAR2(255)
-   ) SEGMENT CREATION DEFERRED 
+   ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Table Contacts
@@ -318,7 +320,8 @@
 	"GroupName" NVARCHAR2(100), 
 	"ParentGroupID" NUMBER(10,0), 
 	"Icon" VARCHAR2(100 BYTE), 
-	"Priority" NUMBER(10,0)
+	"Priority" NUMBER(10,0), 
+	"Slug" VARCHAR2(255 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -466,7 +469,8 @@
 	"UseMultiColor" NUMBER(1,0), 
 	"CreateDate" DATE, 
 	"Active" NUMBER(1,0), 
-	"Detail" NCLOB
+	"Detail" NCLOB, 
+	"Slug" VARCHAR2(255 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -575,6 +579,10 @@ REM INSERTING into ECOMMERCE."Comments"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Configurations"
 SET DEFINE OFF;
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('product_per_page','10',null);
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('site_title','Shop bán giày',null);
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('support_email','trannhatduy297@gmail.com',null);
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('support_phone','0972721892',null);
 REM INSERTING into ECOMMERCE."Contacts"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Coupons"
@@ -593,14 +601,9 @@ REM INSERTING into ECOMMERCE."ExcludeCoupons"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."GroupProducts"
 SET DEFINE OFF;
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (46,'Nike',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (47,'Bitis',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (45,'Adidas',null,null,0);
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority") values (48,'Sneaker',null,null,0);
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (61,'Bitis',null,null,0,'bitis');
 REM INSERTING into ECOMMERCE."ImageProducts"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (1,22,'giay-adidas-stan-smith-floral-bb5158_1024x1024.jpg','/Uploads/2018/4/11/WOjLEk6f1Qg_giay-adidas-stan-smith-floral-bb5158_1024x1024.jpg');
-Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (2,22,'img_0674_grande.jpg','/Uploads/2018/4/11/VI0YE06f1Qg_img_0674_grande.jpg');
 REM INSERTING into ECOMMERCE."Menus"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."OrderDetails"
@@ -616,15 +619,11 @@ Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Activ
 Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (3,'atm','ATM',1);
 REM INSERTING into ECOMMERCE."ProductAttributes"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ProductAttributes" ("ProductID","AttrID","Value","Priority") values (22,22,'36, 36.5',0);
 REM INSERTING into ECOMMERCE."ProductColors"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ProductColors" ("ProductID","ColorID","Stock") values (22,22,15);
-Insert into ECOMMERCE."ProductColors" ("ProductID","ColorID","Stock") values (22,24,15);
-Insert into ECOMMERCE."ProductColors" ("ProductID","ColorID","Stock") values (22,26,15);
 REM INSERTING into ECOMMERCE."Products"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreateDate","Active") values (22,'ADIDAS STAN SMITH "FLORAL"',1650000,2250000,50,45,1,to_date('11/04/2018','DD/MM/YYYY'),1);
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreateDate","Active","Slug") values (41,'A',15,0,0,61,0,to_date('13/04/2018','DD/MM/YYYY'),1,'a');
 REM INSERTING into ECOMMERCE."Provinces"
 SET DEFINE OFF;
 Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (2,'TP H? Chí Minh','1');
@@ -712,6 +711,15 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Index Products_UK1
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ECOMMERCE"."Products_UK1" ON "ECOMMERCE"."Products" ("Slug") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Index Wards_PK
 --------------------------------------------------------
 
@@ -780,7 +788,9 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "ECOMMERCE"."Configurations_PK" ON "ECOMMERCE"."Configurations" ("ConfigName") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Index CartDetails_PK
@@ -840,6 +850,15 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "ECOMMERCE"."Districts_PK" ON "ECOMMERCE"."Districts" ("DistrictID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index GroupProducts_UK1
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ECOMMERCE"."GroupProducts_UK1" ON "ECOMMERCE"."GroupProducts" ("Slug") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
@@ -1389,6 +1408,12 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
  
+  ALTER TABLE "ECOMMERCE"."Products" ADD CONSTRAINT "Products_UK1" UNIQUE ("Slug")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+ 
   ALTER TABLE "ECOMMERCE"."Products" MODIFY ("ProductID" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."Products" MODIFY ("ProductName" NOT NULL ENABLE);
@@ -1408,6 +1433,8 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   ALTER TABLE "ECOMMERCE"."Products" MODIFY ("Active" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."Products" MODIFY ("Detail" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ECOMMERCE"."Products" MODIFY ("Slug" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table UsersInRoles
 --------------------------------------------------------
@@ -1524,7 +1551,9 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
 --------------------------------------------------------
 
   ALTER TABLE "ECOMMERCE"."Configurations" ADD CONSTRAINT "Configurations_PK" PRIMARY KEY ("ConfigName")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
  
   ALTER TABLE "ECOMMERCE"."Configurations" MODIFY ("ConfigName" NOT NULL ENABLE);
@@ -1570,11 +1599,19 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
  
+  ALTER TABLE "ECOMMERCE"."GroupProducts" ADD CONSTRAINT "GroupProducts_UK1" UNIQUE ("Slug")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+ 
   ALTER TABLE "ECOMMERCE"."GroupProducts" MODIFY ("GroupID" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."GroupProducts" MODIFY ("GroupName" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."GroupProducts" MODIFY ("Priority" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ECOMMERCE"."GroupProducts" MODIFY ("Slug" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table Colors
 --------------------------------------------------------
