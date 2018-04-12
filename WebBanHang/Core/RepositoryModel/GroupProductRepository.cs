@@ -90,5 +90,10 @@ namespace WebBanHang.Core.RepositoryModel
                 return groupID;
             return GetMainGroup(currGroup.ParentGroupID.GetValueOrDefault(0));
         }
+
+        public GroupProduct GetProductBySlug(string slug)
+        {
+            return this.DbContext.Set<GroupProduct>().Where(a => a.Slug == slug).FirstOrDefault();
+        }
     }
 }

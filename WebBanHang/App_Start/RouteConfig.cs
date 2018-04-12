@@ -14,6 +14,13 @@ namespace WebBanHang
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Category",
+                url: "{cSlug}",
+                defaults: new { controller = "Category", action = "Detail" },
+                namespaces: new[] { "WebBanHang.Controllers" }
+            );
+
+            routes.MapRoute(
                      name: "defaultWithoutAction",
                      url: "{controller}/{id}",
                      defaults: new { action = "Index" },
