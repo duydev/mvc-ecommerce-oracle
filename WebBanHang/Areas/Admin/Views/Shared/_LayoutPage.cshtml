@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="~/Content/admin/images/favicon.ico">
 
     <!-- App title -->
-    <title>@ViewBag.Data.Config["site_title"] - @ViewBag.Title</title>
+    <title>@(ViewBag.Data.Config["site_title"] != "none" ? ViewBag.Data.Config["site_title"] : "SHOP") - @ViewBag.Title</title>
 
     <!-- Switchery css -->
     <link href="~/Content/admin/plugins/switchery/switchery.min.css" rel="stylesheet" />

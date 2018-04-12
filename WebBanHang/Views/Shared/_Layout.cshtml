@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
-    <title>@config["site_title"] - @ViewBag.Title</title>
+    <title>@(config["site_title"] != "none" ? config["site_title"] : "SHOP") - @ViewBag.Title</title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
 

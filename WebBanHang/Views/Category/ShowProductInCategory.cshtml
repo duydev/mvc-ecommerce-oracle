@@ -115,13 +115,13 @@
                                                 <span class="price">
                                                     @if (product.isSale())
                                                     {
-                                                        @Html.FormatCurrency(product.SalePrice) <span>đ</span>
+                                                        @Html.FormatCurrency((long)product.SalePrice) <span>đ</span>
                                                     }else{
-                                                        @Html.FormatCurrency(product.Price) <span>đ</span>
+                                                        @Html.FormatCurrency((long)product.Price) <span>đ</span>
                                                     }
                                                 </span>
                                                 @if(product.isSale()){
-                                                    <span class="price-before-discount">@Html.FormatCurrency(product.Price) đ</span>
+                                                    <span class="price-before-discount">@Html.FormatCurrency((long)product.Price) đ</span>
                                                 }
 
                                             </div>
@@ -183,16 +183,16 @@
                                                 <span class="price">
                                                     @if (product.isSale())
                                                     {
-                                                        @Html.FormatCurrency(product.SalePrice) <span>đ</span>
+                                                        @Html.FormatCurrency((long)product.SalePrice) <span>đ</span>
                                                     }
                                                     else
                                                     {
-                                                        @Html.FormatCurrency(product.Price) <span>đ</span>
+                                                        @Html.FormatCurrency((long)product.Price) <span>đ</span>
                                                     }
                                                 </span>
                                                 @if (product.isSale())
                                                 {
-                                                    <span class="price-before-discount">@Html.FormatCurrency(product.Price) đ</span>
+                                                    <span class="price-before-discount">@Html.FormatCurrency((long)product.Price) đ</span>
                                                 }
 
                                             </div>
