@@ -5,20 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="EcommerceModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Advertises">
-          <Key>
-            <PropertyRef Name="AdvertiseID" />
-          </Key>
-          <Property Name="AdvertiseID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="AdvertiseName" Type="nvarchar2" MaxLength="100" />
-          <Property Name="Description" Type="nvarchar2" MaxLength="255" />
-          <Property Name="ImageUrl" Type="nvarchar2" MaxLength="255" />
-          <Property Name="Link" Type="nvarchar2" MaxLength="255" />
-          <Property Name="Width" Type="number" Precision="10" Scale="0" />
-          <Property Name="Height" Type="number" Precision="10" Scale="0" />
-          <Property Name="Position" Type="varchar2" MaxLength="20" />
-          <Property Name="Active" Type="number" Precision="1" Scale="0" Nullable="false" />
-        </EntityType>
         <EntityType Name="AttributeGroups">
           <Key>
             <PropertyRef Name="AttrGroupID" />
@@ -31,28 +17,8 @@
             <PropertyRef Name="AttrID" />
           </Key>
           <Property Name="AttrID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AttrGroupID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="AttrName" Type="nvarchar2" MaxLength="100" Nullable="false" />
-          <Property Name="AttriGroupID" Type="number" Precision="10" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CartDetails">
-          <Key>
-            <PropertyRef Name="CartID" />
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="ColorID" />
-          </Key>
-          <Property Name="CartID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="ColorID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="Quantity" Type="number" Precision="10" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Carts">
-          <Key>
-            <PropertyRef Name="CartID" />
-          </Key>
-          <Property Name="CartID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CookieID" Type="varchar2" MaxLength="10" Nullable="false" />
-          <Property Name="CustomerID" Type="number" Precision="10" Scale="0" />
-          <Property Name="CreateDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Colors">
           <Key>
@@ -61,18 +27,6 @@
           <Property Name="ColorID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ColorName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="HexCode" Type="varchar2" MaxLength="6" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Comments">
-          <Key>
-            <PropertyRef Name="CommentID" />
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="CommentID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="CommentContent" Type="nclob" />
-          <Property Name="CommentTime" Type="date" />
-          <Property Name="CustomerID" Type="number" Precision="10" Scale="0" />
-          <Property Name="Rate" Type="number" Precision="1" Scale="0" />
         </EntityType>
         <EntityType Name="Configurations">
           <Key>
@@ -86,15 +40,14 @@
           <Key>
             <PropertyRef Name="ContactID" />
           </Key>
-          <Property Name="ContactID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="CustomerID" Type="number" Precision="10" Scale="0" />
           <Property Name="FullName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Email" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="Phone" Type="varchar2" MaxLength="15" Nullable="false" />
           <Property Name="Message" Type="nclob" Nullable="false" />
-          <Property Name="CustomerID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="IP" Type="varchar2" MaxLength="50" Nullable="false" />
-          <Property Name="Time" Type="date" Nullable="false" />
-          <Property Name="Seen" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="Seen" Type="number" Precision="1" Scale="0" />
+          <Property Name="CreatedAt" Type="date" />
         </EntityType>
         <EntityType Name="Coupons">
           <Key>
@@ -312,88 +265,12 @@
               <PropertyRef Name="AttrGroupID" />
             </Principal>
             <Dependent Role="Attributes">
-              <PropertyRef Name="AttriGroupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CartDetails_FK1">
-          <End Role="Carts" Type="Self.Carts" Multiplicity="1" />
-          <End Role="CartDetails" Type="Self.CartDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Carts">
-              <PropertyRef Name="CartID" />
-            </Principal>
-            <Dependent Role="CartDetails">
-              <PropertyRef Name="CartID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CartDetails_FK2">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="CartDetails" Type="Self.CartDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="CartDetails">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CartDetails_FK3">
-          <End Role="Colors" Type="Self.Colors" Multiplicity="1" />
-          <End Role="CartDetails" Type="Self.CartDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Colors">
-              <PropertyRef Name="ColorID" />
-            </Principal>
-            <Dependent Role="CartDetails">
-              <PropertyRef Name="ColorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Carts_FK1">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Carts">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Comments_FK1">
-          <End Role="Products" Type="Self.Products" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="Comments">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Comments_FK2">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Comments">
-              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="AttrGroupID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Contacts_FK1">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
@@ -717,13 +594,9 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EcommerceModelStoreContainer">
-          <EntitySet Name="Advertises" EntityType="Self.Advertises" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="AttributeGroups" EntityType="Self.AttributeGroups" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Attributes" EntityType="Self.Attributes" Schema="ECOMMERCE" store:Type="Tables" />
-          <EntitySet Name="CartDetails" EntityType="Self.CartDetails" Schema="ECOMMERCE" store:Type="Tables" />
-          <EntitySet Name="Carts" EntityType="Self.Carts" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="ECOMMERCE" store:Type="Tables" />
-          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Configurations" EntityType="Self.Configurations" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Coupons" EntityType="Self.Coupons" Schema="ECOMMERCE" store:Type="Tables" />
@@ -747,30 +620,6 @@
           <AssociationSet Name="Attributes_FK1" Association="Self.Attributes_FK1">
             <End Role="AttributeGroups" EntitySet="AttributeGroups" />
             <End Role="Attributes" EntitySet="Attributes" />
-          </AssociationSet>
-          <AssociationSet Name="CartDetails_FK1" Association="Self.CartDetails_FK1">
-            <End Role="Carts" EntitySet="Carts" />
-            <End Role="CartDetails" EntitySet="CartDetails" />
-          </AssociationSet>
-          <AssociationSet Name="CartDetails_FK2" Association="Self.CartDetails_FK2">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="CartDetails" EntitySet="CartDetails" />
-          </AssociationSet>
-          <AssociationSet Name="CartDetails_FK3" Association="Self.CartDetails_FK3">
-            <End Role="Colors" EntitySet="Colors" />
-            <End Role="CartDetails" EntitySet="CartDetails" />
-          </AssociationSet>
-          <AssociationSet Name="Carts_FK1" Association="Self.Carts_FK1">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Carts" EntitySet="Carts" />
-          </AssociationSet>
-          <AssociationSet Name="Comments_FK1" Association="Self.Comments_FK1">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="Comments" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="Comments_FK2" Association="Self.Comments_FK2">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
           <AssociationSet Name="Contacts_FK1" Association="Self.Contacts_FK1">
             <End Role="Customers" EntitySet="Customers" />
@@ -882,15 +731,10 @@
     <edmx:ConceptualModels>
       <Schema Namespace="EcommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="EcommerceEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Advertises" EntityType="EcommerceModel.Advertise" />
           <EntitySet Name="AttributeGroups" EntityType="EcommerceModel.AttributeGroup" />
           <EntitySet Name="Attributes" EntityType="EcommerceModel.Attribute" />
-          <EntitySet Name="CartDetails" EntityType="EcommerceModel.CartDetail" />
-          <EntitySet Name="Carts" EntityType="EcommerceModel.Cart" />
           <EntitySet Name="Colors" EntityType="EcommerceModel.Color" />
-          <EntitySet Name="Comments" EntityType="EcommerceModel.Comment" />
           <EntitySet Name="Configurations" EntityType="EcommerceModel.Configuration" />
-          <EntitySet Name="Contacts" EntityType="EcommerceModel.Contact" />
           <EntitySet Name="Coupons" EntityType="EcommerceModel.Coupon" />
           <EntitySet Name="Customers" EntityType="EcommerceModel.Customer" />
           <EntitySet Name="Districts" EntityType="EcommerceModel.District" />
@@ -916,22 +760,6 @@
             <End Role="Attribute" EntitySet="Attributes" />
             <End Role="ProductAttribute" EntitySet="ProductAttributes" />
           </AssociationSet>
-          <AssociationSet Name="CartDetails_FK1" Association="EcommerceModel.CartDetails_FK1">
-            <End Role="Cart" EntitySet="Carts" />
-            <End Role="CartDetail" EntitySet="CartDetails" />
-          </AssociationSet>
-          <AssociationSet Name="CartDetails_FK2" Association="EcommerceModel.CartDetails_FK2">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="CartDetail" EntitySet="CartDetails" />
-          </AssociationSet>
-          <AssociationSet Name="CartDetails_FK3" Association="EcommerceModel.CartDetails_FK3">
-            <End Role="Color" EntitySet="Colors" />
-            <End Role="CartDetail" EntitySet="CartDetails" />
-          </AssociationSet>
-          <AssociationSet Name="Carts_FK1" Association="EcommerceModel.Carts_FK1">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Cart" EntitySet="Carts" />
-          </AssociationSet>
           <AssociationSet Name="ORDERDETAILS_FK3" Association="EcommerceModel.ORDERDETAILS_FK3">
             <End Role="Color" EntitySet="Colors" />
             <End Role="OrderDetail" EntitySet="OrderDetails" />
@@ -939,18 +767,6 @@
           <AssociationSet Name="ProductColors_FK2" Association="EcommerceModel.ProductColors_FK2">
             <End Role="Color" EntitySet="Colors" />
             <End Role="ProductColor" EntitySet="ProductColors" />
-          </AssociationSet>
-          <AssociationSet Name="Comments_FK1" Association="EcommerceModel.Comments_FK1">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="Comment" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="Comments_FK2" Association="EcommerceModel.Comments_FK2">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Comment" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="Contacts_FK1" Association="EcommerceModel.Contacts_FK1">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Contact" EntitySet="Contacts" />
           </AssociationSet>
           <AssociationSet Name="ExcludeCoupons_FK2" Association="EcommerceModel.ExcludeCoupons_FK2">
             <End Role="Coupon" EntitySet="Coupons" />
@@ -1041,21 +857,16 @@
             <End Role="ProductColor" EntitySet="ProductColors" />
           </AssociationSet>
           <EntitySet Name="Users" EntityType="EcommerceModel.User" />
+          <AssociationSet Name="Attributes_FK11" Association="EcommerceModel.Attributes_FK11">
+            <End Role="AttributeGroup" EntitySet="AttributeGroups" />
+            <End Role="Attribute" EntitySet="Attributes" />
+          </AssociationSet>
+          <EntitySet Name="Contacts" EntityType="EcommerceModel.Contact" />
+          <AssociationSet Name="Contacts_FK1" Association="EcommerceModel.Contacts_FK1">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Advertise">
-          <Key>
-            <PropertyRef Name="AdvertiseID" />
-          </Key>
-          <Property Name="AdvertiseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AdvertiseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="ImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Width" Type="Int32" />
-          <Property Name="Height" Type="Int32" />
-          <Property Name="Position" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="AttributeGroup">
           <Key>
             <PropertyRef Name="AttrGroupID" />
@@ -1063,6 +874,7 @@
           <Property Name="AttrGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AttrGroupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Attributes" Relationship="EcommerceModel.Attributes_FK1" FromRole="AttributeGroup" ToRole="Attribute" />
+          <NavigationProperty Name="Attributes1" Relationship="EcommerceModel.Attributes_FK11" FromRole="AttributeGroup" ToRole="Attribute" />
         </EntityType>
         <EntityType Name="Attribute">
           <Key>
@@ -1073,31 +885,8 @@
           <Property Name="AttriGroupID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AttributeGroup" Relationship="EcommerceModel.Attributes_FK1" FromRole="Attribute" ToRole="AttributeGroup" />
           <NavigationProperty Name="ProductAttributes" Relationship="EcommerceModel.ProductAttributes_FK2" FromRole="Attribute" ToRole="ProductAttribute" />
-        </EntityType>
-        <EntityType Name="CartDetail">
-          <Key>
-            <PropertyRef Name="CartID" />
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="ColorID" />
-          </Key>
-          <Property Name="CartID" Type="Int32" Nullable="false" />
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="ColorID" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cart" Relationship="EcommerceModel.CartDetails_FK1" FromRole="CartDetail" ToRole="Cart" />
-          <NavigationProperty Name="Product" Relationship="EcommerceModel.CartDetails_FK2" FromRole="CartDetail" ToRole="Product" />
-          <NavigationProperty Name="Color" Relationship="EcommerceModel.CartDetails_FK3" FromRole="CartDetail" ToRole="Color" />
-        </EntityType>
-        <EntityType Name="Cart">
-          <Key>
-            <PropertyRef Name="CartID" />
-          </Key>
-          <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CookieID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="CartDetails" Relationship="EcommerceModel.CartDetails_FK1" FromRole="Cart" ToRole="CartDetail" />
-          <NavigationProperty Name="Customer" Relationship="EcommerceModel.Carts_FK1" FromRole="Cart" ToRole="Customer" />
+          <Property Name="AttrGroupID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AttributeGroup1" Relationship="EcommerceModel.Attributes_FK11" FromRole="Attribute" ToRole="AttributeGroup" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -1106,23 +895,8 @@
           <Property Name="ColorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ColorName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HexCode" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CartDetails" Relationship="EcommerceModel.CartDetails_FK3" FromRole="Color" ToRole="CartDetail" />
           <NavigationProperty Name="OrderDetails" Relationship="EcommerceModel.ORDERDETAILS_FK3" FromRole="Color" ToRole="OrderDetail" />
           <NavigationProperty Name="ProductColors" Relationship="EcommerceModel.ProductColors_FK2" FromRole="Color" ToRole="ProductColor" />
-        </EntityType>
-        <EntityType Name="Comment">
-          <Key>
-            <PropertyRef Name="CommentID" />
-            <PropertyRef Name="ProductID" />
-          </Key>
-          <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="CommentContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CommentTime" Type="DateTime" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="Rate" Type="Boolean" />
-          <NavigationProperty Name="Product" Relationship="EcommerceModel.Comments_FK1" FromRole="Comment" ToRole="Product" />
-          <NavigationProperty Name="Customer" Relationship="EcommerceModel.Comments_FK2" FromRole="Comment" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Configuration">
           <Key>
@@ -1131,21 +905,6 @@
           <Property Name="ConfigName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Value" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="ContactID" />
-          </Key>
-          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerID" Type="Int32" Nullable="false" />
-          <Property Name="IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Time" Type="DateTime" Nullable="false" />
-          <Property Name="Seen" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="EcommerceModel.Contacts_FK1" FromRole="Contact" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Coupon">
           <Key>
@@ -1180,13 +939,11 @@
           <Property Name="Status" Type="Boolean" Nullable="false" />
           <Property Name="VerificationCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Carts" Relationship="EcommerceModel.Carts_FK1" FromRole="Customer" ToRole="Cart" />
-          <NavigationProperty Name="Comments" Relationship="EcommerceModel.Comments_FK2" FromRole="Customer" ToRole="Comment" />
-          <NavigationProperty Name="Contacts" Relationship="EcommerceModel.Contacts_FK1" FromRole="Customer" ToRole="Contact" />
           <NavigationProperty Name="Province" Relationship="EcommerceModel.Customers_FK1" FromRole="Customer" ToRole="Province" />
           <NavigationProperty Name="District" Relationship="EcommerceModel.Customers_FK2" FromRole="Customer" ToRole="District" />
           <NavigationProperty Name="Ward" Relationship="EcommerceModel.Customers_FK3" FromRole="Customer" ToRole="Ward" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK1" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Contacts" Relationship="EcommerceModel.Contacts_FK1" FromRole="Customer" ToRole="Contact" />
         </EntityType>
         <EntityType Name="District">
           <Key>
@@ -1353,8 +1110,6 @@
           <Property Name="CreateDate" Type="DateTime" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="Detail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CartDetails" Relationship="EcommerceModel.CartDetails_FK2" FromRole="Product" ToRole="CartDetail" />
-          <NavigationProperty Name="Comments" Relationship="EcommerceModel.Comments_FK1" FromRole="Product" ToRole="Comment" />
           <NavigationProperty Name="GroupProduct" Relationship="EcommerceModel.Products_FK1" FromRole="Product" ToRole="GroupProduct" />
           <NavigationProperty Name="ImageProducts" Relationship="EcommerceModel.ImageProducts_FK1" FromRole="Product" ToRole="ImageProduct" />
           <NavigationProperty Name="OrderDetails" Relationship="EcommerceModel.ORDERDETAILS_FK2" FromRole="Product" ToRole="OrderDetail" />
@@ -1417,54 +1172,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CartDetails_FK1">
-          <End Type="EcommerceModel.Cart" Role="Cart" Multiplicity="1" />
-          <End Type="EcommerceModel.CartDetail" Role="CartDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cart">
-              <PropertyRef Name="CartID" />
-            </Principal>
-            <Dependent Role="CartDetail">
-              <PropertyRef Name="CartID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CartDetails_FK2">
-          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="EcommerceModel.CartDetail" Role="CartDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="CartDetail">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CartDetails_FK3">
-          <End Type="EcommerceModel.Color" Role="Color" Multiplicity="1" />
-          <End Type="EcommerceModel.CartDetail" Role="CartDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Color">
-              <PropertyRef Name="ColorID" />
-            </Principal>
-            <Dependent Role="CartDetail">
-              <PropertyRef Name="ColorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Carts_FK1">
-          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="EcommerceModel.Cart" Role="Cart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Cart">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="ORDERDETAILS_FK3">
           <End Type="EcommerceModel.Color" Role="Color" Multiplicity="0..1" />
           <End Type="EcommerceModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
@@ -1486,42 +1193,6 @@
             </Principal>
             <Dependent Role="ProductColor">
               <PropertyRef Name="ColorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Comments_FK1">
-          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="EcommerceModel.Comment" Role="Comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="Comment">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Comments_FK2">
-          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="EcommerceModel.Comment" Role="Comment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Comment">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Contacts_FK1">
-          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="EcommerceModel.Contact" Role="Contact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Contact">
-              <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1801,27 +1472,52 @@
           <Property Name="Status" Type="Boolean" Nullable="true" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="true" />
         </EntityType>
+        <Association Name="Attributes_FK11">
+          <End Type="EcommerceModel.AttributeGroup" Role="AttributeGroup" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="EcommerceModel.Attribute" Role="Attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttributeGroup">
+              <PropertyRef Name="AttrGroupID" />
+            </Principal>
+            <Dependent Role="Attribute">
+              <PropertyRef Name="AttrGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Seen" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <NavigationProperty Name="Customer" Relationship="EcommerceModel.Contacts_FK1" FromRole="Contact" ToRole="Customer" />
+        </EntityType>
+        <Association Name="Contacts_FK1">
+          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="EcommerceModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EcommerceModelStoreContainer" CdmEntityContainer="EcommerceEntities">
-          <EntitySetMapping Name="Advertises">
-            <EntityTypeMapping TypeName="EcommerceModel.Advertise">
-              <MappingFragment StoreEntitySet="Advertises">
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Height" ColumnName="Height" />
-                <ScalarProperty Name="Width" ColumnName="Width" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="AdvertiseName" ColumnName="AdvertiseName" />
-                <ScalarProperty Name="AdvertiseID" ColumnName="AdvertiseID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AttributeGroups">
             <EntityTypeMapping TypeName="EcommerceModel.AttributeGroup">
               <MappingFragment StoreEntitySet="AttributeGroups">
@@ -1833,29 +1529,9 @@
           <EntitySetMapping Name="Attributes">
             <EntityTypeMapping TypeName="EcommerceModel.Attribute">
               <MappingFragment StoreEntitySet="Attributes">
-                <ScalarProperty Name="AttriGroupID" ColumnName="AttriGroupID" />
+                <ScalarProperty Name="AttrGroupID" ColumnName="AttrGroupID" />
                 <ScalarProperty Name="AttrName" ColumnName="AttrName" />
                 <ScalarProperty Name="AttrID" ColumnName="AttrID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CartDetails">
-            <EntityTypeMapping TypeName="EcommerceModel.CartDetail">
-              <MappingFragment StoreEntitySet="CartDetails">
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="CartID" ColumnName="CartID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Carts">
-            <EntityTypeMapping TypeName="EcommerceModel.Cart">
-              <MappingFragment StoreEntitySet="Carts">
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CookieID" ColumnName="CookieID" />
-                <ScalarProperty Name="CartID" ColumnName="CartID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1868,39 +1544,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Comments">
-            <EntityTypeMapping TypeName="EcommerceModel.Comment">
-              <MappingFragment StoreEntitySet="Comments">
-                <ScalarProperty Name="Rate" ColumnName="Rate" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CommentTime" ColumnName="CommentTime" />
-                <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Configurations">
             <EntityTypeMapping TypeName="EcommerceModel.Configuration">
               <MappingFragment StoreEntitySet="Configurations">
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="ConfigName" ColumnName="ConfigName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Contacts">
-            <EntityTypeMapping TypeName="EcommerceModel.Contact">
-              <MappingFragment StoreEntitySet="Contacts">
-                <ScalarProperty Name="Seen" ColumnName="Seen" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="IP" ColumnName="IP" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2121,6 +1770,20 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="EcommerceModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Seen" ColumnName="Seen" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -272,19 +272,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Advertise.cs">
-      <DependentUpon>Ecommerce.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Attribute.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AttributeGroup.cs">
-      <DependentUpon>Ecommerce.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Cart.cs">
-      <DependentUpon>Ecommerce.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CartDetail.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />

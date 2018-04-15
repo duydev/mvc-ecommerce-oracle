@@ -17,8 +17,6 @@ namespace WebBanHang.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.CartDetails = new HashSet<CartDetail>();
-            this.Comments = new HashSet<Comment>();
             this.ImageProducts = new HashSet<ImageProduct>();
             this.OrderDetails = new HashSet<OrderDetail>();
             this.ProductAttributes = new HashSet<ProductAttribute>();
@@ -37,10 +35,6 @@ namespace WebBanHang.Models
         public string Detail { get; set; }
         public string Slug { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CartDetail> CartDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
         public virtual GroupProduct GroupProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ImageProduct> ImageProducts { get; set; }

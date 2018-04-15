@@ -22,10 +22,10 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             var repo = Repository.Create<Contact>();
             List<object> data = new List<object>();
-            var contacts = repo.FetchAll().OrderByDescending(c=>c.Time).AsQueryable();
+            var contacts = repo.FetchAll().OrderByDescending(c=>c.CreatedAt).AsQueryable();
             var recordCount = contacts.Count();
             contacts = contacts.Skip(start).Take(length);
-            foreach (var contact in contacts)
+            foreach (Contact contact in contacts)
             {
                 data.Add(new
                 {
@@ -35,8 +35,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                     phone = contact.Phone,
                     message = contact.Message.Truncate(90,true,true),
                     customer_id = contact.CustomerID,
-                    ip = contact.IP,
-                    time = contact.Time.ToRelativeString(),
+                    created_at = ((DateTime)contact.CreatedAt).ToRelativeString(),
                     seen = contact.Seen
                 });
             }
@@ -53,9 +52,9 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             if (id == null) return HttpNotFound();
             var repo = Repository.Create<Contact>();
-            var contact = repo.FindById(id);
+            Contact contact = repo.FindById(id);
             if (contact == null) return HttpNotFound();
-            if (!contact.Seen)
+            if (!((Boolean)contact.Seen))
             {
                 contact.Seen = true;
                 repo.SaveChanges();

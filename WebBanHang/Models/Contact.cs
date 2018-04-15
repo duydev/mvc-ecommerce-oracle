@@ -15,14 +15,13 @@ namespace WebBanHang.Models
     public partial class Contact
     {
         public int ContactID { get; set; }
+        public Nullable<int> CustomerID { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Message { get; set; }
-        public int CustomerID { get; set; }
-        public string IP { get; set; }
-        public System.DateTime Time { get; set; }
-        public bool Seen { get; set; }
+        public Nullable<bool> Seen { get; set; }
+        public Nullable<System.DateTime> CreatedAt { get; set; }
     
         public virtual Customer Customer { get; set; }
     }
