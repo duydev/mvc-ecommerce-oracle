@@ -288,9 +288,6 @@
     <Compile Include="Models\Contact.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Coupon.cs">
-      <DependentUpon>Ecommerce.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Customer.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
@@ -311,9 +308,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ecommerce.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ExcludeCoupon.cs">
-      <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GroupProduct.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>

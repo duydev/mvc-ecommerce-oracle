@@ -49,20 +49,6 @@
           <Property Name="Seen" Type="number" Precision="1" Scale="0" />
           <Property Name="CreatedAt" Type="date" />
         </EntityType>
-        <EntityType Name="Coupons">
-          <Key>
-            <PropertyRef Name="CouponID" />
-          </Key>
-          <Property Name="CouponID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="Code" Type="varchar2" MaxLength="10" Nullable="false" />
-          <Property Name="Discount" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="Type" Type="varchar2" MaxLength="10" Nullable="false" />
-          <Property Name="FreeShip" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="StartDate" Type="date" Nullable="false" />
-          <Property Name="EndDate" Type="date" Nullable="false" />
-          <Property Name="Indefinite" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="Active" Type="number" Precision="1" Scale="0" Nullable="false" />
-        </EntityType>
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -70,17 +56,16 @@
           <Property Name="CustomerID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="FacebookID" Type="varchar2" MaxLength="20" />
           <Property Name="GoogleID" Type="varchar2" MaxLength="20" />
-          <Property Name="Passwrord" Type="varchar2" MaxLength="32" Nullable="false" />
+          <Property Name="Password" Type="varchar2" MaxLength="32" Nullable="false" />
           <Property Name="FullName" Type="nvarchar2" MaxLength="100" Nullable="false" />
-          <Property Name="Email" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="Address" Type="nvarchar2" MaxLength="255" />
           <Property Name="ProvinceID" Type="number" Precision="10" Scale="0" />
           <Property Name="DistrictID" Type="number" Precision="10" Scale="0" />
           <Property Name="WardID" Type="number" Precision="10" Scale="0" />
           <Property Name="Phone" Type="varchar2" MaxLength="15" />
-          <Property Name="Status" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="VerificationCode" Type="varchar2" MaxLength="64" />
-          <Property Name="RegistrationDate" Type="date" Nullable="false" />
+          <Property Name="Status" Type="number" Precision="1" Scale="0" />
+          <Property Name="CreatedAt" Type="date" />
         </EntityType>
         <EntityType Name="Districts">
           <Key>
@@ -90,15 +75,6 @@
           <Property Name="DistrictName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="nvarchar2" MaxLength="50" Nullable="false" />
           <Property Name="ProvinceID" Type="number" Precision="10" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ExcludeCoupons">
-          <Key>
-            <PropertyRef Name="CouponID" />
-            <PropertyRef Name="GroupID" />
-          </Key>
-          <Property Name="CouponID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="GroupID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="Description" Type="nvarchar2" MaxLength="255" />
         </EntityType>
         <EntityType Name="GroupProducts">
           <Key>
@@ -329,30 +305,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ExcludeCoupons_FK1">
-          <End Role="GroupProducts" Type="Self.GroupProducts" Multiplicity="1" />
-          <End Role="ExcludeCoupons" Type="Self.ExcludeCoupons" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GroupProducts">
-              <PropertyRef Name="GroupID" />
-            </Principal>
-            <Dependent Role="ExcludeCoupons">
-              <PropertyRef Name="GroupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ExcludeCoupons_FK2">
-          <End Role="Coupons" Type="Self.Coupons" Multiplicity="1" />
-          <End Role="ExcludeCoupons" Type="Self.ExcludeCoupons" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Coupons">
-              <PropertyRef Name="CouponID" />
-            </Principal>
-            <Dependent Role="ExcludeCoupons">
-              <PropertyRef Name="CouponID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="GroupProducts_FK1">
           <End Role="GroupProducts" Type="Self.GroupProducts" Multiplicity="0..1" />
           <End Role="GroupProducts1" Type="Self.GroupProducts" Multiplicity="*" />
@@ -392,7 +344,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ORDERDETAILS_FK1">
-          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Orders">
@@ -404,7 +358,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ORDERDETAILS_FK2">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Products">
@@ -416,7 +372,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ORDERDETAILS_FK3">
-          <End Role="Colors" Type="Self.Colors" Multiplicity="0..1" />
+          <End Role="Colors" Type="Self.Colors" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Colors">
@@ -428,7 +386,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK1">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
@@ -440,7 +400,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK2">
-          <End Role="Payments" Type="Self.Payments" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Payments">
@@ -452,7 +414,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK3">
-          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Provinces">
@@ -464,7 +428,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK4">
-          <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
+          <End Role="Districts" Type="Self.Districts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Districts">
@@ -476,7 +442,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK5">
-          <End Role="Wards" Type="Self.Wards" Multiplicity="1" />
+          <End Role="Wards" Type="Self.Wards" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Wards">
@@ -488,7 +456,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK6">
-          <End Role="OrderStatuses" Type="Self.OrderStatuses" Multiplicity="1" />
+          <End Role="OrderStatuses" Type="Self.OrderStatuses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrderStatuses">
@@ -500,7 +470,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK7">
-          <End Role="ShippingStatuses" Type="Self.ShippingStatuses" Multiplicity="1" />
+          <End Role="ShippingStatuses" Type="Self.ShippingStatuses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShippingStatuses">
@@ -599,10 +571,8 @@
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Configurations" EntityType="Self.Configurations" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="ECOMMERCE" store:Type="Tables" />
-          <EntitySet Name="Coupons" EntityType="Self.Coupons" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Districts" EntityType="Self.Districts" Schema="ECOMMERCE" store:Type="Tables" />
-          <EntitySet Name="ExcludeCoupons" EntityType="Self.ExcludeCoupons" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="GroupProducts" EntityType="Self.GroupProducts" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="ImageProducts" EntityType="Self.ImageProducts" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Menus" EntityType="Self.Menus" Schema="ECOMMERCE" store:Type="Tables" />
@@ -640,14 +610,6 @@
           <AssociationSet Name="Districts_FK1" Association="Self.Districts_FK1">
             <End Role="Provinces" EntitySet="Provinces" />
             <End Role="Districts" EntitySet="Districts" />
-          </AssociationSet>
-          <AssociationSet Name="ExcludeCoupons_FK1" Association="Self.ExcludeCoupons_FK1">
-            <End Role="GroupProducts" EntitySet="GroupProducts" />
-            <End Role="ExcludeCoupons" EntitySet="ExcludeCoupons" />
-          </AssociationSet>
-          <AssociationSet Name="ExcludeCoupons_FK2" Association="Self.ExcludeCoupons_FK2">
-            <End Role="Coupons" EntitySet="Coupons" />
-            <End Role="ExcludeCoupons" EntitySet="ExcludeCoupons" />
           </AssociationSet>
           <AssociationSet Name="GroupProducts_FK1" Association="Self.GroupProducts_FK1">
             <End Role="GroupProducts" EntitySet="GroupProducts" />
@@ -736,10 +698,8 @@
           <EntitySet Name="Colors" EntityType="EcommerceModel.Color" />
           <EntitySet Name="Configurations" EntityType="EcommerceModel.Configuration" />
           <EntitySet Name="Contacts" EntityType="EcommerceModel.Contact" />
-          <EntitySet Name="Coupons" EntityType="EcommerceModel.Coupon" />
           <EntitySet Name="Customers" EntityType="EcommerceModel.Customer" />
           <EntitySet Name="Districts" EntityType="EcommerceModel.District" />
-          <EntitySet Name="ExcludeCoupons" EntityType="EcommerceModel.ExcludeCoupon" />
           <EntitySet Name="GroupProducts" EntityType="EcommerceModel.GroupProduct" />
           <EntitySet Name="ImageProducts" EntityType="EcommerceModel.ImageProduct" />
           <EntitySet Name="Menus" EntityType="EcommerceModel.Menu" />
@@ -774,10 +734,6 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Contact" EntitySet="Contacts" />
           </AssociationSet>
-          <AssociationSet Name="ExcludeCoupons_FK2" Association="EcommerceModel.ExcludeCoupons_FK2">
-            <End Role="Coupon" EntitySet="Coupons" />
-            <End Role="ExcludeCoupon" EntitySet="ExcludeCoupons" />
-          </AssociationSet>
           <AssociationSet Name="Customers_FK1" Association="EcommerceModel.Customers_FK1">
             <End Role="Province" EntitySet="Provinces" />
             <End Role="Customer" EntitySet="Customers" />
@@ -805,10 +761,6 @@
           <AssociationSet Name="Wards_FK1" Association="EcommerceModel.Wards_FK1">
             <End Role="District" EntitySet="Districts" />
             <End Role="Ward" EntitySet="Wards" />
-          </AssociationSet>
-          <AssociationSet Name="ExcludeCoupons_FK1" Association="EcommerceModel.ExcludeCoupons_FK1">
-            <End Role="GroupProduct" EntitySet="GroupProducts" />
-            <End Role="ExcludeCoupon" EntitySet="ExcludeCoupons" />
           </AssociationSet>
           <AssociationSet Name="GroupProducts_FK1" Association="EcommerceModel.GroupProducts_FK1">
             <End Role="GroupProduct" EntitySet="GroupProducts" />
@@ -913,21 +865,6 @@
           <Property Name="CreatedAt" Type="DateTime" />
           <NavigationProperty Name="Customer" Relationship="EcommerceModel.Contacts_FK1" FromRole="Contact" ToRole="Customer" />
         </EntityType>
-        <EntityType Name="Coupon">
-          <Key>
-            <PropertyRef Name="CouponID" />
-          </Key>
-          <Property Name="CouponID" Type="Int32" Nullable="false" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Discount" Type="Int32" Nullable="false" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="FreeShip" Type="Boolean" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Nullable="false" />
-          <Property Name="EndDate" Type="DateTime" Nullable="false" />
-          <Property Name="Indefinite" Type="Boolean" Nullable="false" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="ExcludeCoupons" Relationship="EcommerceModel.ExcludeCoupons_FK2" FromRole="Coupon" ToRole="ExcludeCoupon" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -935,17 +872,16 @@
           <Property Name="CustomerID" Type="Int32" Nullable="false" />
           <Property Name="FacebookID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="GoogleID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Passwrord" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ProvinceID" Type="Int32" />
           <Property Name="DistrictID" Type="Int32" />
           <Property Name="WardID" Type="Int32" />
           <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Boolean" Nullable="false" />
-          <Property Name="VerificationCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
-          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" />
           <NavigationProperty Name="Contacts" Relationship="EcommerceModel.Contacts_FK1" FromRole="Customer" ToRole="Contact" />
           <NavigationProperty Name="Province" Relationship="EcommerceModel.Customers_FK1" FromRole="Customer" ToRole="Province" />
           <NavigationProperty Name="District" Relationship="EcommerceModel.Customers_FK2" FromRole="Customer" ToRole="District" />
@@ -965,17 +901,6 @@
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK4" FromRole="District" ToRole="Order" />
           <NavigationProperty Name="Wards" Relationship="EcommerceModel.Wards_FK1" FromRole="District" ToRole="Ward" />
         </EntityType>
-        <EntityType Name="ExcludeCoupon">
-          <Key>
-            <PropertyRef Name="CouponID" />
-            <PropertyRef Name="GroupID" />
-          </Key>
-          <Property Name="CouponID" Type="Int32" Nullable="false" />
-          <Property Name="GroupID" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Coupon" Relationship="EcommerceModel.ExcludeCoupons_FK2" FromRole="ExcludeCoupon" ToRole="Coupon" />
-          <NavigationProperty Name="GroupProduct" Relationship="EcommerceModel.ExcludeCoupons_FK1" FromRole="ExcludeCoupon" ToRole="GroupProduct" />
-        </EntityType>
         <EntityType Name="GroupProduct">
           <Key>
             <PropertyRef Name="GroupID" />
@@ -986,7 +911,6 @@
           <Property Name="Icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Priority" Type="Int32" Nullable="false" />
           <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ExcludeCoupons" Relationship="EcommerceModel.ExcludeCoupons_FK1" FromRole="GroupProduct" ToRole="ExcludeCoupon" />
           <NavigationProperty Name="GroupProducts1" Relationship="EcommerceModel.GroupProducts_FK1" FromRole="GroupProduct" ToRole="GroupProduct1" />
           <NavigationProperty Name="GroupProduct1" Relationship="EcommerceModel.GroupProducts_FK1" FromRole="GroupProduct1" ToRole="GroupProduct" />
           <NavigationProperty Name="Products" Relationship="EcommerceModel.Products_FK1" FromRole="GroupProduct" ToRole="Product" />
@@ -1196,7 +1120,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ORDERDETAILS_FK3">
-          <End Type="EcommerceModel.Color" Role="Color" Multiplicity="0..1" />
+          <End Type="EcommerceModel.Color" Role="Color" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
@@ -1230,18 +1156,6 @@
             </Principal>
             <Dependent Role="Contact">
               <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ExcludeCoupons_FK2">
-          <End Type="EcommerceModel.Coupon" Role="Coupon" Multiplicity="1" />
-          <End Type="EcommerceModel.ExcludeCoupon" Role="ExcludeCoupon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Coupon">
-              <PropertyRef Name="CouponID" />
-            </Principal>
-            <Dependent Role="ExcludeCoupon">
-              <PropertyRef Name="CouponID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1282,7 +1196,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK1">
-          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
@@ -1306,7 +1222,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK4">
-          <End Type="EcommerceModel.District" Role="District" Multiplicity="1" />
+          <End Type="EcommerceModel.District" Role="District" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="District">
@@ -1326,18 +1244,6 @@
             </Principal>
             <Dependent Role="Ward">
               <PropertyRef Name="DistrictId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ExcludeCoupons_FK1">
-          <End Type="EcommerceModel.GroupProduct" Role="GroupProduct" Multiplicity="1" />
-          <End Type="EcommerceModel.ExcludeCoupon" Role="ExcludeCoupon" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GroupProduct">
-              <PropertyRef Name="GroupID" />
-            </Principal>
-            <Dependent Role="ExcludeCoupon">
-              <PropertyRef Name="GroupID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1394,7 +1300,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ORDERDETAILS_FK1">
-          <End Type="EcommerceModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="EcommerceModel.Order" Role="Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
@@ -1406,7 +1314,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ORDERDETAILS_FK2">
-          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
@@ -1418,7 +1328,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK2">
-          <End Type="EcommerceModel.Payment" Role="Payment" Multiplicity="1" />
+          <End Type="EcommerceModel.Payment" Role="Payment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Payment">
@@ -1430,7 +1342,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK3">
-          <End Type="EcommerceModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="EcommerceModel.Province" Role="Province" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Province">
@@ -1442,7 +1356,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK5">
-          <End Type="EcommerceModel.Ward" Role="Ward" Multiplicity="1" />
+          <End Type="EcommerceModel.Ward" Role="Ward" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ward">
@@ -1454,7 +1370,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK6">
-          <End Type="EcommerceModel.OrderStatus" Role="OrderStatus" Multiplicity="1" />
+          <End Type="EcommerceModel.OrderStatus" Role="OrderStatus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrderStatus">
@@ -1466,7 +1384,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Orders_FK7">
-          <End Type="EcommerceModel.ShippingStatus" Role="ShippingStatus" Multiplicity="1" />
+          <End Type="EcommerceModel.ShippingStatus" Role="ShippingStatus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShippingStatus">
@@ -1560,26 +1480,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Coupons">
-            <EntityTypeMapping TypeName="EcommerceModel.Coupon">
-              <MappingFragment StoreEntitySet="Coupons">
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="Indefinite" ColumnName="Indefinite" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="FreeShip" ColumnName="FreeShip" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="CouponID" ColumnName="CouponID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="EcommerceModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="WardID" ColumnName="WardID" />
@@ -1588,7 +1492,7 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Passwrord" ColumnName="Passwrord" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="GoogleID" ColumnName="GoogleID" />
                 <ScalarProperty Name="FacebookID" ColumnName="FacebookID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -1602,15 +1506,6 @@
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
                 <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ExcludeCoupons">
-            <EntityTypeMapping TypeName="EcommerceModel.ExcludeCoupon">
-              <MappingFragment StoreEntitySet="ExcludeCoupons">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
-                <ScalarProperty Name="CouponID" ColumnName="CouponID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

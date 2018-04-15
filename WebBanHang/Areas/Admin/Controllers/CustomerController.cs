@@ -21,7 +21,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Load(int start, int length)
         {
             var search = Request["search[value]"];
-            var customers = Repository.Customer.FetchAll().OrderByDescending(c=>c.RegistrationDate).AsQueryable();
+            var customers = Repository.Customer.FetchAll().OrderByDescending(c=>c.CreatedAt).AsQueryable();
 
             if (!String.IsNullOrEmpty(search))
             {

@@ -30,10 +30,8 @@ namespace WebBanHang.Models
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<Configuration> Configurations { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
-        public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<District> Districts { get; set; }
-        public virtual DbSet<ExcludeCoupon> ExcludeCoupons { get; set; }
         public virtual DbSet<GroupProduct> GroupProducts { get; set; }
         public virtual DbSet<ImageProduct> ImageProducts { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }

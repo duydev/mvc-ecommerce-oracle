@@ -38,10 +38,10 @@ namespace WebBanHang.Controllers
             {
                 Customer customer = new Customer { 
                     Email = model.Email,
-                    Passwrord=EncryptUtils.MD5(model.Password),
+                    Password=EncryptUtils.MD5(model.Password),
                     FullName = model.FullName,
-                    Status = false,
-                    RegistrationDate = DateTime.Now
+                    Status = true,
+                    CreatedAt = DateTime.Now
                 };
                 customer = Repository.Customer.Insert(customer);
                 Repository.Customer.SaveChanges();
@@ -75,7 +75,7 @@ namespace WebBanHang.Controllers
             {
                 ModelState.AddModelError("Email", "Email không tồn tại");
             }
-            if (customer != null && !EncryptUtils.PwdCompare(model.Password, customer.Passwrord))
+            if (customer != null && !EncryptUtils.PwdCompare(model.Password, customer.Password))
             {
                 ModelState.AddModelError("Password", "Mật khẩu không chính xác");
             }
@@ -181,7 +181,7 @@ namespace WebBanHang.Controllers
                             Email = me.email,
                             FullName = me.name,
                             Status = true,
-                            RegistrationDate = DateTime.Now
+                            CreatedAt = DateTime.Now
                         };
                         customer = Repository.Customer.Insert(customer);
                         Repository.Customer.SaveChanges();
