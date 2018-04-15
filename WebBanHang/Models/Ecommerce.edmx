@@ -9,22 +9,22 @@
           <Key>
             <PropertyRef Name="AttrGroupID" />
           </Key>
-          <Property Name="AttrGroupID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AttrGroupID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="AttrGroupName" Type="nvarchar2" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Attributes">
           <Key>
             <PropertyRef Name="AttrID" />
           </Key>
-          <Property Name="AttrID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="AttrGroupID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="AttrID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="AttrGroupID" Type="number" Precision="10" Scale="0" />
           <Property Name="AttrName" Type="nvarchar2" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Colors">
           <Key>
             <PropertyRef Name="ColorID" />
           </Key>
-          <Property Name="ColorID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ColorID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ColorName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="HexCode" Type="varchar2" MaxLength="6" Nullable="false" />
         </EntityType>
@@ -32,7 +32,7 @@
           <Key>
             <PropertyRef Name="ConfigName" />
           </Key>
-          <Property Name="ConfigName" Type="varchar2" MaxLength="30" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ConfigName" Type="varchar2" MaxLength="30" Nullable="false" />
           <Property Name="Value" Type="nvarchar2" MaxLength="255" Nullable="false" />
           <Property Name="Description" Type="nvarchar2" MaxLength="255" />
         </EntityType>
@@ -67,7 +67,7 @@
           <Key>
             <PropertyRef Name="CustomerID" />
           </Key>
-          <Property Name="CustomerID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="FacebookID" Type="varchar2" MaxLength="20" />
           <Property Name="GoogleID" Type="varchar2" MaxLength="20" />
           <Property Name="Passwrord" Type="varchar2" MaxLength="32" Nullable="false" />
@@ -86,7 +86,7 @@
           <Key>
             <PropertyRef Name="DistrictID" />
           </Key>
-          <Property Name="DistrictID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DistrictID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="DistrictName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="nvarchar2" MaxLength="50" Nullable="false" />
           <Property Name="ProvinceID" Type="number" Precision="10" Scale="0" Nullable="false" />
@@ -104,7 +104,7 @@
           <Key>
             <PropertyRef Name="GroupID" />
           </Key>
-          <Property Name="GroupID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="GroupName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="ParentGroupID" Type="number" Precision="10" Scale="0" />
           <Property Name="Icon" Type="varchar2" MaxLength="100" />
@@ -116,7 +116,7 @@
             <PropertyRef Name="ImageID" />
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="ImageID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImageID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Caption" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="ImagePath" Type="varchar2" MaxLength="255" Nullable="false" />
@@ -125,7 +125,7 @@
           <Key>
             <PropertyRef Name="MenuID" />
           </Key>
-          <Property Name="MenuID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MenuID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ParentMenuID" Type="number" Precision="10" Scale="0" />
           <Property Name="MenuName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Link" Type="varchar2" MaxLength="255" Nullable="false" />
@@ -137,7 +137,7 @@
           <Key>
             <PropertyRef Name="DetailID" />
           </Key>
-          <Property Name="DetailID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DetailID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="OrderID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Price" Type="number" Precision="10" Scale="2" Nullable="false" />
@@ -149,7 +149,7 @@
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="OrderID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="CustomerID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="PaymentID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="OrderDate" Type="date" Nullable="false" />
@@ -172,14 +172,14 @@
           <Key>
             <PropertyRef Name="OrderStatusID" />
           </Key>
-          <Property Name="OrderStatusID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderStatusID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="OrderStatusName" Type="nvarchar2" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Payments">
           <Key>
             <PropertyRef Name="PaymentID" />
           </Key>
-          <Property Name="PaymentID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="PaymentType" Type="varchar2" MaxLength="10" Nullable="false" />
           <Property Name="PaymentName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Active" Type="number" Precision="1" Scale="0" Nullable="false" />
@@ -207,7 +207,7 @@
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Price" Type="number" Precision="10" Scale="2" Nullable="false" />
           <Property Name="SalePrice" Type="number" Precision="10" Scale="2" Nullable="false" />
@@ -223,7 +223,7 @@
           <Key>
             <PropertyRef Name="ProvinceID" />
           </Key>
-          <Property Name="ProvinceID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProvinceID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ProvinceName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="nvarchar2" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -231,14 +231,14 @@
           <Key>
             <PropertyRef Name="ShippingStatusID" />
           </Key>
-          <Property Name="ShippingStatusID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShippingStatusID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ShippingName" Type="nvarchar2" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Username" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar2" MaxLength="32" Nullable="false" />
           <Property Name="FullName" Type="nvarchar2" MaxLength="200" Nullable="false" />
@@ -250,13 +250,13 @@
           <Key>
             <PropertyRef Name="WardID" />
           </Key>
-          <Property Name="WardID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WardID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="WardName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="nvarchar2" MaxLength="50" Nullable="false" />
           <Property Name="DistrictId" Type="number" Precision="10" Scale="0" Nullable="false" />
         </EntityType>
         <Association Name="Attributes_FK1">
-          <End Role="AttributeGroups" Type="Self.AttributeGroups" Multiplicity="1">
+          <End Role="AttributeGroups" Type="Self.AttributeGroups" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Attributes" Type="Self.Attributes" Multiplicity="*" />
@@ -735,6 +735,7 @@
           <EntitySet Name="Attributes" EntityType="EcommerceModel.Attribute" />
           <EntitySet Name="Colors" EntityType="EcommerceModel.Color" />
           <EntitySet Name="Configurations" EntityType="EcommerceModel.Configuration" />
+          <EntitySet Name="Contacts" EntityType="EcommerceModel.Contact" />
           <EntitySet Name="Coupons" EntityType="EcommerceModel.Coupon" />
           <EntitySet Name="Customers" EntityType="EcommerceModel.Customer" />
           <EntitySet Name="Districts" EntityType="EcommerceModel.District" />
@@ -751,6 +752,7 @@
           <EntitySet Name="Products" EntityType="EcommerceModel.Product" />
           <EntitySet Name="Provinces" EntityType="EcommerceModel.Province" />
           <EntitySet Name="ShippingStatuses" EntityType="EcommerceModel.ShippingStatus" />
+          <EntitySet Name="Users" EntityType="EcommerceModel.User" />
           <EntitySet Name="Wards" EntityType="EcommerceModel.Ward" />
           <AssociationSet Name="Attributes_FK1" Association="EcommerceModel.Attributes_FK1">
             <End Role="AttributeGroup" EntitySet="AttributeGroups" />
@@ -767,6 +769,10 @@
           <AssociationSet Name="ProductColors_FK2" Association="EcommerceModel.ProductColors_FK2">
             <End Role="Color" EntitySet="Colors" />
             <End Role="ProductColor" EntitySet="ProductColors" />
+          </AssociationSet>
+          <AssociationSet Name="Contacts_FK1" Association="EcommerceModel.Contacts_FK1">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Contact" EntitySet="Contacts" />
           </AssociationSet>
           <AssociationSet Name="ExcludeCoupons_FK2" Association="EcommerceModel.ExcludeCoupons_FK2">
             <End Role="Coupon" EntitySet="Coupons" />
@@ -856,43 +862,30 @@
             <End Role="Product" EntitySet="Products" />
             <End Role="ProductColor" EntitySet="ProductColors" />
           </AssociationSet>
-          <EntitySet Name="Users" EntityType="EcommerceModel.User" />
-          <AssociationSet Name="Attributes_FK11" Association="EcommerceModel.Attributes_FK11">
-            <End Role="AttributeGroup" EntitySet="AttributeGroups" />
-            <End Role="Attribute" EntitySet="Attributes" />
-          </AssociationSet>
-          <EntitySet Name="Contacts" EntityType="EcommerceModel.Contact" />
-          <AssociationSet Name="Contacts_FK1" Association="EcommerceModel.Contacts_FK1">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Contact" EntitySet="Contacts" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AttributeGroup">
           <Key>
             <PropertyRef Name="AttrGroupID" />
           </Key>
-          <Property Name="AttrGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttrGroupID" Type="Int32" Nullable="false" />
           <Property Name="AttrGroupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Attributes" Relationship="EcommerceModel.Attributes_FK1" FromRole="AttributeGroup" ToRole="Attribute" />
-          <NavigationProperty Name="Attributes1" Relationship="EcommerceModel.Attributes_FK11" FromRole="AttributeGroup" ToRole="Attribute" />
         </EntityType>
         <EntityType Name="Attribute">
           <Key>
             <PropertyRef Name="AttrID" />
           </Key>
-          <Property Name="AttrID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttrID" Type="Int32" Nullable="false" />
+          <Property Name="AttrGroupID" Type="Int32" />
           <Property Name="AttrName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="AttriGroupID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AttributeGroup" Relationship="EcommerceModel.Attributes_FK1" FromRole="Attribute" ToRole="AttributeGroup" />
           <NavigationProperty Name="ProductAttributes" Relationship="EcommerceModel.ProductAttributes_FK2" FromRole="Attribute" ToRole="ProductAttribute" />
-          <Property Name="AttrGroupID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AttributeGroup1" Relationship="EcommerceModel.Attributes_FK11" FromRole="Attribute" ToRole="AttributeGroup" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
             <PropertyRef Name="ColorID" />
           </Key>
-          <Property Name="ColorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorID" Type="Int32" Nullable="false" />
           <Property Name="ColorName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="HexCode" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="OrderDetails" Relationship="EcommerceModel.ORDERDETAILS_FK3" FromRole="Color" ToRole="OrderDetail" />
@@ -902,9 +895,23 @@
           <Key>
             <PropertyRef Name="ConfigName" />
           </Key>
-          <Property Name="ConfigName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConfigName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Value" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Seen" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <NavigationProperty Name="Customer" Relationship="EcommerceModel.Contacts_FK1" FromRole="Contact" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Coupon">
           <Key>
@@ -925,7 +932,7 @@
           <Key>
             <PropertyRef Name="CustomerID" />
           </Key>
-          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
           <Property Name="FacebookID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="GoogleID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Passwrord" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
@@ -939,17 +946,17 @@
           <Property Name="Status" Type="Boolean" Nullable="false" />
           <Property Name="VerificationCode" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="EcommerceModel.Contacts_FK1" FromRole="Customer" ToRole="Contact" />
           <NavigationProperty Name="Province" Relationship="EcommerceModel.Customers_FK1" FromRole="Customer" ToRole="Province" />
           <NavigationProperty Name="District" Relationship="EcommerceModel.Customers_FK2" FromRole="Customer" ToRole="District" />
           <NavigationProperty Name="Ward" Relationship="EcommerceModel.Customers_FK3" FromRole="Customer" ToRole="Ward" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK1" FromRole="Customer" ToRole="Order" />
-          <NavigationProperty Name="Contacts" Relationship="EcommerceModel.Contacts_FK1" FromRole="Customer" ToRole="Contact" />
         </EntityType>
         <EntityType Name="District">
           <Key>
             <PropertyRef Name="DistrictID" />
           </Key>
-          <Property Name="DistrictID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistrictID" Type="Int32" Nullable="false" />
           <Property Name="DistrictName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProvinceID" Type="Int32" Nullable="false" />
@@ -973,23 +980,23 @@
           <Key>
             <PropertyRef Name="GroupID" />
           </Key>
-          <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
           <Property Name="GroupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ParentGroupID" Type="Int32" />
           <Property Name="Icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ExcludeCoupons" Relationship="EcommerceModel.ExcludeCoupons_FK1" FromRole="GroupProduct" ToRole="ExcludeCoupon" />
           <NavigationProperty Name="GroupProducts1" Relationship="EcommerceModel.GroupProducts_FK1" FromRole="GroupProduct" ToRole="GroupProduct1" />
           <NavigationProperty Name="GroupProduct1" Relationship="EcommerceModel.GroupProducts_FK1" FromRole="GroupProduct1" ToRole="GroupProduct" />
           <NavigationProperty Name="Products" Relationship="EcommerceModel.Products_FK1" FromRole="GroupProduct" ToRole="Product" />
-          <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ImageProduct">
           <Key>
             <PropertyRef Name="ImageID" />
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageID" Type="Int32" Nullable="false" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Caption" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -999,7 +1006,7 @@
           <Key>
             <PropertyRef Name="MenuID" />
           </Key>
-          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
           <Property Name="ParentMenuID" Type="Int32" />
           <Property Name="MenuName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Link" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -1013,7 +1020,7 @@
           <Key>
             <PropertyRef Name="DetailID" />
           </Key>
-          <Property Name="DetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DetailID" Type="Int32" Nullable="false" />
           <Property Name="OrderID" Type="Int32" Nullable="false" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
@@ -1028,7 +1035,7 @@
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
           <Property Name="CustomerID" Type="Int32" Nullable="false" />
           <Property Name="PaymentID" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" />
@@ -1059,7 +1066,7 @@
           <Key>
             <PropertyRef Name="OrderStatusID" />
           </Key>
-          <Property Name="OrderStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
           <Property Name="OrderStatusName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK6" FromRole="OrderStatus" ToRole="Order" />
         </EntityType>
@@ -1067,7 +1074,7 @@
           <Key>
             <PropertyRef Name="PaymentID" />
           </Key>
-          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentID" Type="Int32" Nullable="false" />
           <Property Name="PaymentType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="PaymentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
@@ -1090,7 +1097,7 @@
             <PropertyRef Name="ProductID" />
             <PropertyRef Name="ColorID" />
           </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="ColorID" Type="Int32" Nullable="false" />
           <Property Name="Stock" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Color" Relationship="EcommerceModel.ProductColors_FK2" FromRole="ProductColor" ToRole="Color" />
@@ -1100,7 +1107,7 @@
           <Key>
             <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
@@ -1110,18 +1117,18 @@
           <Property Name="CreateDate" Type="DateTime" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="Detail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="GroupProduct" Relationship="EcommerceModel.Products_FK1" FromRole="Product" ToRole="GroupProduct" />
           <NavigationProperty Name="ImageProducts" Relationship="EcommerceModel.ImageProducts_FK1" FromRole="Product" ToRole="ImageProduct" />
           <NavigationProperty Name="OrderDetails" Relationship="EcommerceModel.ORDERDETAILS_FK2" FromRole="Product" ToRole="OrderDetail" />
           <NavigationProperty Name="ProductAttributes" Relationship="EcommerceModel.ProductAttributes_FK1" FromRole="Product" ToRole="ProductAttribute" />
           <NavigationProperty Name="ProductColors" Relationship="EcommerceModel.ProductColors_FK1" FromRole="Product" ToRole="ProductColor" />
-          <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Province">
           <Key>
             <PropertyRef Name="ProvinceID" />
           </Key>
-          <Property Name="ProvinceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProvinceID" Type="Int32" Nullable="false" />
           <Property Name="ProvinceName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customers" Relationship="EcommerceModel.Customers_FK1" FromRole="Province" ToRole="Customer" />
@@ -1132,15 +1139,27 @@
           <Key>
             <PropertyRef Name="ShippingStatusID" />
           </Key>
-          <Property Name="ShippingStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShippingStatusID" Type="Int32" Nullable="false" />
           <Property Name="ShippingName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK7" FromRole="ShippingStatus" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" />
         </EntityType>
         <EntityType Name="Ward">
           <Key>
             <PropertyRef Name="WardID" />
           </Key>
-          <Property Name="WardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WardID" Type="Int32" Nullable="false" />
           <Property Name="WardName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DistrictId" Type="Int32" Nullable="false" />
@@ -1149,19 +1168,23 @@
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK5" FromRole="Ward" ToRole="Order" />
         </EntityType>
         <Association Name="Attributes_FK1">
-          <End Type="EcommerceModel.AttributeGroup" Role="AttributeGroup" Multiplicity="1" />
+          <End Type="EcommerceModel.AttributeGroup" Role="AttributeGroup" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Attribute" Role="Attribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AttributeGroup">
               <PropertyRef Name="AttrGroupID" />
             </Principal>
             <Dependent Role="Attribute">
-              <PropertyRef Name="AttriGroupID" />
+              <PropertyRef Name="AttrGroupID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="ProductAttributes_FK2">
-          <End Type="EcommerceModel.Attribute" Role="Attribute" Multiplicity="1" />
+          <End Type="EcommerceModel.Attribute" Role="Attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.ProductAttribute" Role="ProductAttribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Attribute">
@@ -1185,7 +1208,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ProductColors_FK2">
-          <End Type="EcommerceModel.Color" Role="Color" Multiplicity="1" />
+          <End Type="EcommerceModel.Color" Role="Color" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.ProductColor" Role="ProductColor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
@@ -1193,6 +1218,18 @@
             </Principal>
             <Dependent Role="ProductColor">
               <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Contacts_FK1">
+          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="EcommerceModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1317,7 +1354,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Products_FK1">
-          <End Type="EcommerceModel.GroupProduct" Role="GroupProduct" Multiplicity="1" />
+          <End Type="EcommerceModel.GroupProduct" Role="GroupProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GroupProduct">
@@ -1329,7 +1368,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ImageProducts_FK1">
-          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.ImageProduct" Role="ImageProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
@@ -1437,7 +1478,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ProductAttributes_FK1">
-          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.ProductAttribute" Role="ProductAttribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
@@ -1449,7 +1492,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ProductColors_FK1">
-          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="EcommerceModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="EcommerceModel.ProductColor" Role="ProductColor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
@@ -1457,58 +1502,6 @@
             </Principal>
             <Dependent Role="ProductColor">
               <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Boolean" Nullable="true" />
-          <Property Name="CreatedAt" Type="DateTime" Nullable="true" />
-        </EntityType>
-        <Association Name="Attributes_FK11">
-          <End Type="EcommerceModel.AttributeGroup" Role="AttributeGroup" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="EcommerceModel.Attribute" Role="Attribute" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AttributeGroup">
-              <PropertyRef Name="AttrGroupID" />
-            </Principal>
-            <Dependent Role="Attribute">
-              <PropertyRef Name="AttrGroupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="ContactID" />
-          </Key>
-          <Property Name="ContactID" Type="Int32" Nullable="false" />
-          <Property Name="CustomerID" Type="Int32" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Seen" Type="Boolean" />
-          <Property Name="CreatedAt" Type="DateTime" />
-          <NavigationProperty Name="Customer" Relationship="EcommerceModel.Contacts_FK1" FromRole="Contact" ToRole="Customer" />
-        </EntityType>
-        <Association Name="Contacts_FK1">
-          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="EcommerceModel.Contact" Role="Contact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Contact">
-              <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1529,8 +1522,8 @@
           <EntitySetMapping Name="Attributes">
             <EntityTypeMapping TypeName="EcommerceModel.Attribute">
               <MappingFragment StoreEntitySet="Attributes">
-                <ScalarProperty Name="AttrGroupID" ColumnName="AttrGroupID" />
                 <ScalarProperty Name="AttrName" ColumnName="AttrName" />
+                <ScalarProperty Name="AttrGroupID" ColumnName="AttrGroupID" />
                 <ScalarProperty Name="AttrID" ColumnName="AttrID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1550,6 +1543,20 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="ConfigName" ColumnName="ConfigName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="EcommerceModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Seen" ColumnName="Seen" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1750,16 +1757,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Wards">
-            <EntityTypeMapping TypeName="EcommerceModel.Ward">
-              <MappingFragment StoreEntitySet="Wards">
-                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="WardName" ColumnName="WardName" />
-                <ScalarProperty Name="WardID" ColumnName="WardID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="EcommerceModel.User">
               <MappingFragment StoreEntitySet="Users">
@@ -1773,17 +1770,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Contacts">
-            <EntityTypeMapping TypeName="EcommerceModel.Contact">
-              <MappingFragment StoreEntitySet="Contacts">
-                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
-                <ScalarProperty Name="Seen" ColumnName="Seen" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <EntitySetMapping Name="Wards">
+            <EntityTypeMapping TypeName="EcommerceModel.Ward">
+              <MappingFragment StoreEntitySet="Wards">
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="WardName" ColumnName="WardName" />
+                <ScalarProperty Name="WardID" ColumnName="WardID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

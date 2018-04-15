@@ -29,6 +29,7 @@ namespace WebBanHang.Models
         public virtual DbSet<Attribute> Attributes { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<Configuration> Configurations { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<District> Districts { get; set; }
@@ -45,8 +46,7 @@ namespace WebBanHang.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
         public virtual DbSet<ShippingStatus> ShippingStatuses { get; set; }
-        public virtual DbSet<Ward> Wards { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<Ward> Wards { get; set; }
     }
 }

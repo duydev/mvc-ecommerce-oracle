@@ -208,7 +208,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 return Content(String.Format("<option value=\"\">Chọn thuộc tính</option>"));
             }
-            var listAttr = Repository.Create<WebBanHang.Models.Attribute>().FetchAll().Where(a => a.AttriGroupID == id || a.AttriGroupID == null);
+            var listAttr = Repository.Create<WebBanHang.Models.Attribute>().FetchAll().Where(a => a.AttrGroupID == id || a.AttrGroupID == null);
             var pAttrs = Repository.Create<ProductAttribute>().FetchAll();
             StringBuilder builder = new StringBuilder();
             if (listAttr == null || (listAttr !=null && listAttr.Count() == 0)) {
@@ -575,7 +575,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 product_id = pAttr.ProductID,
                 attr_id = pAttr.AttrID,
-                attr_group = pAttr.Attribute.AttriGroupID,
+                attr_group = pAttr.Attribute.AttrGroupID,
                 attr_text = pAttr.Attribute.AttrName,
                 attr_value = pAttr.Value
             };

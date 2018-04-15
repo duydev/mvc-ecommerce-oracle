@@ -18,7 +18,6 @@ namespace WebBanHang.Models
         public AttributeGroup()
         {
             this.Attributes = new HashSet<Attribute>();
-            this.Attributes1 = new HashSet<Attribute>();
         }
     
         public int AttrGroupID { get; set; }
@@ -26,7 +25,5 @@ namespace WebBanHang.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attribute> Attributes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Attribute> Attributes1 { get; set; }
     }
 }

@@ -39,9 +39,9 @@ namespace WebBanHang.Controllers
             }
             var repo = Repository.Create<Contact>();
             var ip = Request.UserHostAddress;
-            var oldContact = repo.FetchAll().OrderByDescending(c=>c.Time).FirstOrDefault(c=>c.IP.Equals(ip));
+            var oldContact = repo.FetchAll().OrderByDescending(c=>c.CreatedAt).FirstOrDefault();
             if(oldContact != null){
-                var timeDelay = Math.Abs((DateTime.Now - oldContact.Time).TotalSeconds);
+                var timeDelay = Math.Abs((DateTime.Now - ((DateTime)oldContact.CreatedAt)).TotalSeconds);
                 if(timeDelay <= 60){
                     result.message = "Phát hiện gửi nhiều lần, vui lòng không được gửi nhiều lần cùng lúc";
                     return Content(JsonConvert.SerializeObject(result), "application/json");
@@ -53,8 +53,7 @@ namespace WebBanHang.Controllers
                 Email = model.Email,
                 Phone = model.Phone,
                 Message= model.Message,
-                IP = ip,
-                Time = DateTime.Now
+                CreatedAt = DateTime.Now
             };
             if (Request.IsAuthenticated) contact.CustomerID = UserManager.CurrentCustomer.CustomerID;
             

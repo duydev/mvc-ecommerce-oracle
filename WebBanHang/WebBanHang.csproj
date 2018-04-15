@@ -282,9 +282,6 @@
     <Compile Include="Models\Color.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Comment.cs">
-      <DependentUpon>Ecommerce.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Configuration.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>

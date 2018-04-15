@@ -21,13 +21,11 @@ namespace WebBanHang.Models
         }
     
         public int AttrID { get; set; }
+        public Nullable<int> AttrGroupID { get; set; }
         public string AttrName { get; set; }
-        public int AttriGroupID { get; set; }
-        public int AttrGroupID { get; set; }
     
         public virtual AttributeGroup AttributeGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductAttribute> ProductAttributes { get; set; }
-        public virtual AttributeGroup AttributeGroup1 { get; set; }
     }
 }

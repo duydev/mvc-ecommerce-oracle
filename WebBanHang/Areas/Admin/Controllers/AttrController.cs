@@ -26,20 +26,20 @@ namespace WebBanHang.Areas.Admin.Controllers
             var attrs = Repository.Create<WebBanHang.Models.Attribute>()
                                     .FetchAll()
                                     .Where(a => a.AttrName.ToLower().Contains(search))
-                                    .OrderBy(a=>a.AttriGroupID);
+                                    .OrderBy(a=>a.AttrGroupID);
             List<object> data = new List<object>();
             foreach (var attr in attrs)
             {
                 List<object> attrValue = new List<object>();
                 attrValue.Add(attr.AttrID);
                 attrValue.Add(attr.AttrName);
-                //if(attr.AttriGroupID == null)
+                //if(attr.AttrGroupID == null)
                 //    attrValue.Add("Nhóm chung");
                 //else
                 //    attrValue.Add(attr.AttributeGroup.AttrGroupName);
                 attrValue.Add(new { 
-                    group_id = (attr.AttriGroupID == null) ? 0 : attr.AttriGroupID,
-                    group_name = (attr.AttriGroupID == null)?"Nhóm chung":attr.AttributeGroup.AttrGroupName
+                    group_id = (attr.AttrGroupID == null) ? 0 : attr.AttrGroupID,
+                    group_name = (attr.AttrGroupID == null)?"Nhóm chung":attr.AttributeGroup.AttrGroupName
                 });
                 data.Add(attrValue);    
             }
@@ -124,8 +124,8 @@ namespace WebBanHang.Areas.Admin.Controllers
             result.data = new {
                 attr_id = attr.AttrID,
                 attr_name = attr.AttrName,
-                attr_group_id = attr.AttriGroupID,
-                attr_group_name = (attr.AttriGroupID == null) ? "" : attr.AttributeGroup.AttrGroupName
+                attr_group_id = attr.AttrGroupID,
+                attr_group_name = (attr.AttrGroupID == null) ? "" : attr.AttributeGroup.AttrGroupName
             };
             return Content(JsonConvert.SerializeObject(result), "application/json");
         }
@@ -167,7 +167,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
 
             oldAttr.AttrName = attr.AttrName;
-            oldAttr.AttriGroupID = attr.AttriGroupID;
+            oldAttr.AttrGroupID = attr.AttrGroupID;
             repo.SaveChanges();
             result.status = "success";
             result.title = "Chỉnh sửa thành công";
