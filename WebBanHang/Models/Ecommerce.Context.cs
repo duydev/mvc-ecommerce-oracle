@@ -49,9 +49,8 @@ namespace WebBanHang.Models
         public virtual DbSet<ProductColor> ProductColors { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<ShippingStatus> ShippingStatuses { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Ward> Wards { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

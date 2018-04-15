@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="EcommerceModel.Cart" Width="1.5" PointX="9.75" PointY="18.75" />
         <EntityTypeShape EntityType="EcommerceModel.Color" Width="1.5" PointX="12.75" PointY="9.875" />
         <EntityTypeShape EntityType="EcommerceModel.Comment" Width="1.5" PointX="12.75" PointY="13.625" />
-        <EntityTypeShape EntityType="EcommerceModel.Configuration" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EcommerceModel.Configuration" Width="1.5" PointX="17.125" PointY="0.5" />
         <EntityTypeShape EntityType="EcommerceModel.Contact" Width="1.5" PointX="9.75" PointY="21.625" />
         <EntityTypeShape EntityType="EcommerceModel.Coupon" Width="1.5" PointX="2.75" PointY="8" />
         <EntityTypeShape EntityType="EcommerceModel.Customer" Width="1.5" PointX="7.5" PointY="12.375" />
@@ -29,9 +29,7 @@
         <EntityTypeShape EntityType="EcommerceModel.ProductColor" Width="1.5" PointX="15" PointY="8.375" />
         <EntityTypeShape EntityType="EcommerceModel.Product" Width="1.5" PointX="10.5" PointY="6.75" />
         <EntityTypeShape EntityType="EcommerceModel.Province" Width="1.5" PointX="0.75" PointY="10.375" />
-        <EntityTypeShape EntityType="EcommerceModel.Role" Width="1.5" PointX="12.75" PointY="1.5" />
         <EntityTypeShape EntityType="EcommerceModel.ShippingStatus" Width="1.5" PointX="7.5" PointY="20.625" />
-        <EntityTypeShape EntityType="EcommerceModel.User" Width="1.5" PointX="15" PointY="1" />
         <EntityTypeShape EntityType="EcommerceModel.Ward" Width="1.5" PointX="5.25" PointY="17" />
         <AssociationConnector Association="EcommerceModel.Attributes_FK1" />
         <AssociationConnector Association="EcommerceModel.ProductAttributes_FK2" />
@@ -66,7 +64,7 @@
         <AssociationConnector Association="EcommerceModel.Orders_FK7" />
         <AssociationConnector Association="EcommerceModel.ProductAttributes_FK1" />
         <AssociationConnector Association="EcommerceModel.ProductColors_FK1" />
-        <AssociationConnector Association="EcommerceModel.UsersInRoles" />
+        <EntityTypeShape EntityType="EcommerceModel.User" Width="1.5" PointX="18.875" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

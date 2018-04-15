@@ -226,6 +226,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\SettingController.cs" />
     <Compile Include="Areas\Admin\Controllers\UploadController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppApiController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -360,9 +361,6 @@
     <Compile Include="Models\Province.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Role.cs">
-      <DependentUpon>Ecommerce.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ShippingStatus.cs">
       <DependentUpon>Ecommerce.tt</DependentUpon>
     </Compile>
@@ -388,6 +386,7 @@
     <Compile Include="ViewModels\AdminGroupProductViewModel.cs" />
     <Compile Include="ViewModels\AdminLoginViewModel.cs" />
     <Compile Include="ViewModels\AdminProductViewModel.cs" />
+    <Compile Include="ViewModels\AdminUserViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\ShippingViewModel.cs" />
@@ -983,6 +982,8 @@
     <Content Include="Models\Ecommerce.edmx.diagram">
       <DependentUpon>Ecommerce.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
     <None Include="Properties\PublishProfiles\hienlt0610.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

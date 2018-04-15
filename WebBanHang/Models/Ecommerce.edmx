@@ -78,7 +78,7 @@
           <Key>
             <PropertyRef Name="ConfigName" />
           </Key>
-          <Property Name="ConfigName" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="ConfigName" Type="varchar2" MaxLength="30" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Value" Type="nvarchar2" MaxLength="255" Nullable="false" />
           <Property Name="Description" Type="nvarchar2" MaxLength="255" />
         </EntityType>
@@ -274,13 +274,6 @@
           <Property Name="ProvinceName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="nvarchar2" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Roles">
-          <Key>
-            <PropertyRef Name="RoleID" />
-          </Key>
-          <Property Name="RoleID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="RoleName" Type="nvarchar2" MaxLength="100" Nullable="false" />
-        </EntityType>
         <EntityType Name="ShippingStatuses">
           <Key>
             <PropertyRef Name="ShippingStatusID" />
@@ -296,18 +289,9 @@
           <Property Name="Username" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar2" MaxLength="32" Nullable="false" />
           <Property Name="FullName" Type="nvarchar2" MaxLength="200" Nullable="false" />
-          <Property Name="IP" Type="varchar2" MaxLength="50" Nullable="false" />
-          <Property Name="Status" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="RegistrationDate" Type="date" Nullable="false" />
           <Property Name="Email" Type="varchar2" MaxLength="255" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UsersInRoles">
-          <Key>
-            <PropertyRef Name="Roles_RoleID" />
-            <PropertyRef Name="Users_UserID" />
-          </Key>
-          <Property Name="Roles_RoleID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="Users_UserID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="number" Precision="1" Scale="0" />
+          <Property Name="CreatedAt" Type="date" />
         </EntityType>
         <EntityType Name="Wards">
           <Key>
@@ -720,30 +704,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="UsersInRoles_FK1">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-          <End Role="UsersInRoles" Type="Self.UsersInRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Roles">
-              <PropertyRef Name="RoleID" />
-            </Principal>
-            <Dependent Role="UsersInRoles">
-              <PropertyRef Name="Roles_RoleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="UsersInRoles_FK2">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="UsersInRoles" Type="Self.UsersInRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="UsersInRoles">
-              <PropertyRef Name="Users_UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Wards_FK1">
           <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
           <End Role="Wards" Type="Self.Wards" Multiplicity="*" />
@@ -781,10 +741,8 @@
           <EntitySet Name="ProductColors" EntityType="Self.ProductColors" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="ECOMMERCE" store:Type="Tables" />
-          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="ShippingStatuses" EntityType="Self.ShippingStatuses" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="ECOMMERCE" store:Type="Tables" />
-          <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRoles" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Wards" EntityType="Self.Wards" Schema="ECOMMERCE" store:Type="Tables" />
           <AssociationSet Name="Attributes_FK1" Association="Self.Attributes_FK1">
             <End Role="AttributeGroups" EntitySet="AttributeGroups" />
@@ -914,14 +872,6 @@
             <End Role="GroupProducts" EntitySet="GroupProducts" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="UsersInRoles_FK1" Association="Self.UsersInRoles_FK1">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="UsersInRoles" EntitySet="UsersInRoles" />
-          </AssociationSet>
-          <AssociationSet Name="UsersInRoles_FK2" Association="Self.UsersInRoles_FK2">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="UsersInRoles" EntitySet="UsersInRoles" />
-          </AssociationSet>
           <AssociationSet Name="Wards_FK1" Association="Self.Wards_FK1">
             <End Role="Districts" EntitySet="Districts" />
             <End Role="Wards" EntitySet="Wards" />
@@ -956,9 +906,7 @@
           <EntitySet Name="ProductColors" EntityType="EcommerceModel.ProductColor" />
           <EntitySet Name="Products" EntityType="EcommerceModel.Product" />
           <EntitySet Name="Provinces" EntityType="EcommerceModel.Province" />
-          <EntitySet Name="Roles" EntityType="EcommerceModel.Role" />
           <EntitySet Name="ShippingStatuses" EntityType="EcommerceModel.ShippingStatus" />
-          <EntitySet Name="Users" EntityType="EcommerceModel.User" />
           <EntitySet Name="Wards" EntityType="EcommerceModel.Ward" />
           <AssociationSet Name="Attributes_FK1" Association="EcommerceModel.Attributes_FK1">
             <End Role="AttributeGroup" EntitySet="AttributeGroups" />
@@ -1092,10 +1040,7 @@
             <End Role="Product" EntitySet="Products" />
             <End Role="ProductColor" EntitySet="ProductColors" />
           </AssociationSet>
-          <AssociationSet Name="UsersInRoles" Association="EcommerceModel.UsersInRoles">
-            <End Role="Role" EntitySet="Roles" />
-            <End Role="User" EntitySet="Users" />
-          </AssociationSet>
+          <EntitySet Name="Users" EntityType="EcommerceModel.User" />
         </EntityContainer>
         <EntityType Name="Advertise">
           <Key>
@@ -1183,7 +1128,7 @@
           <Key>
             <PropertyRef Name="ConfigName" />
           </Key>
-          <Property Name="ConfigName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ConfigName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Value" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -1428,14 +1373,6 @@
           <NavigationProperty Name="Districts" Relationship="EcommerceModel.Districts_FK1" FromRole="Province" ToRole="District" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK3" FromRole="Province" ToRole="Order" />
         </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="RoleID" />
-          </Key>
-          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Users" Relationship="EcommerceModel.UsersInRoles" FromRole="Role" ToRole="User" />
-        </EntityType>
         <EntityType Name="ShippingStatus">
           <Key>
             <PropertyRef Name="ShippingStatusID" />
@@ -1443,20 +1380,6 @@
           <Property Name="ShippingStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ShippingName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK7" FromRole="ShippingStatus" ToRole="Order" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Boolean" Nullable="false" />
-          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Roles" Relationship="EcommerceModel.UsersInRoles" FromRole="User" ToRole="Role" />
         </EntityType>
         <EntityType Name="Ward">
           <Key>
@@ -1866,10 +1789,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="UsersInRoles">
-          <End Type="EcommerceModel.Role" Role="Role" Multiplicity="*" />
-          <End Type="EcommerceModel.User" Role="User" Multiplicity="*" />
-        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" Nullable="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2162,33 +2093,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="EcommerceModel.Role">
-              <MappingFragment StoreEntitySet="Roles">
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ShippingStatuses">
             <EntityTypeMapping TypeName="EcommerceModel.ShippingStatus">
               <MappingFragment StoreEntitySet="ShippingStatuses">
                 <ScalarProperty Name="ShippingName" ColumnName="ShippingName" />
                 <ScalarProperty Name="ShippingStatusID" ColumnName="ShippingStatusID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="EcommerceModel.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="IP" ColumnName="IP" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2202,14 +2111,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="UsersInRoles" TypeName="EcommerceModel.UsersInRoles" StoreEntitySet="UsersInRoles">
-            <EndProperty Name="User">
-              <ScalarProperty Name="UserID" ColumnName="Users_UserID" />
-            </EndProperty>
-            <EndProperty Name="Role">
-              <ScalarProperty Name="RoleID" ColumnName="Roles_RoleID" />
-            </EndProperty>
-          </AssociationSetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="EcommerceModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

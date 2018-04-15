@@ -13,6 +13,8 @@ namespace WebBanHang.Areas.Admin.Controllers
 {
     public class AdminBaseController : BaseController
     {
+        protected int userID = 0;
+
         protected override void OnAuthentication(System.Web.Mvc.Filters.AuthenticationContext filterContext)
         {
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName+"_ADMIN"];
@@ -27,6 +29,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 var principal = new UserPrincipal(identity);
                 principal.UserData = user;
                 filterContext.HttpContext.User = principal;
+                this.userID = userID;
             }
             else
             {
