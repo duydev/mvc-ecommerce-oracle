@@ -26,7 +26,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // GET: /Admin/Product/
         public ActionResult Index()
         {
-            var products = Repository.Product.FetchAll().OrderByDescending(m => m.CreateDate);
+            var products = Repository.Product.FetchAll().OrderByDescending(m => m.CreatedAt);
             return View(products.ToList());
         }
 
@@ -67,7 +67,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 model.Detail = HttpUtility.HtmlEncode(model.Detail);
                 var product = Mapper.Map<Product>(model);
-                product.CreateDate = DateTime.Now;
+                product.CreatedAt = DateTime.Now;
                 if (model.ProductColor.Count > 0)
                     product.UseMultiColor = true;
                 else

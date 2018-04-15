@@ -35,14 +35,14 @@ namespace WebBanHang.Areas.Admin.Controllers
             customers = customers.Skip(start).Take(length);
             List<object> data = new List<object>();
             foreach(var customer in customers){
-                var latest_order = customer.Orders.OrderByDescending(o=>o.OrderDate).FirstOrDefault();
+                var latest_order = customer.Orders.OrderByDescending(o=>o.CreatedAt).FirstOrDefault();
                 data.Add(new { 
                     customer_id = customer.CustomerID,
                     customer_name = customer.FullName,
                     customer_email = customer.Email,
                     order_num = customer.Orders.Count,
                     order_latest = (latest_order != null) ? latest_order.OrderID : 0,
-                    total_pay = customer.Orders.Where(o=>o.Paid).Sum(o=>o.TotalPrice)
+                    total_pay = customer.Orders.Where(o=>((Boolean)o.Paid)).Sum(o=>o.TotalPrice)
                 });
             }
 

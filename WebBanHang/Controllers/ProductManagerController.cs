@@ -46,7 +46,7 @@ namespace WebBanHang.Controllers
                 SalePrice = viewModel.SalePrice,
                 Stock = viewModel.Stock,
                 Active = viewModel.Active,
-                CreateDate = DateTime.Now
+                CreatedAt = DateTime.Now
             };
             var productRepo = Repository.Bind<ProductRepository>();
             Product insert = productRepo.Insert(product);

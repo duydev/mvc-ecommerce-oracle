@@ -26,7 +26,7 @@ namespace WebBanHang.Models
         public string Link { get; set; }
         public Nullable<int> Priority { get; set; }
         public string Label { get; set; }
-        public bool Hot { get; set; }
+        public Nullable<bool> Hot { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Menu> Menus1 { get; set; }

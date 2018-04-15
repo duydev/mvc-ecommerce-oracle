@@ -27,7 +27,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             Int32.TryParse(search,out orderIdSearch);
 
             var ordersFilter = orders
-                            .OrderByDescending(o => o.OrderDate)
+                            .OrderByDescending(o => o.CreatedAt)
                             .AsQueryable();
             if (!String.IsNullOrEmpty(search))
             {
@@ -62,7 +62,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 
                 //Trạng thái thanh toán
                 string text;
-                if (order.Paid)
+                if ((Boolean)order.Paid)
                 {
                     statusColor = "success";
                     text = "Đã thanh toán";
@@ -72,7 +72,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                     statusColor = "warning";
                     text = "Chưa thanh toán";
                 }
-                row.Add("<span data-pk='" + order.OrderID + "' data-value='" + (order.Paid ? 1 : 0) + "' class='label label-" + statusColor + " status-payment'>" + text + "</span>");
+                row.Add("<span data-pk='" + order.OrderID + "' data-value='" + (((Boolean)order.Paid) ? 1 : 0) + "' class='label label-" + statusColor + " status-payment'>" + text + "</span>");
 
                 //Trạng thái giao hàng
                 switch (order.ShippingStatusID)
@@ -93,7 +93,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
                 row.Add(order.Customer.FullName + "<br>("+order.Customer.Email+")");
                 row.Add(order.Payment.PaymentName);
-                row.Add(order.OrderDate.ToString("dd/M/yyyy hh:mm tt"));
+                row.Add(((DateTime)order.CreatedAt).ToString("dd/M/yyyy hh:mm tt"));
 
                 data.Add(row);
             }
@@ -126,7 +126,6 @@ namespace WebBanHang.Areas.Admin.Controllers
 
             foreach(var oProduct in order.OrderDetails){
                 data.Add(new {
-                    detail_id = oProduct.DetailID,
                     image_url = (oProduct.Product.ImageProducts.Count > 0) ? oProduct.Product.ImageProducts.FirstOrDefault().ImagePath : ImageHelper.DefaultImage(),
                     product_name = oProduct.Product.ProductName,
                     color = (oProduct.ColorID != null) ? "<span style=\"background-color: #"+oProduct.Color.HexCode+"\" class=\"label\">"+oProduct.Color.ColorName+"</span>" : "",
@@ -263,19 +262,15 @@ namespace WebBanHang.Areas.Admin.Controllers
             result.status = "error";
             result.title = "Loại bỏ thất bại";
             result.message = "";
-            if (orderDetail.DetailID == 0 || orderDetail.OrderID == 0)
-            {
-                result.message = "Thiếu thông số";
-                return Content(JsonConvert.SerializeObject(result),"application/json");
-            }
             var order = Repository.Order.FindById(orderDetail.OrderID);
             if (order == null)
             {
                 result.message = "Đơn đặt hàng không tồn tại";
                 return Content(JsonConvert.SerializeObject(result), "application/json");
             }
-            var oldDetail = order.OrderDetails.FirstOrDefault(o=>o.DetailID == orderDetail.DetailID);
-            if(oldDetail == null){
+            //var oldDetail = order.OrderDetails.FirstOrDefault(o=>o.DetailID == orderDetail.DetailID);
+            OrderDetail oldDetail = null;
+            if (oldDetail == null){
                 result.message = "Sản phẩm này không tồn tại trong đơn đặt hàng";
                 return Content(JsonConvert.SerializeObject(result), "application/json");
             }

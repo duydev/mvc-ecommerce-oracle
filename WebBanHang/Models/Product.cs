@@ -26,12 +26,12 @@ namespace WebBanHang.Models
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public decimal Price { get; set; }
-        public decimal SalePrice { get; set; }
+        public Nullable<decimal> SalePrice { get; set; }
         public int Stock { get; set; }
         public int GroupID { get; set; }
-        public bool UseMultiColor { get; set; }
-        public System.DateTime CreateDate { get; set; }
-        public bool Active { get; set; }
+        public Nullable<bool> UseMultiColor { get; set; }
+        public Nullable<System.DateTime> CreatedAt { get; set; }
+        public Nullable<bool> Active { get; set; }
         public string Detail { get; set; }
         public string Slug { get; set; }
     

@@ -63,7 +63,7 @@ namespace WebBanHang.Controllers
                 {
                     CustomerID = model.CustomerID,
                     PaymentID = model.PaymentMethod,
-                    OrderDate = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     FullName = model.FullName,
                     Address = model.Address,
                     ProvinceID = model.ProvinceID,
@@ -95,7 +95,7 @@ namespace WebBanHang.Controllers
                                 ProductID = cart.ProductID,
                                 Price = cart.Price,
                                 Quantity = (byte)cart.Quantity,
-                                ColorID = cart.ColorID,
+                                ColorID = ((int)cart.ColorID),
                                 Total = cart.TotalPrice
                             };
                             detailRepo.Insert(od);

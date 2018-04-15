@@ -23,7 +23,7 @@ namespace WebBanHang.Models
         public int OrderID { get; set; }
         public int CustomerID { get; set; }
         public int PaymentID { get; set; }
-        public System.DateTime OrderDate { get; set; }
+        public Nullable<System.DateTime> CreatedAt { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }
         public int ProvinceID { get; set; }
@@ -31,10 +31,9 @@ namespace WebBanHang.Models
         public int WardID { get; set; }
         public string Phone { get; set; }
         public decimal TotalPrice { get; set; }
-        public decimal Discount { get; set; }
-        public System.DateTime PaymentDate { get; set; }
-        public bool Paid { get; set; }
-        public string CouponCode { get; set; }
+        public Nullable<decimal> Discount { get; set; }
+        public Nullable<System.DateTime> PaymentDate { get; set; }
+        public Nullable<bool> Paid { get; set; }
         public int OrderStatusID { get; set; }
         public int ShippingStatusID { get; set; }
         public string Comment { get; set; }

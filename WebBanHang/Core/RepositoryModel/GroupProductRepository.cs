@@ -36,7 +36,7 @@ namespace WebBanHang.Core.RepositoryModel
 
         public List<Product> GetProductInGroups(int group, NameValueCollection filter)
         {
-            IEnumerable<Product> model = GetProductInGroups(group).OrderByDescending(item => item.CreateDate);
+            IEnumerable<Product> model = GetProductInGroups(group).OrderByDescending(item => item.CreatedAt);
 
             if (!String.IsNullOrEmpty(filter["color"]))
             {

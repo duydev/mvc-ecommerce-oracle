@@ -15,7 +15,7 @@ namespace WebBanHang.Core.RepositoryModel
         public List<Product> GetNewProduct(int number)
         {
             return FetchAll().Where(item => item.Active == true)
-                .OrderByDescending(item => item.CreateDate)
+                .OrderByDescending(item => item.CreatedAt)
                 .Take(number)
                 .ToList();
         }

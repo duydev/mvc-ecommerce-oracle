@@ -83,9 +83,9 @@
           <Property Name="GroupID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="GroupName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="ParentGroupID" Type="number" Precision="10" Scale="0" />
-          <Property Name="Icon" Type="varchar2" MaxLength="100" />
-          <Property Name="Priority" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="Slug" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="Icon" Type="varchar2" MaxLength="30" />
+          <Property Name="Priority" Type="number" Precision="10" Scale="0" />
+          <Property Name="Slug" Type="varchar2" MaxLength="150" Nullable="false" />
         </EntityType>
         <EntityType Name="ImageProducts">
           <Key>
@@ -107,18 +107,18 @@
           <Property Name="Link" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="Priority" Type="number" Precision="10" Scale="0" />
           <Property Name="Label" Type="nvarchar2" MaxLength="100" />
-          <Property Name="Hot" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="Hot" Type="number" Precision="1" Scale="0" />
         </EntityType>
         <EntityType Name="OrderDetails">
           <Key>
-            <PropertyRef Name="DetailID" />
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="DetailID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="OrderID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Price" Type="number" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Quantity" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="ColorID" Type="number" Precision="10" Scale="0" />
+          <Property Name="ColorID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Total" Type="number" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Orders">
@@ -128,7 +128,7 @@
           <Property Name="OrderID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="CustomerID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="PaymentID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="OrderDate" Type="date" Nullable="false" />
+          <Property Name="CreatedAt" Type="date" />
           <Property Name="FullName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Address" Type="nvarchar2" MaxLength="255" Nullable="false" />
           <Property Name="ProvinceID" Type="number" Precision="10" Scale="0" Nullable="false" />
@@ -136,10 +136,9 @@
           <Property Name="WardID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Phone" Type="varchar2" MaxLength="15" Nullable="false" />
           <Property Name="TotalPrice" Type="number" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Discount" Type="number" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="PaymentDate" Type="date" Nullable="false" />
-          <Property Name="Paid" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="CouponCode" Type="varchar2" MaxLength="10" />
+          <Property Name="Discount" Type="number" Precision="10" Scale="2" />
+          <Property Name="PaymentDate" Type="date" />
+          <Property Name="Paid" Type="number" Precision="1" Scale="0" />
           <Property Name="OrderStatusID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ShippingStatusID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Comment" Type="nclob" />
@@ -158,7 +157,7 @@
           <Property Name="PaymentID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="PaymentType" Type="varchar2" MaxLength="10" Nullable="false" />
           <Property Name="PaymentName" Type="nvarchar2" MaxLength="100" Nullable="false" />
-          <Property Name="Active" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="Active" Type="number" Precision="1" Scale="0" />
         </EntityType>
         <EntityType Name="ProductAttributes">
           <Key>
@@ -168,7 +167,7 @@
           <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="AttrID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Value" Type="nvarchar2" MaxLength="200" Nullable="false" />
-          <Property Name="Priority" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Priority" Type="number" Precision="10" Scale="0" />
         </EntityType>
         <EntityType Name="ProductColors">
           <Key>
@@ -186,12 +185,12 @@
           <Property Name="ProductID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Price" Type="number" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="SalePrice" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SalePrice" Type="number" Precision="10" Scale="2" />
           <Property Name="Stock" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="GroupID" Type="number" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="UseMultiColor" Type="number" Precision="1" Scale="0" Nullable="false" />
-          <Property Name="CreateDate" Type="date" Nullable="false" />
-          <Property Name="Active" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="UseMultiColor" Type="number" Precision="1" Scale="0" />
+          <Property Name="CreatedAt" Type="date" />
+          <Property Name="Active" Type="number" Precision="1" Scale="0" />
           <Property Name="Detail" Type="nclob" Nullable="false" />
           <Property Name="Slug" Type="varchar2" MaxLength="255" Nullable="false" />
         </EntityType>
@@ -217,7 +216,7 @@
           <Property Name="UserID" Type="number" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Username" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar2" MaxLength="32" Nullable="false" />
-          <Property Name="FullName" Type="nvarchar2" MaxLength="200" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Email" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="Status" Type="number" Precision="1" Scale="0" />
           <Property Name="CreatedAt" Type="date" />
@@ -372,7 +371,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ORDERDETAILS_FK3">
-          <End Role="Colors" Type="Self.Colors" Multiplicity="0..1">
+          <End Role="Colors" Type="Self.Colors" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
@@ -908,9 +907,9 @@
           <Property Name="GroupID" Type="Int32" Nullable="false" />
           <Property Name="GroupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ParentGroupID" Type="Int32" />
-          <Property Name="Icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Priority" Type="Int32" Nullable="false" />
-          <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="Slug" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="GroupProducts1" Relationship="EcommerceModel.GroupProducts_FK1" FromRole="GroupProduct" ToRole="GroupProduct1" />
           <NavigationProperty Name="GroupProduct1" Relationship="EcommerceModel.GroupProducts_FK1" FromRole="GroupProduct1" ToRole="GroupProduct" />
           <NavigationProperty Name="Products" Relationship="EcommerceModel.Products_FK1" FromRole="GroupProduct" ToRole="Product" />
@@ -936,20 +935,20 @@
           <Property Name="Link" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Priority" Type="Int32" />
           <Property Name="Label" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Hot" Type="Boolean" Nullable="false" />
+          <Property Name="Hot" Type="Boolean" />
           <NavigationProperty Name="Menus1" Relationship="EcommerceModel.Menus_FK1" FromRole="Menu" ToRole="Menu1" />
           <NavigationProperty Name="Menu1" Relationship="EcommerceModel.Menus_FK1" FromRole="Menu1" ToRole="Menu" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
-            <PropertyRef Name="DetailID" />
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="ProductID" />
           </Key>
-          <Property Name="DetailID" Type="Int32" Nullable="false" />
           <Property Name="OrderID" Type="Int32" Nullable="false" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="ColorID" Type="Int32" />
+          <Property Name="ColorID" Type="Int32" Nullable="false" />
           <Property Name="Total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <NavigationProperty Name="Color" Relationship="EcommerceModel.ORDERDETAILS_FK3" FromRole="OrderDetail" ToRole="Color" />
           <NavigationProperty Name="Order" Relationship="EcommerceModel.ORDERDETAILS_FK1" FromRole="OrderDetail" ToRole="Order" />
@@ -962,7 +961,7 @@
           <Property Name="OrderID" Type="Int32" Nullable="false" />
           <Property Name="CustomerID" Type="Int32" Nullable="false" />
           <Property Name="PaymentID" Type="Int32" Nullable="false" />
-          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" />
           <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ProvinceID" Type="Int32" Nullable="false" />
@@ -970,10 +969,9 @@
           <Property Name="WardID" Type="Int32" Nullable="false" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="Discount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="PaymentDate" Type="DateTime" Nullable="false" />
-          <Property Name="Paid" Type="Boolean" Nullable="false" />
-          <Property Name="CouponCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Discount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PaymentDate" Type="DateTime" />
+          <Property Name="Paid" Type="Boolean" />
           <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
           <Property Name="ShippingStatusID" Type="Int32" Nullable="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1001,7 +999,7 @@
           <Property Name="PaymentID" Type="Int32" Nullable="false" />
           <Property Name="PaymentType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="PaymentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK2" FromRole="Payment" ToRole="Order" />
         </EntityType>
         <EntityType Name="ProductAttribute">
@@ -1012,7 +1010,7 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="AttrID" Type="Int32" Nullable="false" />
           <Property Name="Value" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="Priority" Type="Int32" />
           <NavigationProperty Name="Attribute" Relationship="EcommerceModel.ProductAttributes_FK2" FromRole="ProductAttribute" ToRole="Attribute" />
           <NavigationProperty Name="Product" Relationship="EcommerceModel.ProductAttributes_FK1" FromRole="ProductAttribute" ToRole="Product" />
         </EntityType>
@@ -1034,12 +1032,12 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="SalePrice" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="Stock" Type="Int32" Nullable="false" />
           <Property Name="GroupID" Type="Int32" Nullable="false" />
-          <Property Name="UseMultiColor" Type="Boolean" Nullable="false" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="UseMultiColor" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="Active" Type="Boolean" />
           <Property Name="Detail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Slug" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="GroupProduct" Relationship="EcommerceModel.Products_FK1" FromRole="Product" ToRole="GroupProduct" />
@@ -1074,7 +1072,7 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedAt" Type="DateTime" />
@@ -1120,7 +1118,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ORDERDETAILS_FK3">
-          <End Type="EcommerceModel.Color" Role="Color" Multiplicity="0..1">
+          <End Type="EcommerceModel.Color" Role="Color" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="EcommerceModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
@@ -1553,7 +1551,6 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="DetailID" ColumnName="DetailID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1563,7 +1560,6 @@
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="ShippingStatusID" ColumnName="ShippingStatusID" />
                 <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
-                <ScalarProperty Name="CouponCode" ColumnName="CouponCode" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
                 <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
@@ -1574,7 +1570,7 @@
                 <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
@@ -1624,7 +1620,7 @@
                 <ScalarProperty Name="Slug" ColumnName="Slug" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="UseMultiColor" ColumnName="UseMultiColor" />
                 <ScalarProperty Name="GroupID" ColumnName="GroupID" />
                 <ScalarProperty Name="Stock" ColumnName="Stock" />

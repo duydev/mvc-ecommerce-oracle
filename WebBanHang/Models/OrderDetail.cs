@@ -14,12 +14,11 @@ namespace WebBanHang.Models
     
     public partial class OrderDetail
     {
-        public int DetailID { get; set; }
         public int OrderID { get; set; }
         public int ProductID { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
-        public Nullable<int> ColorID { get; set; }
+        public int ColorID { get; set; }
         public decimal Total { get; set; }
     
         public virtual Color Color { get; set; }
