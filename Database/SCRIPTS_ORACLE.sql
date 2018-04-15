@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - Friday-April-13-2018   
+--  File created - Sunday-April-15-2018   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence Advertises_SEQ
@@ -16,6 +16,11 @@
 --------------------------------------------------------
 
    CREATE SEQUENCE  "ECOMMERCE"."Attributes_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence Attributes_SEQ1
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "ECOMMERCE"."Attributes_SEQ1"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Carts_SEQ
 --------------------------------------------------------
@@ -45,7 +50,7 @@
 --  DDL for Sequence Customers_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Customers_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Customers_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Districts_SEQ
 --------------------------------------------------------
@@ -70,17 +75,17 @@
 --  DDL for Sequence OrderDetails_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."OrderDetails_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."OrderDetails_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence OrderStatuses_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."OrderStatuses_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."OrderStatuses_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Orders_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Orders_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Orders_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Payments_SEQ
 --------------------------------------------------------
@@ -105,34 +110,22 @@
 --  DDL for Sequence ShippingStatuses_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."ShippingStatuses_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."ShippingStatuses_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Users_SEQ
 --------------------------------------------------------
 
    CREATE SEQUENCE  "ECOMMERCE"."Users_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
+--  DDL for Sequence Users_SEQ1
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "ECOMMERCE"."Users_SEQ1"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
 --  DDL for Sequence Wards_SEQ
 --------------------------------------------------------
 
    CREATE SEQUENCE  "ECOMMERCE"."Wards_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
---------------------------------------------------------
---  DDL for Table Advertises
---------------------------------------------------------
-
-  CREATE TABLE "ECOMMERCE"."Advertises" 
-   (	"AdvertiseID" NUMBER(10,0), 
-	"AdvertiseName" NVARCHAR2(100), 
-	"Description" NVARCHAR2(255), 
-	"ImageUrl" NVARCHAR2(255), 
-	"Link" NVARCHAR2(255), 
-	"Width" NUMBER(10,0), 
-	"Height" NUMBER(10,0), 
-	"Position" VARCHAR2(20 BYTE), 
-	"Active" NUMBER(1,0)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Table AttributeGroups
 --------------------------------------------------------
@@ -151,8 +144,8 @@
 
   CREATE TABLE "ECOMMERCE"."Attributes" 
    (	"AttrID" NUMBER(10,0), 
-	"AttrName" NVARCHAR2(100), 
-	"AttriGroupID" NUMBER(10,0)
+	"AttrGroupID" NUMBER(10,0), 
+	"AttrName" NVARCHAR2(100)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -368,8 +361,10 @@
 	"Quantity" NUMBER(10,0), 
 	"ColorID" NUMBER(10,0), 
 	"Total" NUMBER(10,2)
-   ) SEGMENT CREATION DEFERRED 
+   ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Table OrderStatuses
@@ -378,8 +373,10 @@
   CREATE TABLE "ECOMMERCE"."OrderStatuses" 
    (	"OrderStatusID" NUMBER(10,0), 
 	"OrderStatusName" NVARCHAR2(100)
-   ) SEGMENT CREATION DEFERRED 
+   ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Table Orders
@@ -495,24 +492,16 @@
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Table Roles
---------------------------------------------------------
-
-  CREATE TABLE "ECOMMERCE"."Roles" 
-   (	"RoleID" NUMBER(10,0), 
-	"RoleName" NVARCHAR2(100)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
 --  DDL for Table ShippingStatuses
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."ShippingStatuses" 
    (	"ShippingStatusID" NUMBER(10,0), 
 	"ShippingName" NVARCHAR2(100)
-   ) SEGMENT CREATION DEFERRED 
+   ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Table Users
@@ -523,24 +512,13 @@
 	"Username" VARCHAR2(50 BYTE), 
 	"Password" VARCHAR2(32 BYTE), 
 	"FullName" NVARCHAR2(200), 
-	"IP" VARCHAR2(50 BYTE), 
-	"Status" NUMBER(1,0), 
-	"RegistrationDate" DATE, 
-	"Email" VARCHAR2(255 BYTE)
+	"Email" VARCHAR2(255 BYTE), 
+	"Status" NUMBER(1,0) DEFAULT 1, 
+	"CreatedAt" DATE DEFAULT sysdate
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table UsersInRoles
---------------------------------------------------------
-
-  CREATE TABLE "ECOMMERCE"."UsersInRoles" 
-   (	"Roles_RoleID" NUMBER(10,0), 
-	"Users_UserID" NUMBER(10,0)
-   ) SEGMENT CREATION DEFERRED 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Table Wards
@@ -556,14 +534,11 @@
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
-REM INSERTING into ECOMMERCE."Advertises"
-SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."AttributeGroups"
 SET DEFINE OFF;
 Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (23,'Giày');
 REM INSERTING into ECOMMERCE."Attributes"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Attributes" ("AttrID","AttrName","AttriGroupID") values (22,'Kích c?',23);
 REM INSERTING into ECOMMERCE."CartDetails"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Carts"
@@ -589,6 +564,7 @@ REM INSERTING into ECOMMERCE."Coupons"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Customers"
 SET DEFINE OFF;
+Insert into ECOMMERCE."Customers" ("CustomerID","FacebookID","GoogleID","Passwrord","FullName","Email","Address","ProvinceID","DistrictID","WardID","Phone","Status","VerificationCode","RegistrationDate") values (21,null,null,'0945fc9611f55fd0e183fb8b044f1afe','Duy cao','duy@admin.com','Ho CHi Minh',2,6,1,'0972721892',0,null,to_date('15/04/2018','DD/MM/YYYY'));
 Insert into ECOMMERCE."Customers" ("CustomerID","FacebookID","GoogleID","Passwrord","FullName","Email","Address","ProvinceID","DistrictID","WardID","Phone","Status","VerificationCode","RegistrationDate") values (1,null,null,'0945fc9611f55fd0e183fb8b044f1afe','Tr?n Nh?t Duy','duytn.hcm@gmail.com','55-57 Nguy?n V?n Giai',2,6,1,'0972721892',0,null,to_date('11/04/2018','DD/MM/YYYY'));
 REM INSERTING into ECOMMERCE."Districts"
 SET DEFINE OFF;
@@ -608,10 +584,14 @@ REM INSERTING into ECOMMERCE."Menus"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."OrderDetails"
 SET DEFINE OFF;
+Insert into ECOMMERCE."OrderDetails" ("DetailID","OrderID","ProductID","Price","Quantity","ColorID","Total") values (1,25,41,15,1,null,15);
 REM INSERTING into ECOMMERCE."OrderStatuses"
 SET DEFINE OFF;
+Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (1,'??n hàng m?i');
+Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (2,'Hoàn thành');
 REM INSERTING into ECOMMERCE."Orders"
 SET DEFINE OFF;
+Insert into ECOMMERCE."Orders" ("OrderID","CustomerID","PaymentID","OrderDate","FullName","Address","ProvinceID","DistrictID","WardID","Phone","TotalPrice","Discount","PaymentDate","Paid","CouponCode","OrderStatusID","ShippingStatusID") values (25,21,1,to_date('15/04/2018','DD/MM/YYYY'),'Duy cao','Ho CHi Minh',2,6,1,'0972721892',15,0,to_date('03/01/0001','DD/MM/YYYY'),1,null,2,1);
 REM INSERTING into ECOMMERCE."Payments"
 SET DEFINE OFF;
 Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (1,'cod','Thu h? COD',1);
@@ -631,15 +611,13 @@ Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (3
 Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (4,'TP H?i Phòng','1');
 Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (5,'TP ?à N?ng','1');
 Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (6,'TP C?n Th?','1');
-REM INSERTING into ECOMMERCE."Roles"
-SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."ShippingStatuses"
 SET DEFINE OFF;
+Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (1,'Ch?a giao hàng');
+Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (2,'?ã giao hàng');
 REM INSERTING into ECOMMERCE."Users"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Users" ("UserID","Username","Password","FullName",IP,"Status","RegistrationDate","Email") values (1,'admin','0945fc9611f55fd0e183fb8b044f1afe','Admin','127.0.0.1',1,to_date('25/04/2018','DD/MM/YYYY'),'admin@admin.com');
-REM INSERTING into ECOMMERCE."UsersInRoles"
-SET DEFINE OFF;
+Insert into ECOMMERCE."Users" ("UserID","Username","Password","FullName","Email","Status","CreatedAt") values (2,'admin','0945fc9611f55fd0e183fb8b044f1afe','Tr?n Nh?t Duy','admin@admin.com',1,to_date('14/04/2018','DD/MM/YYYY'));
 REM INSERTING into ECOMMERCE."Wards"
 SET DEFINE OFF;
 Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (1,'Ph??ng ?a Kao','1',6);
@@ -670,18 +648,13 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index Advertises_PK
---------------------------------------------------------
-
-  CREATE UNIQUE INDEX "ECOMMERCE"."Advertises_PK" ON "ECOMMERCE"."Advertises" ("AdvertiseID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
 --  DDL for Index OrderStatuses_PK
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "ECOMMERCE"."OrderStatuses_PK" ON "ECOMMERCE"."OrderStatuses" ("OrderStatusID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Index Users_UK1
@@ -747,7 +720,9 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "ECOMMERCE"."OrderDetails_PK" ON "ECOMMERCE"."OrderDetails" ("DetailID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Index Provinces_PK
@@ -800,13 +775,6 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index Roles_PK
---------------------------------------------------------
-
-  CREATE UNIQUE INDEX "ECOMMERCE"."Roles_PK" ON "ECOMMERCE"."Roles" ("RoleID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
 --  DDL for Index ProductAttributes_PK
 --------------------------------------------------------
 
@@ -823,13 +791,6 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index UsersInRoles_PK
---------------------------------------------------------
-
-  CREATE UNIQUE INDEX "ECOMMERCE"."UsersInRoles_PK" ON "ECOMMERCE"."UsersInRoles" ("Roles_RoleID", "Users_UserID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
-  TABLESPACE "USERS" ;
---------------------------------------------------------
 --  DDL for Index Users_PK
 --------------------------------------------------------
 
@@ -843,7 +804,9 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "ECOMMERCE"."ShippingStatuses_PK" ON "ECOMMERCE"."ShippingStatuses" ("ShippingStatusID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Index Districts_PK
@@ -907,23 +870,6 @@ Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Trigger Advertises_TRG
---------------------------------------------------------
-
-  CREATE OR REPLACE TRIGGER "ECOMMERCE"."Advertises_TRG" 
-BEFORE INSERT ON "Advertises" 
-FOR EACH ROW 
-BEGIN
-  <<COLUMN_SEQUENCES>>
-  BEGIN
-    IF INSERTING AND ( :NEW."AdvertiseID" IS NULL OR :NEW."AdvertiseID" = 0 ) THEN
-      SELECT "Advertises_SEQ".NEXTVAL INTO :NEW."AdvertiseID" FROM SYS.DUAL;
-    END IF;
-  END COLUMN_SEQUENCES;
-END;
-/
-ALTER TRIGGER "ECOMMERCE"."Advertises_TRG" ENABLE;
---------------------------------------------------------
 --  DDL for Trigger AttributeGroups_TRG
 --------------------------------------------------------
 
@@ -950,13 +896,28 @@ FOR EACH ROW
 BEGIN
   <<COLUMN_SEQUENCES>>
   BEGIN
-    IF INSERTING AND ( :NEW."AttrID" IS NULL OR :NEW."AttrID" = 0 ) THEN
-      SELECT "Attributes_SEQ".NEXTVAL INTO :NEW."AttrID" FROM SYS.DUAL;
-    END IF;
+    NULL;
   END COLUMN_SEQUENCES;
 END;
 /
 ALTER TRIGGER "ECOMMERCE"."Attributes_TRG" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger Attributes_TRG1
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "ECOMMERCE"."Attributes_TRG1" 
+BEFORE INSERT ON "Attributes" 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW."AttrID" IS NULL THEN
+      SELECT "Attributes_SEQ1".NEXTVAL INTO :NEW."AttrID" FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+/
+ALTER TRIGGER "ECOMMERCE"."Attributes_TRG1" ENABLE;
 --------------------------------------------------------
 --  DDL for Trigger Carts_TRG
 --------------------------------------------------------
@@ -1230,23 +1191,6 @@ END;
 /
 ALTER TRIGGER "ECOMMERCE"."Provinces_TRG" ENABLE;
 --------------------------------------------------------
---  DDL for Trigger Roles_TRG
---------------------------------------------------------
-
-  CREATE OR REPLACE TRIGGER "ECOMMERCE"."Roles_TRG" 
-BEFORE INSERT ON "Roles" 
-FOR EACH ROW 
-BEGIN
-  <<COLUMN_SEQUENCES>>
-  BEGIN
-    IF INSERTING AND ( :NEW."RoleID" IS NULL OR :NEW."RoleID" = 0 ) THEN
-      SELECT "Roles_SEQ".NEXTVAL INTO :NEW."RoleID" FROM SYS.DUAL;
-    END IF;
-  END COLUMN_SEQUENCES;
-END;
-/
-ALTER TRIGGER "ECOMMERCE"."Roles_TRG" ENABLE;
---------------------------------------------------------
 --  DDL for Trigger ShippingStatuses_TRG
 --------------------------------------------------------
 
@@ -1273,8 +1217,8 @@ FOR EACH ROW
 BEGIN
   <<COLUMN_SEQUENCES>>
   BEGIN
-    IF INSERTING AND ( :NEW."UserID" IS NULL OR :NEW."UserID" = 0 ) THEN
-      SELECT "Users_SEQ".NEXTVAL INTO :NEW."UserID" FROM SYS.DUAL;
+    IF INSERTING AND :NEW."UserID" IS NULL THEN
+      SELECT "Users_SEQ1".NEXTVAL INTO :NEW."UserID" FROM SYS.DUAL;
     END IF;
   END COLUMN_SEQUENCES;
 END;
@@ -1331,7 +1275,9 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   ALTER TABLE "ECOMMERCE"."ShippingStatuses" MODIFY ("ShippingStatusID" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."ShippingStatuses" ADD CONSTRAINT "ShippingStatuses_PK" PRIMARY KEY ("ShippingStatusID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
 --------------------------------------------------------
 --  Constraints for Table Users
@@ -1344,12 +1290,6 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   ALTER TABLE "ECOMMERCE"."Users" MODIFY ("Password" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."Users" MODIFY ("FullName" NOT NULL ENABLE);
- 
-  ALTER TABLE "ECOMMERCE"."Users" MODIFY ("IP" NOT NULL ENABLE);
- 
-  ALTER TABLE "ECOMMERCE"."Users" MODIFY ("Status" NOT NULL ENABLE);
- 
-  ALTER TABLE "ECOMMERCE"."Users" MODIFY ("RegistrationDate" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."Users" MODIFY ("Email" NOT NULL ENABLE);
  
@@ -1436,17 +1376,6 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
  
   ALTER TABLE "ECOMMERCE"."Products" MODIFY ("Slug" NOT NULL ENABLE);
 --------------------------------------------------------
---  Constraints for Table UsersInRoles
---------------------------------------------------------
-
-  ALTER TABLE "ECOMMERCE"."UsersInRoles" MODIFY ("Roles_RoleID" NOT NULL ENABLE);
- 
-  ALTER TABLE "ECOMMERCE"."UsersInRoles" MODIFY ("Users_UserID" NOT NULL ENABLE);
- 
-  ALTER TABLE "ECOMMERCE"."UsersInRoles" ADD CONSTRAINT "UsersInRoles_PK" PRIMARY KEY ("Roles_RoleID", "Users_UserID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
-  TABLESPACE "USERS"  ENABLE;
---------------------------------------------------------
 --  Constraints for Table ImageProducts
 --------------------------------------------------------
 
@@ -1484,11 +1413,11 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
  
-  ALTER TABLE "ECOMMERCE"."Attributes" MODIFY ("AttrName" NOT NULL ENABLE);
- 
-  ALTER TABLE "ECOMMERCE"."Attributes" MODIFY ("AttriGroupID" NOT NULL ENABLE);
+  ALTER TABLE "ECOMMERCE"."Attributes" MODIFY ("AttrGroupID" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."Attributes" MODIFY ("AttrID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "ECOMMERCE"."Attributes" MODIFY ("AttrName" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table Customers
 --------------------------------------------------------
@@ -1515,7 +1444,9 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
 --------------------------------------------------------
 
   ALTER TABLE "ECOMMERCE"."OrderDetails" ADD CONSTRAINT "OrderDetails_PK" PRIMARY KEY ("DetailID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
  
   ALTER TABLE "ECOMMERCE"."OrderDetails" MODIFY ("OrderID" NOT NULL ENABLE);
@@ -1627,17 +1558,6 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   ALTER TABLE "ECOMMERCE"."Colors" MODIFY ("HexCode" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."Colors" MODIFY ("ColorID" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table Advertises
---------------------------------------------------------
-
-  ALTER TABLE "ECOMMERCE"."Advertises" ADD CONSTRAINT "Advertises_PK" PRIMARY KEY ("AdvertiseID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
-  TABLESPACE "USERS"  ENABLE;
- 
-  ALTER TABLE "ECOMMERCE"."Advertises" MODIFY ("AdvertiseID" NOT NULL ENABLE);
- 
-  ALTER TABLE "ECOMMERCE"."Advertises" MODIFY ("Active" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table CartDetails
 --------------------------------------------------------
@@ -1767,23 +1687,14 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
 --------------------------------------------------------
 
   ALTER TABLE "ECOMMERCE"."OrderStatuses" ADD CONSTRAINT "OrderStatuses_PK" PRIMARY KEY ("OrderStatusID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
  
   ALTER TABLE "ECOMMERCE"."OrderStatuses" MODIFY ("OrderStatusName" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."OrderStatuses" MODIFY ("OrderStatusID" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table Roles
---------------------------------------------------------
-
-  ALTER TABLE "ECOMMERCE"."Roles" ADD CONSTRAINT "Roles_PK" PRIMARY KEY ("RoleID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS NOCOMPRESS LOGGING
-  TABLESPACE "USERS"  ENABLE;
- 
-  ALTER TABLE "ECOMMERCE"."Roles" MODIFY ("RoleID" NOT NULL ENABLE);
- 
-  ALTER TABLE "ECOMMERCE"."Roles" MODIFY ("RoleName" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table Comments
 --------------------------------------------------------
