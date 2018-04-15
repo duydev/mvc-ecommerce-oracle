@@ -32,7 +32,13 @@
         <EntityTypeShape EntityType="EcommerceModel.ShippingStatus" Width="1.5" PointX="7.5" PointY="20.625" />
         <EntityTypeShape EntityType="EcommerceModel.Ward" Width="1.5" PointX="5.25" PointY="17" />
         <AssociationConnector Association="EcommerceModel.Attributes_FK1" />
-        <AssociationConnector Association="EcommerceModel.ProductAttributes_FK2" />
+        <AssociationConnector Association="EcommerceModel.ProductAttributes_FK2" ManuallyRouted="true" >
+          <ConnectorPoint PointX="4.5" PointY="1.9901432291666663" />
+          <ConnectorPoint PointX="7.4700000000000006" PointY="1.9901432291666663" />
+          <ConnectorPoint PointX="7.4700000000000006" PointY="2.0812890645372679" />
+          <ConnectorPoint PointX="13.5" PointY="2.0812890645372679" />
+          <ConnectorPoint PointX="13.5" PointY="5" />
+        </AssociationConnector>
         <AssociationConnector Association="EcommerceModel.CartDetails_FK1" />
         <AssociationConnector Association="EcommerceModel.CartDetails_FK2" />
         <AssociationConnector Association="EcommerceModel.CartDetails_FK3" />

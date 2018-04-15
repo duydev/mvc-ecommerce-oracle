@@ -79,7 +79,7 @@
                                                                             break;
                                                                     }
                                                                 }
-                                                                    <span id="status-order" class="label label-@statusColor">@Model.OrderStatu.OrderStatusName</span>
+                                                                    <span id="status-order" class="label label-@statusColor">@Model.OrderStatus.OrderStatusName</span>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -102,7 +102,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td width="20%">Tổng tiền: </td>
-                                                                <td>@Html.FormatCurrency(Model.TotalPrice) đ (@StringUtils.ChuyenSo(Model.TotalPrice.ToString()))</td>
+                                                                <td>@Html.FormatCurrency((long)Model.TotalPrice) đ (@StringUtils.ChuyenSo(Model.TotalPrice.ToString()))</td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Phương thức thanh toán:</td>
@@ -174,7 +174,7 @@
                                                                                 break;
                                                                         }
                                                                     }
-                                                                    <span data-pk="@Model.OrderID" data-value="@Model.ShippingStatusID" id="status-shipping" class="label label-@statusColor">@Model.ShippingStatu.ShippingName</span>
+                                                                    <span data-pk="@Model.OrderID" data-value="@Model.ShippingStatusID" id="status-shipping" class="label label-@statusColor">@Model.ShippingStatus.ShippingName</span>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -251,7 +251,7 @@
                                                                 <td></td>
                                                                 <td></td>
                                                                 <td></td>
-                                                                <td class="sum" colspan="2" style="text-align:right;font-size:19px;">Tổng tiền: @Html.FormatCurrency(Model.TotalPrice) đ</td>
+                                                                <td class="sum" colspan="2" style="text-align:right;font-size:19px;">Tổng tiền: @Html.FormatCurrency((long)Model.TotalPrice) đ</td>
                                                                 <td></td>
                                                             </tr>
                                                         </tfoot>
