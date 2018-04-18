@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - Sunday-April-15-2018   
+--  File created - Wednesday-April-18-2018   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence AttributeGroups_SEQ
@@ -437,20 +437,20 @@
   TABLESPACE "USERS" ;
 REM INSERTING into ECOMMERCE."AttributeGroups"
 SET DEFINE OFF;
-Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (23,'Gi�y');
+Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (23,'Giày');
 REM INSERTING into ECOMMERCE."Attributes"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Colors"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (23,'?en','000000');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (24,'Xanh d??ng','0057ff');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (22,'Tr?ng','ffffff');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (25,'??','ff0000');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (26,'V�ng','fffc00');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (23,'Đen','000000');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (24,'Xanh dương','0057ff');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (22,'Trắng','ffffff');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (25,'Đỏ','ff0000');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (26,'Vàng','fffc00');
 REM INSERTING into ECOMMERCE."Configurations"
 SET DEFINE OFF;
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('product_per_page','10',null);
-Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('site_title','Shop b�n gi�y',null);
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('site_title','Shop bán giày',null);
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('support_email','trannhatduy297@gmail.com',null);
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('support_phone','0972721892',null);
 REM INSERTING into ECOMMERCE."Contacts"
@@ -460,11 +460,11 @@ SET DEFINE OFF;
 Insert into ECOMMERCE."Customers" ("CustomerID","FacebookID","GoogleID","Password","FullName","Email","Address","ProvinceID","DistrictID","WardID","Phone","Status","CreatedAt") values (0,null,null,'0945fc9611f55fd0e183fb8b044f1afe','admin','admin@admin.com',null,null,null,null,null,1,to_date('15/04/2018','DD/MM/YYYY'));
 REM INSERTING into ECOMMERCE."Districts"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (6,'Qu?n 1','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (7,'Qu?n 2','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (8,'Qu?n B�nh Th?nh','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (9,'Qu?n G� V?p','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (10,'Huy?n H�c M�n','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (6,'Quận 1','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (7,'Quận 2','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (8,'Quận Bình Thạnh','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (9,'Quận Gò Vấp','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (10,'Huyện Hóc Môn','1',2);
 REM INSERTING into ECOMMERCE."GroupProducts"
 SET DEFINE OFF;
 Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (61,'Bitis',null,null,0,'bitis');
@@ -476,13 +476,13 @@ REM INSERTING into ECOMMERCE."OrderDetails"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."OrderStatuses"
 SET DEFINE OFF;
-Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (1,'??n h�ng m?i');
-Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (2,'Ho�n th�nh');
+Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (1,'Đơn hàng mới');
+Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (2,'Hoàn thành');
 REM INSERTING into ECOMMERCE."Orders"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Payments"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (1,'cod','Thu h? COD',1);
+Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (1,'cod','Thu hộ COD',1);
 Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (7,'online','Online',1);
 Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (3,'atm','ATM',1);
 REM INSERTING into ECOMMERCE."ProductAttributes"
@@ -494,22 +494,22 @@ SET DEFINE OFF;
 Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (41,'A',15000,12000,0,61,0,to_date('13/04/2018','DD/MM/YYYY'),1,'a');
 REM INSERTING into ECOMMERCE."Provinces"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (2,'TP H? Ch� Minh','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (3,'TP H� N?i','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (4,'TP H?i Ph�ng','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (5,'TP ?� N?ng','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (6,'TP C?n Th?','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (2,'TP Hồ Chí Minh','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (3,'TP Hà Nội','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (4,'TP Hải Phòng','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (5,'TP Đà Nẵng','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (6,'TP Cần Thơ','1');
 REM INSERTING into ECOMMERCE."ShippingStatuses"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (1,'Ch?a giao h�ng');
-Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (2,'?� giao h�ng');
+Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (1,'Chưa giao hàng');
+Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (2,'Đã giao hàng');
 REM INSERTING into ECOMMERCE."Users"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Users" ("UserID","Username","Password","FullName","Email","Status","CreatedAt") values (2,'admin','0945fc9611f55fd0e183fb8b044f1afe','Tr?n Nh?t Duy','admin@admin.com',1,to_date('14/04/2018','DD/MM/YYYY'));
+Insert into ECOMMERCE."Users" ("UserID","Username","Password","FullName","Email","Status","CreatedAt") values (2,'admin','0945fc9611f55fd0e183fb8b044f1afe','Trần Nhật Duy','admin@admin.com',1,to_date('14/04/2018','DD/MM/YYYY'));
 REM INSERTING into ECOMMERCE."Wards"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (1,'Ph??ng ?a Kao','1',6);
-Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (2,'Ph??ng 25','1',8);
+Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (1,'Phường Đa Kao','1',6);
+Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (2,'Phường 25','1',8);
 --------------------------------------------------------
 --  DDL for Index Menus_PK
 --------------------------------------------------------
