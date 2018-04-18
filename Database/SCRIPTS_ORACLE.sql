@@ -437,20 +437,20 @@
   TABLESPACE "USERS" ;
 REM INSERTING into ECOMMERCE."AttributeGroups"
 SET DEFINE OFF;
-Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (23,'Giày');
+Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (23,'GiÃ y');
 REM INSERTING into ECOMMERCE."Attributes"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Colors"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (23,'Đen','000000');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (24,'Xanh dương','0057ff');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (22,'Trắng','ffffff');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (25,'Đỏ','ff0000');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (26,'Vàng','fffc00');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (23,'Ä�en','000000');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (24,'Xanh dÆ°Æ¡ng','0057ff');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (22,'Tráº¯ng','ffffff');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (25,'Ä�á»�','ff0000');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (26,'VÃ ng','fffc00');
 REM INSERTING into ECOMMERCE."Configurations"
 SET DEFINE OFF;
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('product_per_page','10',null);
-Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('site_title','Shop bán giày',null);
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('site_title','Shop bÃ¡n giÃ y',null);
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('support_email','trannhatduy297@gmail.com',null);
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('support_phone','0972721892',null);
 REM INSERTING into ECOMMERCE."Contacts"
@@ -460,11 +460,11 @@ SET DEFINE OFF;
 Insert into ECOMMERCE."Customers" ("CustomerID","FacebookID","GoogleID","Password","FullName","Email","Address","ProvinceID","DistrictID","WardID","Phone","Status","CreatedAt") values (0,null,null,'0945fc9611f55fd0e183fb8b044f1afe','admin','admin@admin.com',null,null,null,null,null,1,to_date('15/04/2018','DD/MM/YYYY'));
 REM INSERTING into ECOMMERCE."Districts"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (6,'Quận 1','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (7,'Quận 2','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (8,'Quận Bình Thạnh','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (9,'Quận Gò Vấp','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (10,'Huyện Hóc Môn','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (6,'Quáº­n 1','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (7,'Quáº­n 2','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (8,'Quáº­n BÃ¬nh Tháº¡nh','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (9,'Quáº­n GÃ² Váº¥p','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (10,'Huyá»‡n HÃ³c MÃ´n','1',2);
 REM INSERTING into ECOMMERCE."GroupProducts"
 SET DEFINE OFF;
 Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (61,'Bitis',null,null,0,'bitis');
@@ -476,13 +476,13 @@ REM INSERTING into ECOMMERCE."OrderDetails"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."OrderStatuses"
 SET DEFINE OFF;
-Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (1,'Đơn hàng mới');
-Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (2,'Hoàn thành');
+Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (1,'Ä�Æ¡n hÃ ng má»›i');
+Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (2,'HoÃ n thÃ nh');
 REM INSERTING into ECOMMERCE."Orders"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Payments"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (1,'cod','Thu hộ COD',1);
+Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (1,'cod','Thu há»™ COD',1);
 Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (7,'online','Online',1);
 Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (3,'atm','ATM',1);
 REM INSERTING into ECOMMERCE."ProductAttributes"
@@ -494,22 +494,22 @@ SET DEFINE OFF;
 Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (41,'A',15000,12000,0,61,0,to_date('13/04/2018','DD/MM/YYYY'),1,'a');
 REM INSERTING into ECOMMERCE."Provinces"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (2,'TP Hồ Chí Minh','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (3,'TP Hà Nội','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (4,'TP Hải Phòng','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (5,'TP Đà Nẵng','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (6,'TP Cần Thơ','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (2,'TP Há»“ ChÃ­ Minh','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (3,'TP HÃ  Ná»™i','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (4,'TP Háº£i PhÃ²ng','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (5,'TP Ä�Ã  Náºµng','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (6,'TP Cáº§n ThÆ¡','1');
 REM INSERTING into ECOMMERCE."ShippingStatuses"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (1,'Chưa giao hàng');
-Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (2,'Đã giao hàng');
+Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (1,'ChÆ°a giao hÃ ng');
+Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (2,'Ä�Ã£ giao hÃ ng');
 REM INSERTING into ECOMMERCE."Users"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Users" ("UserID","Username","Password","FullName","Email","Status","CreatedAt") values (2,'admin','0945fc9611f55fd0e183fb8b044f1afe','Trần Nhật Duy','admin@admin.com',1,to_date('14/04/2018','DD/MM/YYYY'));
+Insert into ECOMMERCE."Users" ("UserID","Username","Password","FullName","Email","Status","CreatedAt") values (2,'admin','0945fc9611f55fd0e183fb8b044f1afe','Tráº§n Nháº­t Duy','admin@admin.com',1,to_date('14/04/2018','DD/MM/YYYY'));
 REM INSERTING into ECOMMERCE."Wards"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (1,'Phường Đa Kao','1',6);
-Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (2,'Phường 25','1',8);
+Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (1,'PhÆ°á»�ng Ä�a Kao','1',6);
+Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (2,'PhÆ°á»�ng 25','1',8);
 --------------------------------------------------------
 --  DDL for Index Menus_PK
 --------------------------------------------------------
@@ -1382,3 +1382,68 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
+
+-- APPEND FK
+-- Atributes
+ALTER TABLE "ECOMMERCE"."Attributes" ADD CONSTRAINT "Attributes_FK1" FOREIGN KEY ("AttrGroupID")
+	  REFERENCES "ECOMMERCE"."AttributeGroups" ("AttrGroupID") ON DELETE CASCADE ENABLE;
+-- Contacts
+ALTER TABLE "ECOMMERCE"."Contacts" ADD CONSTRAINT "Contacts_FK1" FOREIGN KEY ("CustomerID")
+	  REFERENCES "ECOMMERCE"."Customers" ("CustomerID") ON DELETE CASCADE ENABLE;
+-- Customers
+ALTER TABLE "ECOMMERCE"."Customers" ADD CONSTRAINT "Customers_FK1" FOREIGN KEY ("ProvinceID")
+	  REFERENCES "ECOMMERCE"."Provinces" ("ProvinceID") ENABLE;
+ALTER TABLE "ECOMMERCE"."Customers" ADD CONSTRAINT "Customers_FK2" FOREIGN KEY ("DistrictID")
+	  REFERENCES "ECOMMERCE"."Districts" ("DistrictID") ENABLE;
+ALTER TABLE "ECOMMERCE"."Customers" ADD CONSTRAINT "Customers_FK3" FOREIGN KEY ("WardID")
+	  REFERENCES "ECOMMERCE"."Wards" ("WardID") ENABLE;
+-- Districts
+ALTER TABLE "ECOMMERCE"."Districts" ADD CONSTRAINT "Districts_FK1" FOREIGN KEY ("ProvinceID")
+	  REFERENCES "ECOMMERCE"."Provinces" ("ProvinceID") ON DELETE CASCADE ENABLE;
+-- GroupProducts
+ALTER TABLE "ECOMMERCE"."GroupProducts" ADD CONSTRAINT "GroupProducts_FK1" FOREIGN KEY ("ParentGroupID")
+	  REFERENCES "ECOMMERCE"."GroupProducts" ("GroupID") ON DELETE CASCADE ENABLE;
+-- ImageProducts
+ALTER TABLE "ECOMMERCE"."ImageProducts" ADD CONSTRAINT "ImageProducts_FK1" FOREIGN KEY ("ProductID")
+	  REFERENCES "ECOMMERCE"."Products" ("ProductID") ON DELETE CASCADE ENABLE;
+-- Menus
+ALTER TABLE "ECOMMERCE"."Menus" ADD CONSTRAINT "Menus_FK1" FOREIGN KEY ("ParentMenuID")
+	  REFERENCES "ECOMMERCE"."Menus" ("MenuID") ON DELETE CASCADE ENABLE;
+-- OrderDetails
+ALTER TABLE "ECOMMERCE"."OrderDetails" ADD CONSTRAINT "ORDERDETAILS_FK1" FOREIGN KEY ("OrderID")
+	  REFERENCES "ECOMMERCE"."Orders" ("OrderID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."OrderDetails" ADD CONSTRAINT "ORDERDETAILS_FK2" FOREIGN KEY ("ProductID")
+	  REFERENCES "ECOMMERCE"."Products" ("ProductID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."OrderDetails" ADD CONSTRAINT "ORDERDETAILS_FK3" FOREIGN KEY ("ColorID")
+	  REFERENCES "ECOMMERCE"."Colors" ("ColorID") ON DELETE CASCADE ENABLE;
+-- Orders
+ALTER TABLE "ECOMMERCE"."Orders" ADD CONSTRAINT "Orders_FK1" FOREIGN KEY ("CustomerID")
+	  REFERENCES "ECOMMERCE"."Customers" ("CustomerID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."Orders" ADD CONSTRAINT "Orders_FK2" FOREIGN KEY ("PaymentID")
+	  REFERENCES "ECOMMERCE"."Payments" ("PaymentID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."Orders" ADD CONSTRAINT "Orders_FK3" FOREIGN KEY ("ProvinceID")
+	  REFERENCES "ECOMMERCE"."Provinces" ("ProvinceID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."Orders" ADD CONSTRAINT "Orders_FK4" FOREIGN KEY ("DistrictID")
+	  REFERENCES "ECOMMERCE"."Districts" ("DistrictID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."Orders" ADD CONSTRAINT "Orders_FK5" FOREIGN KEY ("WardID")
+	  REFERENCES "ECOMMERCE"."Wards" ("WardID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."Orders" ADD CONSTRAINT "Orders_FK6" FOREIGN KEY ("OrderStatusID")
+	  REFERENCES "ECOMMERCE"."OrderStatuses" ("OrderStatusID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."Orders" ADD CONSTRAINT "Orders_FK7" FOREIGN KEY ("ShippingStatusID")
+	  REFERENCES "ECOMMERCE"."ShippingStatuses" ("ShippingStatusID") ON DELETE CASCADE ENABLE;
+-- ProductAttributes
+ALTER TABLE "ECOMMERCE"."ProductAttributes" ADD CONSTRAINT "ProductAttributes_FK1" FOREIGN KEY ("ProductID")
+	  REFERENCES "ECOMMERCE"."Products" ("ProductID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."ProductAttributes" ADD CONSTRAINT "ProductAttributes_FK2" FOREIGN KEY ("AttrID")
+	  REFERENCES "ECOMMERCE"."Attributes" ("AttrID") ON DELETE CASCADE ENABLE;
+-- ProductColors
+ALTER TABLE "ECOMMERCE"."ProductColors" ADD CONSTRAINT "ProductColors_FK1" FOREIGN KEY ("ProductID")
+	  REFERENCES "ECOMMERCE"."Products" ("ProductID") ON DELETE CASCADE ENABLE;
+ALTER TABLE "ECOMMERCE"."ProductColors" ADD CONSTRAINT "ProductColors_FK2" FOREIGN KEY ("ColorID")
+	  REFERENCES "ECOMMERCE"."Colors" ("ColorID") ON DELETE CASCADE ENABLE;
+-- Products
+ALTER TABLE "ECOMMERCE"."Products" ADD CONSTRAINT "Products_FK1" FOREIGN KEY ("GroupID")
+	  REFERENCES "ECOMMERCE"."GroupProducts" ("GroupID") ON DELETE CASCADE ENABLE;
+-- Wards
+ALTER TABLE "ECOMMERCE"."Wards" ADD CONSTRAINT "Wards_FK1" FOREIGN KEY ("DistrictId")
+	  REFERENCES "ECOMMERCE"."Districts" ("DistrictID") ON DELETE CASCADE ENABLE;
