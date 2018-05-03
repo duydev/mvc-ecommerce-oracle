@@ -25,7 +25,6 @@
         <EntityTypeShape EntityType="EcommerceModel.Province" Width="1.5" PointX="0.75" PointY="6.625" />
         <EntityTypeShape EntityType="EcommerceModel.ShippingStatus" Width="1.5" PointX="10.5" PointY="13.5" />
         <EntityTypeShape EntityType="EcommerceModel.User" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="EcommerceModel.Ward" Width="1.5" PointX="5.25" PointY="11.875" />
         <AssociationConnector Association="EcommerceModel.Attributes_FK1" />
         <AssociationConnector Association="EcommerceModel.ProductAttributes_FK2" />
         <AssociationConnector Association="EcommerceModel.ORDERDETAILS_FK3" />
@@ -33,11 +32,9 @@
         <AssociationConnector Association="EcommerceModel.Contacts_FK1" />
         <AssociationConnector Association="EcommerceModel.Customers_FK1" />
         <AssociationConnector Association="EcommerceModel.Customers_FK2" />
-        <AssociationConnector Association="EcommerceModel.Customers_FK3" />
         <AssociationConnector Association="EcommerceModel.Orders_FK1" />
         <AssociationConnector Association="EcommerceModel.Districts_FK1" />
         <AssociationConnector Association="EcommerceModel.Orders_FK4" />
-        <AssociationConnector Association="EcommerceModel.Wards_FK1" />
         <AssociationConnector Association="EcommerceModel.GroupProducts_FK1" />
         <AssociationConnector Association="EcommerceModel.Products_FK1" />
         <AssociationConnector Association="EcommerceModel.ImageProducts_FK1" />
@@ -46,11 +43,14 @@
         <AssociationConnector Association="EcommerceModel.ORDERDETAILS_FK2" />
         <AssociationConnector Association="EcommerceModel.Orders_FK2" />
         <AssociationConnector Association="EcommerceModel.Orders_FK3" />
-        <AssociationConnector Association="EcommerceModel.Orders_FK5" />
         <AssociationConnector Association="EcommerceModel.Orders_FK6" />
         <AssociationConnector Association="EcommerceModel.Orders_FK7" />
         <AssociationConnector Association="EcommerceModel.ProductAttributes_FK1" />
         <AssociationConnector Association="EcommerceModel.ProductColors_FK1" />
+        <EntityTypeShape EntityType="EcommerceModel.Ward" Width="1.5" PointX="5.25" PointY="11.875" />
+        <AssociationConnector Association="EcommerceModel.Customers_FK3" />
+        <AssociationConnector Association="EcommerceModel.Wards_FK1" />
+        <AssociationConnector Association="EcommerceModel.Orders_FK5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

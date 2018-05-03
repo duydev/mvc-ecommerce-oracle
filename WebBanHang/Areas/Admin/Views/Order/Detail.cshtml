@@ -111,13 +111,13 @@
                                                             <tr>
                                                                 <td>Tình trạng: </td>
                                                                 <td>
-                                                                    @if (Model.Paid)
+                                                                    @if ((bool)Model.Paid)
                                                                     {
-                                                                        <span data-pk="@Model.OrderID" data-value="@(Model.Paid?1:0)" class="label label-success" id="status-payment">Đã thanh toán</span>
+                                                                        <span data-pk="@Model.OrderID" data-value="@((bool)Model.Paid?1:0)" class="label label-success" id="status-payment">Đã thanh toán</span>
                                                                     }
                                                                     else
                                                                     {
-                                                                        <span data-pk="@Model.OrderID" data-value="@(Model.Paid?1:0)" class="label label-warning" id="status-payment">Chưa thanh toán</span>
+                                                                        <span data-pk="@Model.OrderID" data-value="@((bool)Model.Paid?1:0)" class="label label-warning" id="status-payment">Chưa thanh toán</span>
                                                                     }
                                                                 </td>
                                                             </tr>

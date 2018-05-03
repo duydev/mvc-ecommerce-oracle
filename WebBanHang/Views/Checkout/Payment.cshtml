@@ -37,7 +37,7 @@
                         <div class="panel-body infomation">
                             <div class="adr-oms horizontal form" id="form_payment_method">
                                 @Html.ValidationMessageFor(m => m.PaymentMethod, null, new { @class = "error" })
-                                @if (pCod != null && pCod.Active)
+                                @if (pCod != null && (bool)pCod.Active)
                                 {
                                 <!--COD-->
                                 <div class="group">
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                                 }
-                                @if (pAtm != null && pAtm.Active)
+                                @if (pAtm != null && (bool)pAtm.Active)
                                 { 
                                 <!--ATM-->
                                 <div class="group">
@@ -81,7 +81,7 @@
                                     </div>
                                 </div>
                                 }
-                                @if (pAtm != null && pOnline.Active)
+                                @if (pAtm != null && (bool)pOnline.Active)
                                 {
                                 <!--ONLINE PAYMENT-->
                                 <div class="group">

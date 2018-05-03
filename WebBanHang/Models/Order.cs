@@ -44,8 +44,8 @@ namespace WebBanHang.Models
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual Payment Payment { get; set; }
         public virtual Province Province { get; set; }
-        public virtual Ward Ward { get; set; }
         public virtual OrderStatus OrderStatus { get; set; }
         public virtual ShippingStatus ShippingStatus { get; set; }
+        public virtual Ward Ward { get; set; }
     }
 }

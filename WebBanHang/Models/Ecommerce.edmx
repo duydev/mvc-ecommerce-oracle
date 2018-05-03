@@ -225,10 +225,10 @@
           <Key>
             <PropertyRef Name="WardID" />
           </Key>
-          <Property Name="WardID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="WardID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="WardName" Type="nvarchar2" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="nvarchar2" MaxLength="50" Nullable="false" />
-          <Property Name="DistrictId" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DistrictID" Type="number" Precision="10" Scale="0" Nullable="false" />
         </EntityType>
         <Association Name="Attributes_FK1">
           <End Role="AttributeGroups" Type="Self.AttributeGroups" Multiplicity="0..1">
@@ -570,17 +570,70 @@
               <PropertyRef Name="DistrictID" />
             </Principal>
             <Dependent Role="Wards">
-              <PropertyRef Name="DistrictId" />
+              <PropertyRef Name="DistrictID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="ADDCOLOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+        <Function Name="ADD_ATTRIBUTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="GROUP_ID" Type="number" Mode="In" />
           <Parameter Name="NAME" Type="nvarchar2" Mode="In" />
-          <Parameter Name="HEXCODE" Type="varchar2" Mode="In" />
         </Function>
-        <Function Name="ADDPROVINCE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+        <Function Name="ADD_ATTRIBUTE_GROUP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="NAME" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="ADD_COLOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="NAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="HEX_CODE" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="ADD_CONFIG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="NAME" Type="varchar2" Mode="In" />
+          <Parameter Name="VALUE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="ADD_CONTACT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="CUS_ID" Type="number" Mode="In" />
+          <Parameter Name="FULLNAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="PHONE" Type="varchar2" Mode="In" />
+          <Parameter Name="MESSAGE" Type="nclob" Mode="In" />
+          <Parameter Name="SEEN" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ADD_CUSTOMER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="FACEBOOK_ID" Type="varchar2" Mode="In" />
+          <Parameter Name="GOOGLE_ID" Type="varchar2" Mode="In" />
+          <Parameter Name="PASS_WORD" Type="varchar2" Mode="In" />
+          <Parameter Name="FULLNAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="ADDRESS" Type="nvarchar2" Mode="In" />
+          <Parameter Name="PHONE" Type="varchar2" Mode="In" />
+          <Parameter Name="PROVINCE_ID" Type="number" Mode="In" />
+          <Parameter Name="DISTRICT_ID" Type="number" Mode="In" />
+          <Parameter Name="WARD_ID" Type="number" Mode="In" />
+          <Parameter Name="STATUS" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ADD_DISTRICT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
           <Parameter Name="NAME" Type="nvarchar2" Mode="In" />
           <Parameter Name="TYPE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="PROVINCE_ID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ADD_GROUP_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="GROUP_NAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="SLUG" Type="varchar2" Mode="In" />
+          <Parameter Name="PARENT_GROUP_ID" Type="number" Mode="In" />
+          <Parameter Name="ICON" Type="varchar2" Mode="In" />
+          <Parameter Name="PRIORITY" Type="number" Mode="In" />
+        </Function>
+        <Function Name="ADD_IMAGE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="PRODUCT_ID" Type="number" Mode="In" />
+          <Parameter Name="CAPTION" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IMAGE_PATH" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="EDIT_ATTRIBUTE_GROUP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="ID" Type="number" Mode="In" />
+          <Parameter Name="NAME" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="REMOVE_ATTRIBUTE_GROUP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="ID" Type="number" Mode="In" />
         </Function>
         <EntityContainer Name="EcommerceModelStoreContainer">
           <EntitySet Name="AttributeGroups" EntityType="Self.AttributeGroups" Schema="ECOMMERCE" store:Type="Tables" />
@@ -730,7 +783,6 @@
           <EntitySet Name="Provinces" EntityType="EcommerceModel.Province" />
           <EntitySet Name="ShippingStatuses" EntityType="EcommerceModel.ShippingStatus" />
           <EntitySet Name="Users" EntityType="EcommerceModel.User" />
-          <EntitySet Name="Wards" EntityType="EcommerceModel.Ward" />
           <AssociationSet Name="Attributes_FK1" Association="EcommerceModel.Attributes_FK1">
             <End Role="AttributeGroup" EntitySet="AttributeGroups" />
             <End Role="Attribute" EntitySet="Attributes" />
@@ -759,10 +811,6 @@
             <End Role="District" EntitySet="Districts" />
             <End Role="Customer" EntitySet="Customers" />
           </AssociationSet>
-          <AssociationSet Name="Customers_FK3" Association="EcommerceModel.Customers_FK3">
-            <End Role="Ward" EntitySet="Wards" />
-            <End Role="Customer" EntitySet="Customers" />
-          </AssociationSet>
           <AssociationSet Name="Orders_FK1" Association="EcommerceModel.Orders_FK1">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Order" EntitySet="Orders" />
@@ -774,10 +822,6 @@
           <AssociationSet Name="Orders_FK4" Association="EcommerceModel.Orders_FK4">
             <End Role="District" EntitySet="Districts" />
             <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="Wards_FK1" Association="EcommerceModel.Wards_FK1">
-            <End Role="District" EntitySet="Districts" />
-            <End Role="Ward" EntitySet="Wards" />
           </AssociationSet>
           <AssociationSet Name="GroupProducts_FK1" Association="EcommerceModel.GroupProducts_FK1">
             <End Role="GroupProduct" EntitySet="GroupProducts" />
@@ -811,10 +855,6 @@
             <End Role="Province" EntitySet="Provinces" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="Orders_FK5" Association="EcommerceModel.Orders_FK5">
-            <End Role="Ward" EntitySet="Wards" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
           <AssociationSet Name="Orders_FK6" Association="EcommerceModel.Orders_FK6">
             <End Role="OrderStatus" EntitySet="OrderStatuses" />
             <End Role="Order" EntitySet="Orders" />
@@ -839,6 +879,80 @@
             <Parameter Name="NAME" Mode="In" Type="String" />
             <Parameter Name="TYPE" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="ADD_ATTRIBUTE">
+            <Parameter Name="GROUP_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_ATTRIBUTE_GROUP">
+          <Parameter Name="NAME" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_COLOR">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="HEX_CODE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_CONFIG">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="VALUE" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_CONTACT">
+            <Parameter Name="CUS_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="FULLNAME" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="PHONE" Mode="In" Type="String" />
+            <Parameter Name="MESSAGE" Mode="In" Type="String" />
+            <Parameter Name="SEEN" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_CUSTOMER">
+            <Parameter Name="FACEBOOK_ID" Mode="In" Type="String" />
+            <Parameter Name="GOOGLE_ID" Mode="In" Type="String" />
+            <Parameter Name="PASS_WORD" Mode="In" Type="String" />
+            <Parameter Name="FULLNAME" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="PHONE" Mode="In" Type="String" />
+            <Parameter Name="PROVINCE_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="DISTRICT_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="WARD_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="STATUS" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_DISTRICT">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="TYPE" Mode="In" Type="String" />
+            <Parameter Name="PROVINCE_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_GROUP_PRODUCT">
+            <Parameter Name="GROUP_NAME" Mode="In" Type="String" />
+            <Parameter Name="SLUG" Mode="In" Type="String" />
+            <Parameter Name="PARENT_GROUP_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="ICON" Mode="In" Type="String" />
+            <Parameter Name="PRIORITY" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ADD_IMAGE_PRODUCT">
+            <Parameter Name="PRODUCT_ID" Mode="In" Type="Decimal" />
+            <Parameter Name="CAPTION" Mode="In" Type="String" />
+            <Parameter Name="IMAGE_PATH" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="EDIT_ATTRIBUTE_GROUP">
+            <Parameter Name="ID" Mode="In" Type="Decimal" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="REMOVE_ATTRIBUTE_GROUP">
+          <Parameter Name="ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="Wards" EntityType="EcommerceModel.Ward" />
+          <AssociationSet Name="Customers_FK3" Association="EcommerceModel.Customers_FK3">
+            <End Role="Ward" EntitySet="Wards" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="Wards_FK1" Association="EcommerceModel.Wards_FK1">
+            <End Role="District" EntitySet="Districts" />
+            <End Role="Ward" EntitySet="Wards" />
+          </AssociationSet>
+          <AssociationSet Name="Orders_FK5" Association="EcommerceModel.Orders_FK5">
+            <End Role="Ward" EntitySet="Wards" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AttributeGroup">
           <Key>
@@ -910,8 +1024,8 @@
           <NavigationProperty Name="Contacts" Relationship="EcommerceModel.Contacts_FK1" FromRole="Customer" ToRole="Contact" />
           <NavigationProperty Name="Province" Relationship="EcommerceModel.Customers_FK1" FromRole="Customer" ToRole="Province" />
           <NavigationProperty Name="District" Relationship="EcommerceModel.Customers_FK2" FromRole="Customer" ToRole="District" />
-          <NavigationProperty Name="Ward" Relationship="EcommerceModel.Customers_FK3" FromRole="Customer" ToRole="Ward" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK1" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Ward" Relationship="EcommerceModel.Customers_FK3" FromRole="Customer" ToRole="Ward" />
         </EntityType>
         <EntityType Name="District">
           <Key>
@@ -925,7 +1039,7 @@
           <NavigationProperty Name="Province" Relationship="EcommerceModel.Districts_FK1" FromRole="District" ToRole="Province" />
           <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK4" FromRole="District" ToRole="Order" />
           <NavigationProperty Name="Wards" Relationship="EcommerceModel.Wards_FK1" FromRole="District" ToRole="Ward" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="GroupProduct">
           <Key>
             <PropertyRef Name="GroupID" />
@@ -1006,9 +1120,9 @@
           <NavigationProperty Name="OrderDetails" Relationship="EcommerceModel.ORDERDETAILS_FK1" FromRole="Order" ToRole="OrderDetail" />
           <NavigationProperty Name="Payment" Relationship="EcommerceModel.Orders_FK2" FromRole="Order" ToRole="Payment" />
           <NavigationProperty Name="Province" Relationship="EcommerceModel.Orders_FK3" FromRole="Order" ToRole="Province" />
-          <NavigationProperty Name="Ward" Relationship="EcommerceModel.Orders_FK5" FromRole="Order" ToRole="Ward" />
           <NavigationProperty Name="OrderStatus" Relationship="EcommerceModel.Orders_FK6" FromRole="Order" ToRole="OrderStatus" />
           <NavigationProperty Name="ShippingStatus" Relationship="EcommerceModel.Orders_FK7" FromRole="Order" ToRole="ShippingStatus" />
+          <NavigationProperty Name="Ward" Relationship="EcommerceModel.Orders_FK5" FromRole="Order" ToRole="Ward" />
         </EntityType>
         <EntityType Name="OrderStatus">
           <Key>
@@ -1103,18 +1217,6 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedAt" Type="DateTime" />
         </EntityType>
-        <EntityType Name="Ward">
-          <Key>
-            <PropertyRef Name="WardID" />
-          </Key>
-          <Property Name="WardID" Type="Int32" Nullable="false" />
-          <Property Name="WardName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DistrictId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Customers" Relationship="EcommerceModel.Customers_FK3" FromRole="Ward" ToRole="Customer" />
-          <NavigationProperty Name="District" Relationship="EcommerceModel.Wards_FK1" FromRole="Ward" ToRole="District" />
-          <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK5" FromRole="Ward" ToRole="Order" />
-        </EntityType>
         <Association Name="Attributes_FK1">
           <End Type="EcommerceModel.AttributeGroup" Role="AttributeGroup" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1207,18 +1309,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Customers_FK3">
-          <End Type="EcommerceModel.Ward" Role="Ward" Multiplicity="0..1" />
-          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ward">
-              <PropertyRef Name="WardID" />
-            </Principal>
-            <Dependent Role="Customer">
-              <PropertyRef Name="WardID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Orders_FK1">
           <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1256,18 +1346,6 @@
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="DistrictID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Wards_FK1">
-          <End Type="EcommerceModel.District" Role="District" Multiplicity="1" />
-          <End Type="EcommerceModel.Ward" Role="Ward" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="District">
-              <PropertyRef Name="DistrictID" />
-            </Principal>
-            <Dependent Role="Ward">
-              <PropertyRef Name="DistrictId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1379,20 +1457,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Orders_FK5">
-          <End Type="EcommerceModel.Ward" Role="Ward" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ward">
-              <PropertyRef Name="WardID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="WardID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Orders_FK6">
           <End Type="EcommerceModel.OrderStatus" Role="OrderStatus" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1446,6 +1510,58 @@
             </Principal>
             <Dependent Role="ProductColor">
               <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="WardID" />
+          </Key>
+          <Property Name="WardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WardName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DistrictID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="EcommerceModel.Customers_FK3" FromRole="Ward" ToRole="Customer" />
+          <NavigationProperty Name="District" Relationship="EcommerceModel.Wards_FK1" FromRole="Ward" ToRole="District" />
+          <NavigationProperty Name="Orders" Relationship="EcommerceModel.Orders_FK5" FromRole="Ward" ToRole="Order" />
+        </EntityType>
+        <Association Name="Customers_FK3">
+          <End Type="EcommerceModel.Ward" Role="Ward" Multiplicity="0..1" />
+          <End Type="EcommerceModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ward">
+              <PropertyRef Name="WardID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="WardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Wards_FK1">
+          <End Type="EcommerceModel.District" Role="District" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="EcommerceModel.Ward" Role="Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="DistrictID" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Orders_FK5">
+          <End Type="EcommerceModel.Ward" Role="Ward" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="EcommerceModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ward">
+              <PropertyRef Name="WardID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="WardID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1687,19 +1803,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ADD_ATTRIBUTE" FunctionName="EcommerceModel.Store.ADD_ATTRIBUTE" />
+          <FunctionImportMapping FunctionImportName="ADD_ATTRIBUTE_GROUP" FunctionName="EcommerceModel.Store.ADD_ATTRIBUTE_GROUP" />
+          <FunctionImportMapping FunctionImportName="ADD_COLOR" FunctionName="EcommerceModel.Store.ADD_COLOR" />
+          <FunctionImportMapping FunctionImportName="ADD_CONFIG" FunctionName="EcommerceModel.Store.ADD_CONFIG" />
+          <FunctionImportMapping FunctionImportName="ADD_CONTACT" FunctionName="EcommerceModel.Store.ADD_CONTACT" />
+          <FunctionImportMapping FunctionImportName="ADD_CUSTOMER" FunctionName="EcommerceModel.Store.ADD_CUSTOMER" />
+          <FunctionImportMapping FunctionImportName="ADD_DISTRICT" FunctionName="EcommerceModel.Store.ADD_DISTRICT" />
+          <FunctionImportMapping FunctionImportName="ADD_GROUP_PRODUCT" FunctionName="EcommerceModel.Store.ADD_GROUP_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="ADD_IMAGE_PRODUCT" FunctionName="EcommerceModel.Store.ADD_IMAGE_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="EDIT_ATTRIBUTE_GROUP" FunctionName="EcommerceModel.Store.EDIT_ATTRIBUTE_GROUP" />
+          <FunctionImportMapping FunctionImportName="REMOVE_ATTRIBUTE_GROUP" FunctionName="EcommerceModel.Store.REMOVE_ATTRIBUTE_GROUP" />
           <EntitySetMapping Name="Wards">
             <EntityTypeMapping TypeName="EcommerceModel.Ward">
               <MappingFragment StoreEntitySet="Wards">
-                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="WardName" ColumnName="WardName" />
                 <ScalarProperty Name="WardID" ColumnName="WardID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ADDCOLOR" FunctionName="EcommerceModel.Store.ADDCOLOR" />
-          <FunctionImportMapping FunctionImportName="ADDPROVINCE" FunctionName="EcommerceModel.Store.ADDPROVINCE" />
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
