@@ -1,21 +1,21 @@
 --------------------------------------------------------
---  File created - Wednesday-April-18-2018   
+--  File created - Thursday-May-03-2018   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence AttributeGroups_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."AttributeGroups_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."AttributeGroups_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Attributes_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Attributes_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Attributes_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Colors_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Colors_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Colors_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Contacts_SEQ
 --------------------------------------------------------
@@ -25,22 +25,22 @@
 --  DDL for Sequence Customers_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Customers_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Customers_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Districts_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Districts_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Districts_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence GroupProducts_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."GroupProducts_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."GroupProducts_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence ImageProducts_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."ImageProducts_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."ImageProducts_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Menus_SEQ
 --------------------------------------------------------
@@ -65,12 +65,12 @@
 --  DDL for Sequence Products_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Products_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Products_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Provinces_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "ECOMMERCE"."Provinces_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "ECOMMERCE"."Provinces_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence Roles_SEQ
 --------------------------------------------------------
@@ -101,8 +101,8 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."AttributeGroups" 
-   (	"AttrGroupID" NUMBER(10,0), 
-	"AttrGroupName" NVARCHAR2(100)
+   (  "AttrGroupID" NUMBER(10,0), 
+  "AttrGroupName" NVARCHAR2(100)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -113,9 +113,9 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Attributes" 
-   (	"AttrID" NUMBER(10,0), 
-	"AttrGroupID" NUMBER(10,0), 
-	"AttrName" NVARCHAR2(100)
+   (  "AttrID" NUMBER(10,0), 
+  "AttrGroupID" NUMBER(10,0), 
+  "AttrName" NVARCHAR2(100)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -126,9 +126,9 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Colors" 
-   (	"ColorID" NUMBER(10,0), 
-	"ColorName" NVARCHAR2(100), 
-	"HexCode" VARCHAR2(6 BYTE)
+   (  "ColorID" NUMBER(10,0), 
+  "ColorName" NVARCHAR2(100), 
+  "HexCode" VARCHAR2(6 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -139,9 +139,9 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Configurations" 
-   (	"ConfigName" VARCHAR2(30 BYTE), 
-	"Value" NVARCHAR2(255), 
-	"Description" NVARCHAR2(255)
+   (  "ConfigName" VARCHAR2(30 BYTE), 
+  "Value" NVARCHAR2(255), 
+  "Description" NVARCHAR2(255)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -152,14 +152,14 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Contacts" 
-   (	"ContactID" NUMBER(10,0), 
-	"CustomerID" NUMBER(10,0), 
-	"FullName" NVARCHAR2(100), 
-	"Email" VARCHAR2(255 BYTE), 
-	"Phone" VARCHAR2(15 BYTE), 
-	"Message" NCLOB, 
-	"Seen" NUMBER(1,0) DEFAULT 0, 
-	"CreatedAt" DATE DEFAULT SYSDATE
+   (  "ContactID" NUMBER(10,0), 
+  "CustomerID" NUMBER(10,0), 
+  "FullName" NVARCHAR2(100), 
+  "Email" VARCHAR2(255 BYTE), 
+  "Phone" VARCHAR2(15 BYTE), 
+  "Message" NCLOB, 
+  "Seen" NUMBER(1,0) DEFAULT 0, 
+  "CreatedAt" DATE DEFAULT SYSDATE
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -175,19 +175,19 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Customers" 
-   (	"CustomerID" NUMBER(10,0), 
-	"FacebookID" VARCHAR2(20 BYTE), 
-	"GoogleID" VARCHAR2(20 BYTE), 
-	"Password" VARCHAR2(32 BYTE), 
-	"FullName" NVARCHAR2(100), 
-	"Email" VARCHAR2(255 BYTE), 
-	"Address" NVARCHAR2(255), 
-	"ProvinceID" NUMBER(10,0), 
-	"DistrictID" NUMBER(10,0), 
-	"WardID" NUMBER(10,0), 
-	"Phone" VARCHAR2(15 BYTE), 
-	"Status" NUMBER(1,0) DEFAULT 1, 
-	"CreatedAt" DATE DEFAULT SYSDATE
+   (  "CustomerID" NUMBER(10,0), 
+  "FacebookID" VARCHAR2(20 BYTE), 
+  "GoogleID" VARCHAR2(20 BYTE), 
+  "Password" VARCHAR2(32 BYTE), 
+  "FullName" NVARCHAR2(100), 
+  "Email" VARCHAR2(255 BYTE), 
+  "Address" NVARCHAR2(255), 
+  "ProvinceID" NUMBER(10,0), 
+  "DistrictID" NUMBER(10,0), 
+  "WardID" NUMBER(10,0), 
+  "Phone" VARCHAR2(15 BYTE), 
+  "Status" NUMBER(1,0) DEFAULT 1, 
+  "CreatedAt" DATE DEFAULT SYSDATE
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -198,10 +198,10 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Districts" 
-   (	"DistrictID" NUMBER(10,0), 
-	"DistrictName" NVARCHAR2(100), 
-	"Type" NVARCHAR2(50), 
-	"ProvinceID" NUMBER(10,0)
+   (  "DistrictID" NUMBER(10,0), 
+  "DistrictName" NVARCHAR2(100), 
+  "Type" NVARCHAR2(50), 
+  "ProvinceID" NUMBER(10,0)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -212,12 +212,12 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."GroupProducts" 
-   (	"GroupID" NUMBER(10,0), 
-	"GroupName" NVARCHAR2(100), 
-	"ParentGroupID" NUMBER(10,0), 
-	"Icon" VARCHAR2(30 BYTE), 
-	"Priority" NUMBER(10,0) DEFAULT 0, 
-	"Slug" VARCHAR2(150 BYTE)
+   (  "GroupID" NUMBER(10,0), 
+  "GroupName" NVARCHAR2(100), 
+  "ParentGroupID" NUMBER(10,0), 
+  "Icon" VARCHAR2(30 BYTE), 
+  "Priority" NUMBER(10,0) DEFAULT 0, 
+  "Slug" VARCHAR2(150 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -228,10 +228,10 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."ImageProducts" 
-   (	"ImageID" NUMBER(10,0), 
-	"ProductID" NUMBER(10,0), 
-	"Caption" NVARCHAR2(100), 
-	"ImagePath" VARCHAR2(255 BYTE)
+   (  "ImageID" NUMBER(10,0), 
+  "ProductID" NUMBER(10,0), 
+  "Caption" NVARCHAR2(100), 
+  "ImagePath" VARCHAR2(255 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -242,13 +242,13 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Menus" 
-   (	"MenuID" NUMBER(10,0), 
-	"ParentMenuID" NUMBER(10,0), 
-	"MenuName" NVARCHAR2(100), 
-	"Link" VARCHAR2(255 BYTE), 
-	"Priority" NUMBER(10,0) DEFAULT 0, 
-	"Label" NVARCHAR2(100), 
-	"Hot" NUMBER(1,0) DEFAULT 0
+   (  "MenuID" NUMBER(10,0), 
+  "ParentMenuID" NUMBER(10,0), 
+  "MenuName" NVARCHAR2(100), 
+  "Link" VARCHAR2(255 BYTE), 
+  "Priority" NUMBER(10,0) DEFAULT 0, 
+  "Label" NVARCHAR2(100), 
+  "Hot" NUMBER(1,0) DEFAULT 0
    ) SEGMENT CREATION DEFERRED 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   TABLESPACE "USERS" ;
@@ -257,12 +257,12 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."OrderDetails" 
-   (	"OrderID" NUMBER(10,0), 
-	"ProductID" NUMBER(10,0), 
-	"Price" NUMBER(10,2), 
-	"Quantity" NUMBER(10,0), 
-	"ColorID" NUMBER(10,0), 
-	"Total" NUMBER(10,2)
+   (  "OrderID" NUMBER(10,0), 
+  "ProductID" NUMBER(10,0), 
+  "Price" NUMBER(10,2), 
+  "Quantity" NUMBER(10,0), 
+  "ColorID" NUMBER(10,0), 
+  "Total" NUMBER(10,2)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -273,8 +273,8 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."OrderStatuses" 
-   (	"OrderStatusID" NUMBER(10,0), 
-	"OrderStatusName" NVARCHAR2(100)
+   (  "OrderStatusID" NUMBER(10,0), 
+  "OrderStatusName" NVARCHAR2(100)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -285,23 +285,23 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Orders" 
-   (	"OrderID" NUMBER(10,0), 
-	"CustomerID" NUMBER(10,0), 
-	"PaymentID" NUMBER(10,0), 
-	"CreatedAt" DATE DEFAULT SYSDATE, 
-	"FullName" NVARCHAR2(100), 
-	"Address" NVARCHAR2(255), 
-	"ProvinceID" NUMBER(10,0), 
-	"DistrictID" NUMBER(10,0), 
-	"WardID" NUMBER(10,0), 
-	"Phone" VARCHAR2(15 BYTE), 
-	"TotalPrice" NUMBER(10,2), 
-	"Discount" NUMBER(10,2) DEFAULT 0, 
-	"PaymentDate" DATE, 
-	"Paid" NUMBER(1,0) DEFAULT 0, 
-	"OrderStatusID" NUMBER(10,0), 
-	"ShippingStatusID" NUMBER(10,0), 
-	"Comment" NCLOB
+   (  "OrderID" NUMBER(10,0), 
+  "CustomerID" NUMBER(10,0), 
+  "PaymentID" NUMBER(10,0), 
+  "CreatedAt" DATE DEFAULT SYSDATE, 
+  "FullName" NVARCHAR2(100), 
+  "Address" NVARCHAR2(255), 
+  "ProvinceID" NUMBER(10,0), 
+  "DistrictID" NUMBER(10,0), 
+  "WardID" NUMBER(10,0), 
+  "Phone" VARCHAR2(15 BYTE), 
+  "TotalPrice" NUMBER(10,2), 
+  "Discount" NUMBER(10,2) DEFAULT 0, 
+  "PaymentDate" DATE, 
+  "Paid" NUMBER(1,0) DEFAULT 0, 
+  "OrderStatusID" NUMBER(10,0), 
+  "ShippingStatusID" NUMBER(10,0), 
+  "Comment" NCLOB
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -317,10 +317,10 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Payments" 
-   (	"PaymentID" NUMBER(10,0), 
-	"PaymentType" VARCHAR2(10 BYTE), 
-	"PaymentName" NVARCHAR2(100), 
-	"Active" NUMBER(1,0) DEFAULT 1
+   (  "PaymentID" NUMBER(10,0), 
+  "PaymentType" VARCHAR2(10 BYTE), 
+  "PaymentName" NVARCHAR2(100), 
+  "Active" NUMBER(1,0) DEFAULT 1
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -331,10 +331,10 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."ProductAttributes" 
-   (	"ProductID" NUMBER(10,0), 
-	"AttrID" NUMBER(10,0), 
-	"Value" NVARCHAR2(200), 
-	"Priority" NUMBER(10,0) DEFAULT 0
+   (  "ProductID" NUMBER(10,0), 
+  "AttrID" NUMBER(10,0), 
+  "Value" NVARCHAR2(200), 
+  "Priority" NUMBER(10,0) DEFAULT 0
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -345,9 +345,9 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."ProductColors" 
-   (	"ProductID" NUMBER(10,0), 
-	"ColorID" NUMBER(10,0), 
-	"Stock" NUMBER(10,0)
+   (  "ProductID" NUMBER(10,0), 
+  "ColorID" NUMBER(10,0), 
+  "Stock" NUMBER(10,0)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -358,17 +358,17 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Products" 
-   (	"ProductID" NUMBER(10,0), 
-	"ProductName" NVARCHAR2(100), 
-	"Price" NUMBER(10,2), 
-	"SalePrice" NUMBER(10,2) DEFAULT 0, 
-	"Stock" NUMBER(10,0), 
-	"GroupID" NUMBER(10,0), 
-	"UseMultiColor" NUMBER(1,0) DEFAULT 0, 
-	"CreatedAt" DATE DEFAULT SYSDATE, 
-	"Active" NUMBER(1,0) DEFAULT 1, 
-	"Detail" NCLOB, 
-	"Slug" VARCHAR2(255 BYTE)
+   (  "ProductID" NUMBER(10,0), 
+  "ProductName" NVARCHAR2(100), 
+  "Price" NUMBER(10,2), 
+  "SalePrice" NUMBER(10,2) DEFAULT 0, 
+  "Stock" NUMBER(10,0), 
+  "GroupID" NUMBER(10,0), 
+  "UseMultiColor" NUMBER(1,0) DEFAULT 0, 
+  "CreatedAt" DATE DEFAULT SYSDATE, 
+  "Active" NUMBER(1,0) DEFAULT 1, 
+  "Detail" NCLOB, 
+  "Slug" VARCHAR2(255 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -384,9 +384,9 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Provinces" 
-   (	"ProvinceID" NUMBER(10,0), 
-	"ProvinceName" NVARCHAR2(100), 
-	"Type" NVARCHAR2(50)
+   (  "ProvinceID" NUMBER(10,0), 
+  "ProvinceName" NVARCHAR2(100), 
+  "Type" NVARCHAR2(50)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -397,8 +397,8 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."ShippingStatuses" 
-   (	"ShippingStatusID" NUMBER(10,0), 
-	"ShippingName" NVARCHAR2(100)
+   (  "ShippingStatusID" NUMBER(10,0), 
+  "ShippingName" NVARCHAR2(100)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -409,13 +409,13 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Users" 
-   (	"UserID" NUMBER(10,0), 
-	"Username" VARCHAR2(50 BYTE), 
-	"Password" VARCHAR2(32 BYTE), 
-	"FullName" NVARCHAR2(100), 
-	"Email" VARCHAR2(255 BYTE), 
-	"Status" NUMBER(1,0) DEFAULT 1, 
-	"CreatedAt" DATE DEFAULT sysdate
+   (  "UserID" NUMBER(10,0), 
+  "Username" VARCHAR2(50 BYTE), 
+  "Password" VARCHAR2(32 BYTE), 
+  "FullName" NVARCHAR2(100), 
+  "Email" VARCHAR2(255 BYTE), 
+  "Status" NUMBER(1,0) DEFAULT 1, 
+  "CreatedAt" DATE DEFAULT sysdate
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -426,10 +426,10 @@
 --------------------------------------------------------
 
   CREATE TABLE "ECOMMERCE"."Wards" 
-   (	"WardID" NUMBER(10,0), 
-	"WardName" NVARCHAR2(100), 
-	"Type" NVARCHAR2(50), 
-	"DistrictId" NUMBER(10,0)
+   (  "WardID" NUMBER(10,0), 
+  "WardName" NVARCHAR2(100), 
+  "Type" NVARCHAR2(50), 
+  "DistrictID" NUMBER(10,0)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -437,79 +437,120 @@
   TABLESPACE "USERS" ;
 REM INSERTING into ECOMMERCE."AttributeGroups"
 SET DEFINE OFF;
-Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (23,'GiÃ y');
+Insert into ECOMMERCE."AttributeGroups" ("AttrGroupID","AttrGroupName") values (41,'Giày');
 REM INSERTING into ECOMMERCE."Attributes"
 SET DEFINE OFF;
+Insert into ECOMMERCE."Attributes" ("AttrID","AttrGroupID","AttrName") values (5,null,'Size Số');
 REM INSERTING into ECOMMERCE."Colors"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (23,'Ä�en','000000');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (24,'Xanh dÆ°Æ¡ng','0057ff');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (22,'Tráº¯ng','ffffff');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (25,'Ä�á»�','ff0000');
-Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (26,'VÃ ng','fffc00');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (41,'Tím','8e00ff');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (42,'Cam','ff6b02');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (23,'Đen','000000');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (24,'Xanh dương','0057ff');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (22,'Trắng','ffffff');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (25,'Đỏ','ff0000');
+Insert into ECOMMERCE."Colors" ("ColorID","ColorName","HexCode") values (26,'Vàng','fffc00');
 REM INSERTING into ECOMMERCE."Configurations"
 SET DEFINE OFF;
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('product_per_page','10',null);
-Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('site_title','Shop bÃ¡n giÃ y',null);
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('site_title','Luffy Shop',null);
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('support_email','trannhatduy297@gmail.com',null);
 Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('support_phone','0972721892',null);
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('ABC','XYZ',null);
+Insert into ECOMMERCE."Configurations" ("ConfigName","Value","Description") values ('XYZ','ABC','REVERSE');
 REM INSERTING into ECOMMERCE."Contacts"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Customers"
 SET DEFINE OFF;
 Insert into ECOMMERCE."Customers" ("CustomerID","FacebookID","GoogleID","Password","FullName","Email","Address","ProvinceID","DistrictID","WardID","Phone","Status","CreatedAt") values (0,null,null,'0945fc9611f55fd0e183fb8b044f1afe','admin','admin@admin.com',null,null,null,null,null,1,to_date('15/04/2018','DD/MM/YYYY'));
+Insert into ECOMMERCE."Customers" ("CustomerID","FacebookID","GoogleID","Password","FullName","Email","Address","ProvinceID","DistrictID","WardID","Phone","Status","CreatedAt") values (1,null,null,'0945fc9611f55fd0e183fb8b044f1afe','Cus','cus@cus.com',null,null,null,null,null,1,to_date('30/04/2018','DD/MM/YYYY'));
 REM INSERTING into ECOMMERCE."Districts"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (6,'Quáº­n 1','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (7,'Quáº­n 2','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (8,'Quáº­n BÃ¬nh Tháº¡nh','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (9,'Quáº­n GÃ² Váº¥p','1',2);
-Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (10,'Huyá»‡n HÃ³c MÃ´n','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (6,'Quận 1','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (7,'Quận 2','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (8,'Quận Bình Thạnh','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (9,'Quận Gò Vấp','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (10,'Huyện Hóc Môn','1',2);
+Insert into ECOMMERCE."Districts" ("DistrictID","DistrictName","Type","ProvinceID") values (21,'Mỹ Tho','Thành Phố',21);
 REM INSERTING into ECOMMERCE."GroupProducts"
 SET DEFINE OFF;
-Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (61,'Bitis',null,null,0,'bitis');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (83,'Giày Nữ',null,null,2,'giay-nu');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (84,'Giày Cặp - Giày Đôi',null,null,1,'giay-cap-giay-doi');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (81,'Giày Nam',null,null,3,'giay-nam');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (85,'Phụ Kiện',null,null,0,'phu-kien');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (86,'Giày Boot Nam',81,null,0,'giay-boot-nam');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (87,'Giày Thể Thao & Thời Trang Nam',81,null,0,'giay-the-thao-thoi-trang-nam');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (88,'Giày Sandal - Dép Nam',81,null,0,'giay-sandal-dep-nam');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (89,'Giày Mọi Nam',81,null,0,'giay-moi-nam');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (90,'Giày Boot Nữ Hàn Quốc',83,null,0,'giay-boot-nu-han-quoc');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (91,'Giày Oxford Nữ',83,null,0,'giay-oxford-nu');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (92,'Giày Thể Thao & Thời Trang Nữ',83,null,0,'giay-the-thao-thoi-trang-nu');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (93,'Giày Sandal & Cao Gót Nữ',83,null,0,'giay-sandal-cao-got-nu');
+Insert into ECOMMERCE."GroupProducts" ("GroupID","GroupName","ParentGroupID","Icon","Priority","Slug") values (94,'Giày Mọi & Búp Bê Nữ',83,null,0,'giay-moi-bup-be-nu');
 REM INSERTING into ECOMMERCE."ImageProducts"
 SET DEFINE OFF;
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (23,3,'changeshop (1).jpg','/Uploads/2018/5/3/WBfO6zCx1Qg_changeshop (1).jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (21,1,'1.jpg','/Uploads/2018/5/3/R_1Hxy_x1Qg_1.jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (22,2,'changeshop.jpg','/Uploads/2018/5/3/5sV-pTCx1Qg_changeshop.jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (24,4,'changeshop (2).jpg','/Uploads/2018/5/3/UXsDTDGx1Qg_changeshop (2).jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (25,5,'changeshop (3).jpg','/Uploads/2018/5/3/m1mTMTKx1Qg_changeshop (3).jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (26,6,'changeshop (4).jpg','/Uploads/2018/5/3/bZRwWTKx1Qg_changeshop (4).jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (27,7,'changeshop (5).jpg','/Uploads/2018/5/3/v5EmjTKx1Qg_changeshop (5).jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (28,8,'changeshop (6).jpg','/Uploads/2018/5/3/6rj_ujKx1Qg_changeshop (6).jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (29,9,'changeshop (7).jpg','/Uploads/2018/5/3/6k3O5DKx1Qg_changeshop (7).jpg');
+Insert into ECOMMERCE."ImageProducts" ("ImageID","ProductID","Caption","ImagePath") values (30,10,'changeshop (8).jpg','/Uploads/2018/5/3/TqsEBzOx1Qg_changeshop (8).jpg');
 REM INSERTING into ECOMMERCE."Menus"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."OrderDetails"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."OrderStatuses"
 SET DEFINE OFF;
-Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (1,'Ä�Æ¡n hÃ ng má»›i');
-Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (2,'HoÃ n thÃ nh');
+Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (1,'Đơn hàng mới');
+Insert into ECOMMERCE."OrderStatuses" ("OrderStatusID","OrderStatusName") values (2,'Hoàn thành');
 REM INSERTING into ECOMMERCE."Orders"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Payments"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (1,'cod','Thu há»™ COD',1);
+Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (1,'cod','Thu hộ COD',1);
 Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (7,'online','Online',1);
 Insert into ECOMMERCE."Payments" ("PaymentID","PaymentType","PaymentName","Active") values (3,'atm','ATM',1);
 REM INSERTING into ECOMMERCE."ProductAttributes"
 SET DEFINE OFF;
+Insert into ECOMMERCE."ProductAttributes" ("ProductID","AttrID","Value","Priority") values (1,5,'40, 41, 42, 43',0);
 REM INSERTING into ECOMMERCE."ProductColors"
 SET DEFINE OFF;
 REM INSERTING into ECOMMERCE."Products"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (41,'A',15000,12000,0,61,0,to_date('13/04/2018','DD/MM/YYYY'),1,'a');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (3,'Giày boot dây kéo nam NA 967',395000,335000,50,86,0,to_date('03/05/2018','DD/MM/YYYY'),1,'giay-boot-day-keo-nam-na-967');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (1,'Giày thể thao mới NA 1041',495000,395000,50,86,0,to_date('03/05/2018','DD/MM/YYYY'),1,'giay-the-thao-moi-na-1041');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (2,'Giày DR cổ ngắn NA 721',595000,480000,50,86,0,to_date('03/05/2018','DD/MM/YYYY'),1,'giay-dr-co-ngan-na-721');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (4,'Giày boot nam cực chất NA 953',415000,335000,50,86,0,to_date('03/05/2018','DD/MM/YYYY'),1,'giay-boot-nam-cuc-chat-na-953');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (5,'Boot cao gót 7 phân khoá NU 1108',345000,270000,50,90,0,to_date('03/05/2018','DD/MM/YYYY'),1,'boot-cao-got-7-phan-khoa-nu-1108');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (6,'Boot cao gót 7 phân NU 1107',345000,270000,50,90,0,to_date('03/05/2018','DD/MM/YYYY'),1,'boot-cao-got-7-phan-nu-1107');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (7,'Giày boot nữ NU 1022',345000,295000,50,90,0,to_date('03/05/2018','DD/MM/YYYY'),1,'giay-boot-nu-1022');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (8,'Giày boot da nữ NU 1019',335000,255000,50,83,0,to_date('03/05/2018','DD/MM/YYYY'),1,'giay-boot-da-nu-nu-1019');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (9,'Dây giày thời trang DG 102',20000,0,50,85,0,to_date('03/05/2018','DD/MM/YYYY'),1,'day-giay-thoi-trang-dg-102');
+Insert into ECOMMERCE."Products" ("ProductID","ProductName","Price","SalePrice","Stock","GroupID","UseMultiColor","CreatedAt","Active","Slug") values (10,'Vớ khử mùi cho nam, nữ VO 001',25000,0,0,85,0,to_date('03/05/2018','DD/MM/YYYY'),1,'vo-khu-mui-cho-nam-nu-vo-001');
 REM INSERTING into ECOMMERCE."Provinces"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (2,'TP Há»“ ChÃ­ Minh','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (3,'TP HÃ  Ná»™i','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (4,'TP Háº£i PhÃ²ng','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (5,'TP Ä�Ã  Náºµng','1');
-Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (6,'TP Cáº§n ThÆ¡','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (2,'TP Hồ Chí Minh','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (3,'TP Hà Nội','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (4,'TP Hải Phòng','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (5,'TP Đà Nẵng','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (6,'TP Cần Thơ','1');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (21,'Tiền Giang','Tỉnh');
+Insert into ECOMMERCE."Provinces" ("ProvinceID","ProvinceName","Type") values (22,'Hà Giang','Tỉnh');
 REM INSERTING into ECOMMERCE."ShippingStatuses"
 SET DEFINE OFF;
-Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (1,'ChÆ°a giao hÃ ng');
-Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (2,'Ä�Ã£ giao hÃ ng');
+Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (1,'Chưa giao hàng');
+Insert into ECOMMERCE."ShippingStatuses" ("ShippingStatusID","ShippingName") values (2,'Đã giao hàng');
 REM INSERTING into ECOMMERCE."Users"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Users" ("UserID","Username","Password","FullName","Email","Status","CreatedAt") values (2,'admin','0945fc9611f55fd0e183fb8b044f1afe','Tráº§n Nháº­t Duy','admin@admin.com',1,to_date('14/04/2018','DD/MM/YYYY'));
+Insert into ECOMMERCE."Users" ("UserID","Username","Password","FullName","Email","Status","CreatedAt") values (2,'admin','0945fc9611f55fd0e183fb8b044f1afe','Trần Nhật Duy','admin@admin.com',1,to_date('14/04/2018','DD/MM/YYYY'));
 REM INSERTING into ECOMMERCE."Wards"
 SET DEFINE OFF;
-Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (1,'PhÆ°á»�ng Ä�a Kao','1',6);
-Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictId") values (2,'PhÆ°á»�ng 25','1',8);
+Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictID") values (1,'Phường Đa Kao','1',6);
+Insert into ECOMMERCE."Wards" ("WardID","WardName","Type","DistrictID") values (2,'Phường 25','1',8);
 --------------------------------------------------------
 --  DDL for Index Menus_PK
 --------------------------------------------------------
@@ -1006,13 +1047,229 @@ FOR EACH ROW
 BEGIN
   <<COLUMN_SEQUENCES>>
   BEGIN
-    IF INSERTING AND ( :NEW."WardID" IS NULL OR :NEW."WardID" = 0 ) THEN
-      SELECT "Wards_SEQ".NEXTVAL INTO :NEW."WardID" FROM SYS.DUAL;
-    END IF;
+    NULL;
   END COLUMN_SEQUENCES;
 END;
 /
 ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
+--------------------------------------------------------
+--  DDL for Procedure ADD_ATTRIBUTE
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_ATTRIBUTE" 
+(
+  GROUP_ID IN "Attributes"."AttrGroupID"%TYPE, 
+  NAME IN "Attributes"."AttrName"%TYPE
+) AS 
+BEGIN
+    INSERT INTO "Attributes"("AttrGroupID", "AttrName") 
+    VALUES ( GROUP_ID, NAME);
+    COMMIT;
+END ADD_ATTRIBUTE;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_ATTRIBUTE_GROUP
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_ATTRIBUTE_GROUP" 
+(
+  NAME IN  "AttributeGroups"."AttrGroupName"%TYPE
+) AS 
+BEGIN
+    INSERT INTO "AttributeGroups"("AttrGroupName") 
+    VALUES (NAME);
+    COMMIT;
+END ADD_ATTRIBUTE_GROUP;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_COLOR
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_COLOR" 
+(
+    NAME IN  "Colors"."ColorName"%TYPE,
+    HEX_CODE IN  "Colors"."HexCode"%TYPE
+) AS 
+BEGIN
+    INSERT INTO "Colors"("ColorName","HexCode") 
+    VALUES (NAME,HEX_CODE);
+    COMMIT;
+END ADD_COLOR;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_CONFIG
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_CONFIG" 
+(
+  NAME IN "Configurations"."ConfigName"%TYPE,
+  VALUE IN "Configurations"."Value"%TYPE,
+  DESCRIPTION IN "Configurations"."Description"%TYPE DEFAULT NULL
+) AS
+BEGIN
+  INSERT INTO "Configurations"("ConfigName", "Value", "Description")
+  VALUES (NAME, VALUE, DESCRIPTION);
+  COMMIT;
+END ADD_CONFIG;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_CONTACT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_CONTACT" 
+(
+  CUS_ID IN "Contacts"."CustomerID"%TYPE,
+  FULLNAME IN "Contacts"."FullName"%TYPE,
+  EMAIL IN "Contacts"."Email"%TYPE,
+  PHONE IN "Contacts"."Phone"%TYPE,
+  MESSAGE IN "Contacts"."Message"%TYPE,
+  SEEN IN "Contacts"."Seen"%TYPE DEFAULT NULL
+) AS
+BEGIN
+  INSERT INTO "Contacts"("CustomerID","FullName","Email","Phone","Message","Seen")
+  VALUES (CUS_ID,FULLNAME,EMAIL,PHONE,MESSAGE,SEEN);
+  COMMIT;
+END ADD_CONTACT;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_CUSTOMER
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_CUSTOMER" 
+(
+    FACEBOOK_ID IN "Customers"."FacebookID"%TYPE DEFAULT NULL,
+    GOOGLE_ID IN "Customers"."GoogleID"%TYPE DEFAULT NULL,
+    PASS_WORD IN "Customers"."Password"%TYPE,
+    FULLNAME IN "Customers"."FullName"%TYPE,
+    EMAIL IN "Customers"."Email"%TYPE,
+    ADDRESS IN "Customers"."Address"%TYPE DEFAULT NULL,
+    PHONE IN "Customers"."Phone"%TYPE DEFAULT NULL,
+    PROVINCE_ID IN "Customers"."ProvinceID"%TYPE,
+    DISTRICT_ID IN "Customers"."DistrictID"%TYPE,
+    WARD_ID IN "Customers"."WardID"%TYPE,
+    STATUS IN "Customers"."Status"%TYPE DEFAULT NULL
+) AS 
+BEGIN
+  INSERT INTO "Customers"("FacebookID", "GoogleID", "Password", "FullName", "Email", "Address", "Phone", "ProvinceID", "DistrictID", "WardID", "Status")
+  VALUES (FACEBOOK_ID, GOOGLE_ID, PASS_WORD, FULLNAME, EMAIL, ADDRESS, PHONE, PROVINCE_ID, DISTRICT_ID, WARD_ID, STATUS);
+  COMMIT;
+END ADD_CUSTOMER;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_DISTRICT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_DISTRICT" 
+(
+    NAME IN "Districts"."DistrictName"%TYPE,
+    TYPE IN "Districts"."Type"%TYPE,
+    PROVINCE_ID "Districts"."ProvinceID"%TYPE
+) AS 
+BEGIN
+    INSERT INTO "Districts"("DistrictName", "Type", "ProvinceID")
+    VALUES (NAME, TYPE, PROVINCE_ID);
+    COMMIT;
+END ADD_DISTRICT;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_GROUP_PRODUCT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_GROUP_PRODUCT" 
+(
+    GROUP_NAME IN "GroupProducts"."GroupName"%TYPE,
+    SLUG IN "GroupProducts"."Slug"%TYPE,
+    PARENT_GROUP_ID IN "GroupProducts"."ParentGroupID"%TYPE,
+    ICON IN "GroupProducts"."Icon"%TYPE DEFAULT NULL,
+    PRIORITY IN "GroupProducts"."Priority"%TYPE DEFAULT NULL
+)
+AS 
+BEGIN
+    INSERT INTO "GroupProducts"( "GroupName", "Slug", "ParentGroupID", "Icon", "Priority")
+    VALUES ( GROUP_NAME, SLUG, PARENT_GROUP_ID, ICON, PRIORITY);
+    COMMIT;
+END ADD_GROUP_PRODUCT;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_IMAGE_PRODUCT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."ADD_IMAGE_PRODUCT" 
+(
+    PRODUCT_ID IN "ImageProducts"."ProductID"%TYPE,
+    CAPTION IN "ImageProducts"."Caption"%TYPE,
+    IMAGE_PATH IN "ImageProducts"."ImagePath"%TYPE
+)
+AS 
+BEGIN
+    INSERT INTO "ImageProducts"("ProductID", "Caption", "ImagePath")
+    VALUES (PRODUCT_ID, CAPTION, IMAGE_PATH);
+    COMMIT;
+END ADD_IMAGE_PRODUCT;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure EDIT_ATTRIBUTE_GROUP
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."EDIT_ATTRIBUTE_GROUP" 
+(
+    ID IN "AttributeGroups"."AttrGroupID"%TYPE,
+    NAME IN  "AttributeGroups"."AttrGroupName"%TYPE
+) AS 
+BEGIN
+    UPDATE "AttributeGroups" 
+    SET "AttrGroupName" = NAME  
+    WHERE "AttrGroupID" = ID;
+    COMMIT;
+END EDIT_ATTRIBUTE_GROUP;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure REMOVE_ATTRIBUTE_GROUP
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "ECOMMERCE"."REMOVE_ATTRIBUTE_GROUP" 
+(
+  ID IN "AttributeGroups"."AttrGroupID"%TYPE
+) AS 
+BEGIN
+    DELETE "AttributeGroups" 
+    WHERE "AttrGroupID" = ID;
+    COMMIT;
+END REMOVE_ATTRIBUTE_GROUP;
+
+/
+--------------------------------------------------------
+--  DDL for Package ECOMMERCE_PKG
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "ECOMMERCE"."ECOMMERCE_PKG" AS 
+
+  /* TODO enter package declarations (types, exceptions, methods etc) here */ 
+
+END ECOMMERCE_PKG;
+
+/
 --------------------------------------------------------
 --  Constraints for Table AttributeGroups
 --------------------------------------------------------
@@ -1373,7 +1630,7 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
  
   ALTER TABLE "ECOMMERCE"."Wards" MODIFY ("Type" NOT NULL ENABLE);
  
-  ALTER TABLE "ECOMMERCE"."Wards" MODIFY ("DistrictId" NOT NULL ENABLE);
+  ALTER TABLE "ECOMMERCE"."Wards" MODIFY ("DistrictID" NOT NULL ENABLE);
  
   ALTER TABLE "ECOMMERCE"."Wards" MODIFY ("WardID" NOT NULL ENABLE);
  
@@ -1382,6 +1639,7 @@ ALTER TRIGGER "ECOMMERCE"."Wards_TRG" ENABLE;
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
+
 
 -- APPEND FK
 -- Atributes

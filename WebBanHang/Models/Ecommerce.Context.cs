@@ -12,6 +12,8 @@ namespace WebBanHang.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class EcommerceEntities : DbContext
     {
@@ -46,5 +48,31 @@ namespace WebBanHang.Models
         public virtual DbSet<ShippingStatus> ShippingStatuses { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Ward> Wards { get; set; }
+    
+        public virtual int ADDCOLOR(string nAME, string hEXCODE)
+        {
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var hEXCODEParameter = hEXCODE != null ?
+                new ObjectParameter("HEXCODE", hEXCODE) :
+                new ObjectParameter("HEXCODE", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADDCOLOR", nAMEParameter, hEXCODEParameter);
+        }
+    
+        public virtual int ADDPROVINCE(string nAME, string tYPE)
+        {
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var tYPEParameter = tYPE != null ?
+                new ObjectParameter("TYPE", tYPE) :
+                new ObjectParameter("TYPE", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADDPROVINCE", nAMEParameter, tYPEParameter);
+        }
     }
 }

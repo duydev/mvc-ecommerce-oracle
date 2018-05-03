@@ -53,7 +53,7 @@
                                         <td style="text-align: right; vertical-align: middle">@item.Price</td>
                                         <td style='text-align:center;vertical-align:middle'>@item.Stock</td>
                                         <td style='text-align:center;vertical-align:middle'>
-                                            @if (item.Active)
+                                            @if ((bool)item.Active)
                                             {
                                                 <span class="label label-primary">Active</span>
                                             }

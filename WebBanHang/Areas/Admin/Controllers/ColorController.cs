@@ -5,6 +5,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebBanHang.Core.RepositoryModel;
 using WebBanHang.Models;
 
 namespace WebBanHang.Areas.Admin.Controllers
@@ -87,15 +88,19 @@ namespace WebBanHang.Areas.Admin.Controllers
                 return Content(JsonConvert.SerializeObject(result), "application/json");
             }
 
-            var repo = Repository.Create<Color>();
+            //ColorRepository repo = (ColorRepository)Repository.Create<Color>();
+            ColorRepository repo = new ColorRepository(Repository.DbContext);
             if(repo.FetchAll().Any(c=>c.ColorName.ToLower().Equals(color.ColorName))){
                 result.status = "error";
                 result.title = "Thêm thất bại";
                 result.message = "Tên màu này đã tồn tại trong hệ thống, vui lòng đặt lại tên khác";
                 return Content(JsonConvert.SerializeObject(result), "application/json");
             }
+            int __id = repo.Add(color);
+            /*
             repo.Insert(color);
             repo.SaveChanges();
+            */
             result.status = "success";
             result.title = "Thêm thành công!!!";
             result.message = "Chúc mừng bạn đã thêm mới màu sắc thành công!!!";

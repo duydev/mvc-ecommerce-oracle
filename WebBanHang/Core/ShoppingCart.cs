@@ -8,7 +8,7 @@ namespace WebBanHang.Core
 {
     public class ShoppingCart
     {
-        public const string CartSessionKey = "HiThaShopCart";
+        public const string CartSessionKey = "LuffyShopCart";
         public List<CartItem> Items { get; set; }
         private static ShoppingCart m_instance = null;
         private ShoppingCart() { }

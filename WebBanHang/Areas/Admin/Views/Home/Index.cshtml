@@ -33,7 +33,7 @@
                 <i class="icon-layers pull-xs-right text-muted"></i>
                 <h6 class="text-muted text-uppercase m-b-20">Đơn đặt hàng</h6>
                 <h2 class="m-b-20" data-plugin="counterup">@orders.Count() đơn</h2>
-                <span class="label label-success"> @orders.Where(i=> !i.Paid).Count() đơn </span> <span class="text-muted">chưa thanh toán</span>
+                <span class="label label-success"> @orders.Where(i=> ! ((Boolean)i.Paid)).Count() đơn </span> <span class="text-muted">chưa thanh toán</span>
             </div>
         </div>
 
@@ -41,7 +41,7 @@
             <div class="card-box tilebox-one">
                 <i class="icon-paypal pull-xs-right text-muted"></i>
                 <h6 class="text-muted text-uppercase m-b-20">Doanh thu</h6>
-                <h2 class="m-b-20"><span data-plugin="counterup">@Html.FormatCurrency(@orders.Where(i => i.Paid).Sum(i => (long) i.TotalPrice)) đ</span></h2>
+                <h2 class="m-b-20"><span data-plugin="counterup">@Html.FormatCurrency(@orders.Where(i => ((Boolean)i.Paid)).Sum(i => (long) i.TotalPrice)) đ</span></h2>
                 <span class="label label-success"> +10% </span> <span class="text-muted">so với tháng trước</span>
             </div>
         </div>
@@ -176,7 +176,7 @@
                                         }
                                     </td>
                                     <td>
-                                        @if (order.Paid)
+                                        @if ((Boolean)order.Paid)
                                         {
                                             <span class="label label-success">Đã thanh toán</span>
                                         }
@@ -204,7 +204,7 @@
                                     </td>
                                     <td>@order.Customer.FullName<br />@order.Customer.Email</td>
                                     <td>@order.Payment.PaymentName</td>
-                                    <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@((DateTime)order.CreatedAt).ToString("dd/MM/yyyy")</td>
                                     <td><a href="@Url.Action("Detail", "Order", new { id = order.OrderID})" class="btn btn-info">Xem chi tiết</a></td>
                                 </tr>
                             }

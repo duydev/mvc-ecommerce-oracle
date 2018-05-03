@@ -26,7 +26,7 @@
                             </div><!-- /.image -->
                             @if (product.SalePrice != 0 && (product.Price - product.SalePrice) > 0)
                             {
-                                <div class="tag sale"><span>-@(((product.Price - product.SalePrice) * 100) / product.Price)%</span></div>
+                                <div class="tag sale"><span>-@(Math.Ceiling(100 - ((decimal)product.SalePrice * 100 / product.Price)) )%</span></div>
                             }
                         </div><!-- /.product-image -->
 

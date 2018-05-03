@@ -245,7 +245,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Contacts_FK1">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customers">
@@ -293,7 +295,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Districts_FK1">
-          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Districts" Type="Self.Districts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Provinces">
@@ -305,7 +309,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="GroupProducts_FK1">
-          <End Role="GroupProducts" Type="Self.GroupProducts" Multiplicity="0..1" />
+          <End Role="GroupProducts" Type="Self.GroupProducts" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="GroupProducts1" Type="Self.GroupProducts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GroupProducts">
@@ -331,7 +337,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Menus_FK1">
-          <End Role="Menus" Type="Self.Menus" Multiplicity="0..1" />
+          <End Role="Menus" Type="Self.Menus" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Menus1" Type="Self.Menus" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Menus">
@@ -553,7 +561,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Wards_FK1">
-          <End Role="Districts" Type="Self.Districts" Multiplicity="1" />
+          <End Role="Districts" Type="Self.Districts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Wards" Type="Self.Wards" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Districts">
@@ -564,6 +574,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ADDCOLOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="NAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="HEXCODE" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="ADDPROVINCE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ECOMMERCE">
+          <Parameter Name="NAME" Type="nvarchar2" Mode="In" />
+          <Parameter Name="TYPE" Type="nvarchar2" Mode="In" />
+        </Function>
         <EntityContainer Name="EcommerceModelStoreContainer">
           <EntitySet Name="AttributeGroups" EntityType="Self.AttributeGroups" Schema="ECOMMERCE" store:Type="Tables" />
           <EntitySet Name="Attributes" EntityType="Self.Attributes" Schema="ECOMMERCE" store:Type="Tables" />
@@ -813,6 +831,14 @@
             <End Role="Product" EntitySet="Products" />
             <End Role="ProductColor" EntitySet="ProductColors" />
           </AssociationSet>
+          <FunctionImport Name="ADDCOLOR">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="HEXCODE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ADDPROVINCE">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="TYPE" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="AttributeGroup">
           <Key>
@@ -1671,6 +1697,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ADDCOLOR" FunctionName="EcommerceModel.Store.ADDCOLOR" />
+          <FunctionImportMapping FunctionImportName="ADDPROVINCE" FunctionName="EcommerceModel.Store.ADDPROVINCE" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
